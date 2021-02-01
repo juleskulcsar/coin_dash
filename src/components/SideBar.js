@@ -16,8 +16,6 @@ const StyledDiv = styled.div`
     border-left: 1px solid #682e19;
     padding-left: 1em;
     padding-top: 1.5em;
-    /* margin-top: 1.5em; */
-    /* position: fixed; */
     width: 12em;
     background: gray;
     height: 100vh;
@@ -25,8 +23,6 @@ const StyledDiv = styled.div`
     border-bottom-left-radius: 20px;
 
     filter: drop-shadow(1px 4px 12px #101820);
-    /* border-radius: 1rem; */
-    /* border: 1px solid rgb(235, 233, 233); */
     background: linear-gradient(
         111.29deg,
         rgba(140, 154, 163, 0.53) -1.83%,
@@ -45,7 +41,6 @@ const StyledList = styled.li`
     padding: 5px;
     > a {
         position: relative;
-        /* color: #bdbab7; */
         color: white;
         text-decoration: none;
     }

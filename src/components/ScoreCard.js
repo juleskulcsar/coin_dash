@@ -1,6 +1,4 @@
-import React, { useState } from 'react';
-import { withRouter } from 'react-router-dom';
-import { connect } from 'react-redux';
+import React from 'react';
 import { Scrollbars } from 'react-custom-scrollbars';
 import styled, { css, keyframes } from 'styled-components';
 import { rgba, modularScale } from 'polished';
@@ -28,31 +26,6 @@ const Card = styled.div`
     backdrop-filter: blur(70px);
 `;
 
-const Topbar = styled.div`
-    position: absolute;
-    bottom: 52em;
-    left: 50%;
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-    width: 800px;
-    height: 800px;
-    transform: translate(-50%, 86%);
-    border-radius: 50%;
-    background: rgb(21, 49, 68);
-    background: linear-gradient(
-        158deg,
-        rgba(21, 49, 68, 1) 8%,
-        rgba(0, 62, 65, 1) 94%
-    );
-`;
-
-const Image = styled.img`
-    height: 2em;
-    margin-left: 10px;
-    filter: drop-shadow(1px 4px 12px #1d1562);
-`;
-
 const ListWrapper = styled.div`
     position: relative;
     align-self: center;
@@ -72,7 +45,6 @@ const Paragraph = styled.p`
 const ScoreCard = props => {
     return (
         <Card>
-            {/* <Image src={props.image} /> */}
             <Scrollbars>
                 <ListWrapper>
                     <div style={{ display: 'flex', height: 'fit-content' }}>

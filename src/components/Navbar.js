@@ -9,14 +9,13 @@ const Link = ({ isActive, children, ...props }) => {
 };
 
 const StyledLink = styled(Link)`
-  /* color: ${p => (p.isActive ? '#9C4526' : 'white')}; */
-  padding: 4px 8px;
-  display: block;
-  text-align: center;
-  box-sizing: border-box;
-  margin: auto 0;
-  font-weight: ${p => (p.isActive ? 'bold' : 'normal')};
-  text-decoration: none;
+    padding: 4px 8px;
+    display: block;
+    text-align: center;
+    box-sizing: border-box;
+    margin: auto 0;
+    font-weight: ${p => (p.isActive ? 'bold' : 'normal')};
+    text-decoration: none;
 `;
 
 const LogoLink = styled(Link)`
@@ -76,7 +75,6 @@ const HeaderWrapper = styled.div`
     border-bottom: 1px solid #682e19;
     border-width: thin;
     z-index: 10;
-    /* opacity: 0.7; */
 `;
 
 const StyledUl = styled.ul`
@@ -88,7 +86,6 @@ const StyledUl = styled.ul`
 const StyledList = styled.li`
     > a {
         position: relative;
-        /* color: #bfbdbc; */
         color: ${props => (props.isActive ? '#9C4526' : 'white')};
         text-decoration: none;
     }

@@ -3,13 +3,6 @@ import Chart from 'chart.js';
 import styled from 'styled-components';
 
 const Canvas = styled.canvas`
-    /* background: rgb(21, 49, 68);
-    background: linear-gradient(
-        158deg,
-        rgba(21, 49, 68, 1) 8%,
-        rgba(0, 62, 65, 1) 94%
-    ); */
-
     border: 1px solid rgb(235, 233, 233);
     background: linear-gradient(
         111.29deg,

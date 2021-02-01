@@ -21,7 +21,6 @@ const Card = styled.div`
     padding-top: 7rem;
     padding-bottom: 1rem;
     box-shadow: 0 4px 15px ${rgba('black', 0.05)};
-    /* filter: drop-shadow(1px 4px 12px #d1cfcd); */
     filter: drop-shadow(1px 4px 12px black);
     opacity: 0.9;
 
@@ -40,23 +39,8 @@ const Topbar = styled.div`
     width: 800px;
     height: 800px;
     transform: translate(-50%, 86%);
-    /* padding-bottom: 3rem; */
     border-radius: 50%;
     background: linear-gradient(90deg, #8000e0 20%, #01ced8 70%);
-    /* background: linear-gradient(90deg, #fa7d19 20%, #cfafe9 70%); */
-    /* background: rgb(241, 99, 80);
-    background: linear-gradient(
-        54deg,
-        rgba(241, 99, 80, 1) 18%,
-        rgba(231, 32, 38, 1) 76%,
-        rgba(208, 29, 34, 1) 99%
-    ); */
-    /* background: rgb(21, 49, 68);
-    background: linear-gradient(
-        158deg,
-        rgba(21, 49, 68, 1) 8%,
-        rgba(0, 62, 65, 1) 94%
-    ); */
 `;
 const Arrow = styled.div`
     position: absolute;
