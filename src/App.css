@@ -1,0 +1,35 @@
+body {
+    box-sizing: border-box;
+    font-family: 'Raleway', sans-serif;
+    margin: 0;
+    background: #37434a;
+}
+
+#root {
+    height: 98vh;
+    max-height: 98vh;
+    overflow-x: hidden;
+}
+
+#root::-webkit-scrollbar {
+    width: 10px;
+}
+#root::-webkit-scrollbar-track {
+    background: #1c1b1a;
+    background-clip: content-box;
+    border: 4px solid transparent;
+}
+#root::-webkit-scrollbar-thumb {
+    background: #682e19;
+    border-radius: 30px;
+    border: 1px solid rgb(0, 0, 0);
+}
+
+.alert {
+    position: fixed;
+    padding: 0.8rem;
+    margin: 4rem 0;
+    background: #ad4d2a;
+    color: white;
+    z-index: 500;
+}
