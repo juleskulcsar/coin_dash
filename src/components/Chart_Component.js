@@ -76,7 +76,7 @@ export default function Chart_Component(props) {
                 },
                 title: {
                     display: true,
-                    text: `Visualizing ${props.params} prices`,
+                    text: `${props.params} price`,
                     fontSize: 20,
                     fontColor: 'white'
                 }
@@ -85,8 +85,8 @@ export default function Chart_Component(props) {
         });
     }, [props]);
     return (
-        <div style={{ width: '800px', height: '200px' }}>
-            <Canvas id='my_Chart' width='800' height='200' />
+        <div style={{ width: '800px', height: '13em' }}>
+            <Canvas id='my_Chart' width='800' height='300' />
         </div>
     );
 }

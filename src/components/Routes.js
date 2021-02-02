@@ -11,7 +11,8 @@ const Routes = () => {
                 background: '#2d363d',
                 borderTopRightRadius: '20px',
                 borderBottomRightRadius: '20px',
-                padding: '0 1em 0 0'
+                padding: '0 1em 0 0',
+                width: '80%'
             }}
         >
             <Route exact path='/' component={TopChart} />

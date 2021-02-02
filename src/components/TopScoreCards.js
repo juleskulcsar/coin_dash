@@ -35,9 +35,9 @@ const TopScoreCards = ({ getCoinData, coinData: { coinDataLoad, coin } }) => {
     console.log('coinDataLoad: ', coinDataLoad);
 
     const icons = [
-        <i class='fas fa-parachute-box'></i>,
-        <span class='material-icons'>loop</span>,
-        <span class='material-icons'>monetization_on</span>
+        <i className='fas fa-parachute-box'></i>,
+        <span className='material-icons'>loop</span>,
+        <span className='material-icons'>monetization_on</span>
     ];
 
     return (
@@ -78,7 +78,7 @@ const TopScoreCards = ({ getCoinData, coinData: { coinDataLoad, coin } }) => {
                                     %
                                 </span>
                                 <span
-                                    class='material-icons'
+                                    className='material-icons'
                                     style={{
                                         color: '#E8431B',
                                         fontSize: '30px'
@@ -101,7 +101,7 @@ const TopScoreCards = ({ getCoinData, coinData: { coinDataLoad, coin } }) => {
                                     %
                                 </span>
                                 <span
-                                    class='material-icons'
+                                    className='material-icons'
                                     style={{
                                         color: '#56a192',
                                         fontSize: '30px'

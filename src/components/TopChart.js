@@ -7,6 +7,13 @@ import { getHistoricalData } from '../actions/historicalData';
 import ChartComponent from './Chart_Component';
 import ChartComponent3 from './Chart_Component3';
 import TopScoreCards from './TopScoreCards';
+import RightPanel from './RightPanel';
+
+const Panel = styled.div`
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+`;
 
 const Wrapper = styled.div`
     display: flex;
@@ -17,50 +24,61 @@ const Wrapper = styled.div`
 
 const TopChart = ({
     getHistoricalData,
-    historicalData: { historicalDataLoad, params }
+    historicalData: { historicalDataLoad, params },
+    coinData: { coinDataLoad, coin }
 }) => {
     useEffect(() => {
         getHistoricalData(params);
     }, [getHistoricalData]);
 
+    console.log('historical: ', historicalDataLoad);
+
     return (
-        <>
-            <TopScoreCards />
-            <Wrapper>
-                <div
-                    style={{
-                        padding: '2em',
-                        borderRadius: '20px'
-                    }}
-                >
-                    <div style={{ display: 'block' }}>
-                        <ChartComponent
-                            values={historicalDataLoad[0]}
-                            dates={historicalDataLoad[2]}
-                            params={params.coin}
-                        />
+        <Panel>
+            <div>
+                <TopScoreCards />
+                <Wrapper>
+                    <div
+                        style={{
+                            padding: '2em',
+                            borderRadius: '20px'
+                        }}
+                    >
+                        <div style={{ display: 'block' }}>
+                            <ChartComponent
+                                values={historicalDataLoad[0]}
+                                dates={historicalDataLoad[2]}
+                                params={params.coin}
+                            />
+                        </div>
+                        <div style={{ display: 'block' }}>
+                            <ChartComponent3
+                                totalVolumes={historicalDataLoad[1]}
+                                dates={historicalDataLoad[2]}
+                                params={params.coin}
+                            />
+                        </div>
                     </div>
-                    <div style={{ display: 'block' }}>
-                        <ChartComponent3
-                            totalVolumes={historicalDataLoad[1]}
-                            dates={historicalDataLoad[2]}
-                            params={params.coin}
-                        />
-                    </div>
-                </div>
-            </Wrapper>
-        </>
+                </Wrapper>
+            </div>
+            <div>
+                <RightPanel coinDataLoad={coinDataLoad} />
+            </div>
+        </Panel>
     );
 };
 
 TopChart.propTypes = {
     getHistoricalData: PropTypes.func.isRequired,
     historicalDataLoad: PropTypes.object.isRequired,
-    params: PropTypes.object.isRequired
+    params: PropTypes.object.isRequired,
+    coinDataLoad: PropTypes.object.isRequired,
+    coin: PropTypes.object.isRequired
 };
 
 const mapStateToProps = state => ({
-    historicalData: state.historicalData
+    historicalData: state.historicalData,
+    coinData: state.coinData
 });
 export default connect(mapStateToProps, { getHistoricalData })(
     withRouter(TopChart)
