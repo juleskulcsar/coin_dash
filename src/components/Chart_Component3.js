@@ -16,6 +16,14 @@ const Canvas = styled.canvas`
     margin-top: 20px;
 `;
 
+const CanvasWrapper = styled.div`
+    width: 800px;
+    height: 13em;
+    @media (max-width: 768px) {
+        width: 300px;
+    }
+`;
+
 export default function Chart_Component3(props) {
     useEffect(() => {
         const ctx = document.getElementById('my_Chart3');
@@ -84,8 +92,8 @@ export default function Chart_Component3(props) {
         });
     }, [props]);
     return (
-        <div style={{ width: '800px', height: '13em' }}>
-            <Canvas id='my_Chart3' width='800' height='300' />
-        </div>
+        <CanvasWrapper>
+            <Canvas id='my_Chart3' />
+        </CanvasWrapper>
     );
 }

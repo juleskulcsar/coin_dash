@@ -3,6 +3,7 @@ import { Link as RouterDomLink, useLocation } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { rgba, modularScale } from 'polished';
 
 const Link = ({ isActive, children, ...props }) => {
     return <RouterDomLink {...props}>{children}</RouterDomLink>;
@@ -80,7 +81,27 @@ const HeaderWrapper = styled.div`
 const StyledUl = styled.ul`
     list-style: none;
     display: flex;
-    z-index: 500;
+    @media (max-width: 768px) {
+        padding-right: 10px;
+        flex-direction: column;
+        background: gray;
+        width: 30%;
+        z-index: 500;
+        margin-left: auto;
+        margin-top: 0;
+        font-size: 20px;
+        border-radius: 20px;
+        box-shadow: 0 4px 15px ${rgba('black', 0.1)};
+        filter: drop-shadow(1px 4px 12px #101820);
+        border: 1px solid rgb(235, 233, 233);
+        background: linear-gradient(
+            111.29deg,
+            rgba(34, 41, 46, 0.53) -1.83%,
+            rgba(27, 32, 37, 0) 189.95%
+        );
+        box-shadow: 50px, 60px, 189px rgba(0, 0, 0, 0.95);
+        backdrop-filter: blur(70px);
+    }
 `;
 
 const StyledList = styled.li`
@@ -140,12 +161,17 @@ const Navbar = props => {
             <Menu open={menuOpen}>
                 <StyledUl>
                     <StyledList isActive={pathname === '/'}>
-                        <StyledLink isActive={pathname === '/'} to='/'>
+                        <StyledLink
+                            onClick={() => setMenuOpen(!menuOpen)}
+                            isActive={pathname === '/'}
+                            to='/'
+                        >
                             <span>dashboard</span>
                         </StyledLink>
                     </StyledList>
                     <StyledList isActive={pathname === '/coinlist'}>
                         <StyledLink
+                            onClick={() => setMenuOpen(!menuOpen)}
                             isActive={pathname === '/coinlist'}
                             to='/coinlist'
                         >

@@ -17,6 +17,14 @@ const Canvas = styled.canvas`
     backdrop-filter: blur(70px);
 `;
 
+const CanvasWrapper = styled.div`
+    width: 800px;
+    height: 13em;
+    @media (max-width: 768px) {
+        width: 300px;
+    }
+`;
+
 export default function Chart_Component(props) {
     useEffect(() => {
         const ctx = document.getElementById('my_Chart');
@@ -85,8 +93,9 @@ export default function Chart_Component(props) {
         });
     }, [props]);
     return (
-        <div style={{ width: '800px', height: '13em' }}>
-            <Canvas id='my_Chart' width='800' height='300' />
-        </div>
+        <CanvasWrapper>
+            {/* <Canvas id='my_Chart' width='800' height='300' /> */}
+            <Canvas id='my_Chart' />
+        </CanvasWrapper>
     );
 }

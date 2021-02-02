@@ -24,22 +24,30 @@ const Card = styled.div`
     );
     box-shadow: 50px, 60px, 189px rgba(0, 0, 0, 0.95);
     backdrop-filter: blur(70px);
+    @media (max-width: 768px) {
+        width: 80%;
+        height: 4em;
+        margin: 10px;
+    }
 `;
 
 const ListWrapper = styled.div`
     position: relative;
     align-self: center;
     left: 1rem;
-    margin: auto;
+    /* margin: auto; */
     overflow: hidden;
 `;
 
 const Paragraph = styled.p`
     color: white;
-    line-height: 1.6;
+    /* line-height: 1.6; */
     font-size: ${props => (props.tes ? '20px' : '15px')};
     font-weight: ${props => (props.tes ? 'bold' : null)};
     padding-left: 1em;
+    @media (max-width: 768px) {
+        margin: 0;
+    }
 `;
 
 const ScoreCard = props => {
@@ -47,11 +55,11 @@ const ScoreCard = props => {
         <Card>
             <Scrollbars>
                 <ListWrapper>
-                    <div style={{ display: 'flex', height: 'fit-content' }}>
+                    <div style={{ display: 'flex' }}>
                         <Paragraph>{props.icon}</Paragraph>
                         <Paragraph>{props.text}</Paragraph>
                     </div>
-                    <div style={{ display: 'flex', height: 'fit-content' }}>
+                    <div style={{ display: 'flex' }}>
                         <Paragraph tes={true}>{props.symbolIs}</Paragraph>
                         <Paragraph tes={true}>{props.value}</Paragraph>
                     </div>

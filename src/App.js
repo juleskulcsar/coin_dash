@@ -15,6 +15,9 @@ const Wrapper = styled.div`
     padding-left: 5em;
     top: 4em;
     border-radius: 20px;
+    @media (max-width: 768px) {
+        padding-left: 0;
+    }
 `;
 
 const App = () => {

@@ -12,7 +12,7 @@ const ScoreCardWrapper = styled.div`
     display: flex;
     flex-direction: column;
     position: relative;
-    bottom: 0.7em;
+    /* bottom: 0.7em; */
     border-radius: 20px;
 `;
 

@@ -30,6 +30,9 @@ const StyledDiv = styled.div`
     );
     box-shadow: 50px, 60px, 189px rgba(0, 0, 0, 0.95);
     backdrop-filter: blur(70px);
+    @media (max-width: 768px) {
+        display: none;
+    }
 `;
 
 const StyledUl = styled.ul`

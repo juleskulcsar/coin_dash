@@ -7,7 +7,7 @@ const Card = styled.div`
     position: relative;
     width: 17em;
     height: 20em;
-    margin: 2rem;
+    margin-top: 4em;
     overflow: hidden;
     border-radius: 1rem;
     padding-top: 1rem;

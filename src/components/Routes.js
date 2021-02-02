@@ -1,24 +1,28 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
+import styled from 'styled-components';
 import TopChart from './TopChart';
 import CoinList from './CoinList';
 
+const Container = styled.div`
+    background: #2d363d;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    padding: 0 1em 0 0;
+    width: 80%;
+    @media (max-width: 768px) {
+        width: 100%;
+        border-radius: 0 0 0 0;
+    }
+`;
+
 const Routes = () => {
     return (
-        <div
-            className='container'
-            style={{
-                background: '#2d363d',
-                borderTopRightRadius: '20px',
-                borderBottomRightRadius: '20px',
-                padding: '0 1em 0 0',
-                width: '80%'
-            }}
-        >
+        <Container>
             <Route exact path='/' component={TopChart} />
             <Route exact path='/coinlist' component={CoinList} />
             {/* <Route component={NotFound} /> */}
-        </div>
+        </Container>
     );
 };
 
