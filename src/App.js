@@ -12,9 +12,10 @@ import Navbar from './components/Navbar';
 const Wrapper = styled.div`
     display: flex;
     position: relative;
-    padding-left: 5em;
+    padding-left: 4em;
     top: 4em;
     border-radius: 20px;
+    height: 98vh;
     @media (max-width: 768px) {
         padding-left: 0;
     }

@@ -11,7 +11,7 @@ export const getCoinData = coin => async dispatch => {
             type: GET_COIN_DATA,
             payload: res.data
         });
-        console.log('res.data in coins list: ', res.data);
+        console.log('res.data in coinData: ', res.data);
     } catch (err) {
         dispatch({
             type: GET_COIN_DATA_ERROR,

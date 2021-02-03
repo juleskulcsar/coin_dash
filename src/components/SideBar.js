@@ -16,9 +16,9 @@ const StyledDiv = styled.div`
     border-left: 1px solid #682e19;
     padding-left: 1em;
     padding-top: 1.5em;
-    width: 12em;
+    width: 14em;
     background: gray;
-    height: 100vh;
+    /* height: 100vh; */
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
 

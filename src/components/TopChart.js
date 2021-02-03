@@ -24,7 +24,7 @@ const Panel = styled.div`
 const Wrapper = styled.div`
     display: flex;
     position: relative;
-    top: 0.5em;
+    /* top: 0.5em; */
     border-radius: 20px;
 `;
 

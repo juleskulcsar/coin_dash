@@ -5,11 +5,11 @@ body {
     background: #37434a;
 }
 
-#root {
+/* #root {
     height: 98vh;
     max-height: 98vh;
     overflow-x: hidden;
-}
+} */
 
 #root::-webkit-scrollbar {
     width: 10px;
