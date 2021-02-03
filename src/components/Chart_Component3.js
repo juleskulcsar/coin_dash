@@ -39,8 +39,8 @@ export default function Chart_Component3(props) {
                     {
                         label: 'total volumes',
                         fontColor: 'white',
-                        backgroundColor: gradientLine,
-                        borderColor: '#3F5B51',
+                        // backgroundColor: gradientLine,
+                        borderColor: '#6a1d06',
                         data: props.totalVolumes,
                         borderWidth: 1
                     }

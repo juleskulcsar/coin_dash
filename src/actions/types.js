@@ -4,3 +4,5 @@ export const GET_COINS = 'GET_COINS';
 export const GET_COINS_ERROR = 'GET_COINS_ERROR';
 export const GET_COIN_DATA = 'GET_COIN_DATA';
 export const GET_COIN_DATA_ERROR = 'GET_COIN_DATA_ERROR';
+export const GET_EXCHANGES = 'GET_EXCHANGES';
+export const GET_EXCHANGES_ERROR = 'GET_EXCHANGES_ERROR';

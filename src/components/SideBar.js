@@ -41,6 +41,9 @@ const StyledUl = styled.ul`
 `;
 
 const StyledList = styled.li`
+    text-align: left;
+    font-size: 20px;
+    line-height: 1.7;
     padding: 5px;
     > a {
         position: relative;
@@ -77,16 +80,60 @@ const SideBar = () => {
             <StyledDiv>
                 <StyledUl>
                     <StyledList>
-                        <StyledLink to={`/`}>dashboard</StyledLink>
+                        <StyledLink to={`/`}>
+                            <span
+                                style={{
+                                    paddingRight: '1em',
+                                    marginTop: '1em'
+                                }}
+                                class='material-icons'
+                            >
+                                dashboard
+                            </span>
+                            Dashboard
+                        </StyledLink>
                     </StyledList>
                     <StyledList>
-                        <StyledLink to={`/coinlist`}>coins list</StyledLink>
+                        <StyledLink to={`/coinlist`}>
+                            <span
+                                style={{
+                                    paddingRight: '1em',
+                                    marginTop: '1em'
+                                }}
+                                class='material-icons'
+                            >
+                                view_list
+                            </span>
+                            Crypto Coins
+                        </StyledLink>
                     </StyledList>
                     <StyledList>
-                        <StyledLink to={`/market`}>market</StyledLink>
+                        <StyledLink to={`/exchanges`}>
+                            <span
+                                style={{
+                                    paddingRight: '1em',
+                                    marginTop: '1em'
+                                }}
+                                class='material-icons'
+                            >
+                                inventory_2
+                            </span>
+                            Exchanges
+                        </StyledLink>
                     </StyledList>
                     <StyledList>
-                        <StyledLink to={`/volumes`}>volumes</StyledLink>
+                        <StyledLink to={`/volumes`}>
+                            <span
+                                style={{
+                                    paddingRight: '1em',
+                                    marginTop: '1em'
+                                }}
+                                class='material-icons'
+                            >
+                                equalizer
+                            </span>
+                            Volumes
+                        </StyledLink>
                     </StyledList>
                 </StyledUl>
             </StyledDiv>

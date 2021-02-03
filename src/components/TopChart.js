@@ -11,8 +11,10 @@ import RightPanel from './RightPanel';
 
 const Panel = styled.div`
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     flex-direction: row;
+    width: 80%;
+    margin: 0 auto;
     @media (max-width: 768px) {
         flex-direction: column;
         align-items: center;

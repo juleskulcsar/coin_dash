@@ -20,15 +20,9 @@ const Card = styled.div`
     background: white;
     padding-top: 7rem;
     padding-bottom: 1rem;
-    /* box-shadow: 0 4px 15px ${rgba('black', 0.05)};
-    filter: drop-shadow(1px 4px 12px black);
-    opacity: 0.9; */
-
     box-shadow: 0 4px 15px ${rgba('black', 0.05)};
     filter: drop-shadow(1px 4px 12px #101820);
     opacity: 0.9;
-
-    /* border: 1px solid rgb(235, 233, 233); */
     border: 1px solid #cbcdcf;
     background: linear-gradient(
         111.29deg,
@@ -36,10 +30,9 @@ const Card = styled.div`
         rgba(27, 32, 37, 0) 189.95%
     );
     box-shadow: 50px, 60px, 189px rgba(0, 0, 0, 0.95);
-
-    animation-name: ${breatheAnimation};
+    /* animation-name: ${breatheAnimation};
     animation-duration: 0.8s;
-    animation-iteration-count: 1;
+    animation-iteration-count: 1; */
     color: white;
 `;
 
@@ -54,29 +47,15 @@ const Topbar = styled.div`
     height: 800px;
     transform: translate(-50%, 86%);
     border-radius: 50%;
-    /* background: linear-gradient(90deg, #8000e0 20%, #01ced8 70%); */
     box-shadow: 0 4px 15px ${rgba('black', 0.1)};
     filter: drop-shadow(1px 4px 12px #101820);
     opacity: 0.9;
-
-    /* border: 1px solid rgb(235, 233, 233); */
     background: linear-gradient(
         111.29deg,
         rgba(189, 197, 203, 0.53) -1.83%,
         rgba(27, 32, 37, 0) 189.95%
     );
     box-shadow: 50px, 60px, 189px rgba(0, 0, 0, 0.95);
-    /* backdrop-filter: blur(70px); */
-`;
-const Arrow = styled.div`
-    position: absolute;
-    left: 50%;
-    bottom: -10px;
-    transform: translateX(-50%) rotate(45deg);
-    width: 16px;
-    height: 16px;
-    /* background: #fca45e; */
-    background: white;
 `;
 
 const TopIcon = styled.div`
@@ -86,12 +65,19 @@ const TopIcon = styled.div`
     padding: 0 2rem;
     transform: ${props =>
         props.isActive ? `scale(2) translateY(8px)` : `scale(1) translateY(0)`};
+    :hover {
+        height: 4.5em;
+        width: 4.5em;
+    }
 `;
 
 const Image = styled.img`
     height: 3.5em;
     margin-top: 1em;
     filter: drop-shadow(1px 4px 12px #22292e);
+    :hover {
+        height: 4.5em;
+    }
 `;
 
 const ListWrapper = styled.div`
@@ -105,7 +91,6 @@ const CoinItem = props => {
     return (
         <Card>
             <Topbar>
-                {/* <Arrow /> */}
                 <TopIcon>
                     <Image src={props.image}></Image>
                 </TopIcon>

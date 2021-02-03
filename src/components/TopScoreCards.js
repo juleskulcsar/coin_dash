@@ -72,14 +72,16 @@ const TopScoreCards = ({ getCoinData, coinData: { coinDataLoad, coin } }) => {
                         </div>
                         <Paragraph>
                             Current Price{' '}
-                            <span style={{ color: 'orange', fontSize: '30px' }}>
+                            <span
+                                style={{ color: '#bacdca', fontSize: '30px' }}
+                            >
                                 ${coinDataLoad.market_data.current_price.usd}
                             </span>
                         </Paragraph>
                         {coinDataLoad.market_data.price_change_percentage_24h <
                         0 ? (
                             <Paragraph>
-                                Price change 24h:{' '}
+                                24h:{' '}
                                 <span
                                     style={{
                                         color: '#E8431B',
@@ -103,6 +105,7 @@ const TopScoreCards = ({ getCoinData, coinData: { coinDataLoad, coin } }) => {
                             </Paragraph>
                         ) : (
                             <Paragraph>
+                                24h:{' '}
                                 <span
                                     style={{
                                         color: '#56a192',

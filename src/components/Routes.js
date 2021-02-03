@@ -3,6 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 import styled from 'styled-components';
 import TopChart from './TopChart';
 import CoinList from './CoinList';
+import Exchanges from './Exchanges';
 
 const Container = styled.div`
     background: #2d363d;
@@ -21,6 +22,7 @@ const Routes = () => {
         <Container>
             <Route exact path='/' component={TopChart} />
             <Route exact path='/coinlist' component={CoinList} />
+            <Route exact path='/exchanges' component={Exchanges} />
             {/* <Route component={NotFound} /> */}
         </Container>
     );

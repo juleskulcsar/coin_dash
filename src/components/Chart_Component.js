@@ -40,10 +40,10 @@ export default function Chart_Component(props) {
                 datasets: [
                     {
                         label: 'price',
-                        backgroundColor: gradientLine,
-                        borderColor: '#ff6c23',
+                        // backgroundColor: gradientLine,
+                        borderColor: '#153144',
                         data: props.values,
-                        borderWidth: 1
+                        borderWidth: 2
                     }
                 ]
             },
