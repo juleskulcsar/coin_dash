@@ -30,10 +30,10 @@ export default function Chart_Component2(props) {
                 labels: props.dates,
                 datasets: [
                     {
-                        label: 'market caps',
+                        label: 'volume',
                         backgroundColor: gradientLine,
                         borderColor: '#2A3D36',
-                        data: props.marketCaps,
+                        data: props.values,
                         borderWidth: 1
                     }
                 ]
@@ -75,7 +75,7 @@ export default function Chart_Component2(props) {
                 },
                 title: {
                     display: true,
-                    text: `Visualizing ${props.params} market caps`,
+                    text: `${props.params} volumes`,
                     fontSize: 20,
                     fontColor: 'white'
                 }
@@ -84,8 +84,8 @@ export default function Chart_Component2(props) {
         });
     }, [props]);
     return (
-        <div style={{ width: '800px', height: '200px' }}>
-            <Canvas id='my_Chart2' width='800' height='200' />
+        <div style={{ width: '800px', height: '400px' }}>
+            <Canvas id='my_Chart2' width='800' height='400' />
         </div>
     );
 }

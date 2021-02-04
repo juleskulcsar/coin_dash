@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import TopChart from './TopChart';
 import CoinList from './CoinList';
 import Exchanges from './Exchanges';
+import ExchangeVolume from './ExchangeVolume';
 
 const Container = styled.div`
     background: #2d363d;
@@ -23,6 +24,7 @@ const Routes = () => {
             <Route exact path='/' component={TopChart} />
             <Route exact path='/coinlist' component={CoinList} />
             <Route exact path='/exchanges' component={Exchanges} />
+            <Route exact path='/volumes' component={ExchangeVolume} />
             {/* <Route component={NotFound} /> */}
         </Container>
     );
