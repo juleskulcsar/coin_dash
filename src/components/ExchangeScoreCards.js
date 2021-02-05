@@ -43,28 +43,28 @@ const ExchangeScoreCards = ({ getExchanges, exchanges: { exchanges } }) => {
             ) : (
                 <ScoreCardWrapper>
                     <ScoreCard
-                        text={'Trade Vol Btc 24h:   '}
+                        text={'Trade Vol 24h:   '}
                         value={exchanges[id].trade_volume_24h_btc.toFixed(2)}
                         icon={icons[0]}
                         symbolIs={'btc'}
                         transparent={true}
                     />
                     <ScoreCard
-                        text={'Trade Vol Btc normalized 24h:   '}
+                        text={'Trade Volnormalized 24h:   '}
                         value={exchanges[
                             id
                         ].trade_volume_24h_btc_normalized.toFixed(2)}
                         icon={icons[1]}
-                        symbolIs={''}
+                        symbolIs={'btc'}
                         transparent={true}
                     />
 
-                    <ScoreCard
+                    {/* <ScoreCard
                         text={'Diluted valuation:   '}
                         icon={icons[2]}
                         symbolIs={'$'}
                         transparent={true}
-                    />
+                    /> */}
                 </ScoreCardWrapper>
             )}
         </>

@@ -5,8 +5,8 @@ import { rgba, modularScale } from 'polished';
 
 const Card = styled.div`
     position: relative;
-    width: 14em;
-    height: 7em;
+    width: ${props => (props.transparent ? '20em' : '14em')};
+    height: ${props => (props.transparent ? '6em' : '7em')};
     margin: 2rem;
     overflow: hidden;
     border-radius: 1rem;
@@ -53,7 +53,8 @@ const ListWrapper = styled.div`
 const Paragraph = styled.p`
     color: white;
     /* line-height: 1.6; */
-    font-size: ${props => (props.tes ? '20px' : '15px')};
+    font-size: ${props =>
+        props.tes ? '20px' : props.transparent ? '30px' : '15px'};
     font-weight: ${props => (props.tes ? 'bold' : null)};
     padding-left: 1em;
     @media (max-width: 768px) {
@@ -72,7 +73,9 @@ const ScoreCard = props => {
                     </div>
                     <div style={{ display: 'flex' }}>
                         <Paragraph tes={true}>{props.symbolIs}</Paragraph>
-                        <Paragraph tes={true}>{props.value}</Paragraph>
+                        <Paragraph transparent={props.transparent} tes={true}>
+                            {props.value}
+                        </Paragraph>
                     </div>
                 </ListWrapper>
             </Scrollbars>

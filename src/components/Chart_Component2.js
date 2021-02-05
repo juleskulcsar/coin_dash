@@ -18,13 +18,21 @@ const Canvas = styled.canvas`
     backdrop-filter: blur(70px);
 `;
 
+const CanvasWrapper = styled.div`
+    width: 800px;
+    height: 20em;
+    @media (max-width: 768px) {
+        width: 300px;
+    }
+`;
+
 export default function Chart_Component2(props) {
     useEffect(() => {
         const ctx = document.getElementById('my_Chart2');
         let c = ctx.getContext('2d');
         let gradientLine = c.createLinearGradient(0, 0, 0, ctx.height);
-        gradientLine.addColorStop(0, '#D13C18');
-        gradientLine.addColorStop(1, '#F6B4A4');
+        gradientLine.addColorStop(0, '#8c9aa3');
+        gradientLine.addColorStop(1, '#5b6f7c');
         new Chart(ctx, {
             type: 'line',
             data: {
@@ -32,7 +40,7 @@ export default function Chart_Component2(props) {
                 datasets: [
                     {
                         label: 'volume',
-                        // backgroundColor: gradientLine,
+                        backgroundColor: gradientLine,
                         borderColor: 'white',
                         data: props.values,
                         borderWidth: 1
@@ -85,8 +93,9 @@ export default function Chart_Component2(props) {
         });
     }, [props]);
     return (
-        <div style={{ width: '800px', height: '400px' }}>
-            <Canvas id='my_Chart2' width='800' height='400' />
-        </div>
+        <CanvasWrapper>
+            {/* <Canvas id='my_Chart2' width='800' height='400' /> */}
+            <Canvas id='my_Chart2' />
+        </CanvasWrapper>
     );
 }

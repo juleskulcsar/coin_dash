@@ -41,6 +41,9 @@ const Table = styled.table`
     white-space: nowrap;
     height: 70%;
     overflow: scroll;
+    @media (max-width: 768px) {
+        display: none;
+    }
 `;
 
 const TD = styled.td`

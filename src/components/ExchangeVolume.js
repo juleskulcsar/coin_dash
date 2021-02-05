@@ -50,6 +50,9 @@ const Button = styled.button`
     opacity: 0.8;
     backdrop-filter: blur(20px);
     border-radius: 4px;
+    @media (max-width: 768px) {
+        display: ${props => (props.hide ? 'none' : null)};
+    }
 `;
 
 const Content = styled.div`
@@ -66,6 +69,9 @@ const Tab = styled.div`
     width: 780px;
     height: 90vh;
     margin: 2em 2em 0 2em;
+    /* @media (max-width: 768px) {
+        display: ${props => (props.hide ? 'none' : null)};
+    } */
 `;
 
 const Panel = styled.div`
@@ -134,6 +140,7 @@ const ExchangeVolume = ({
                 <Button
                     active={active === index}
                     onClick={() => setActive(index)}
+                    hide={true}
                 >
                     {tab}
                 </Button>
@@ -157,7 +164,7 @@ const ExchangeVolume = ({
                                 params={params.id}
                             />
                         </Tab>
-                        <Tab>
+                        <Tab hide={true}>
                             <TickerTable exchange={exchange} />
                         </Tab>
                     </Content>
