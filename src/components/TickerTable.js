@@ -74,47 +74,39 @@ const UrlLink = styled.a`
     }
 `;
 
-const Exchanges = ({ getExchanges, exchanges: { exchanges } }) => {
-    useEffect(() => {
-        getExchanges();
-    }, []);
-
-    const tableEntries = exchanges.map((elem, i) => {
+const TickerTable = props => {
+    const tableEntries = props.exchanges.map((elem, i) => {
         return (
             <TR key={i}>
-                <TD color={true}>{elem.name}</TD>
-                <TD>{elem.id}</TD>
-                <TD>{elem.country}</TD>
-                <TD>{elem.year_established}</TD>
-                <TD>
-                    <UrlLink target='_blank' href={elem.url}>
-                        {elem.url}
-                    </UrlLink>
-                </TD>
-                <TD color={true}>{elem.trade_volume_24h_btc.toFixed(2)}</TD>
-                <TD>{elem.trust_score}</TD>
-                <TD>{elem.trust_score_rank}</TD>
+                <TD color={true}>{elem.base}</TD>
+                <TD>{elem.target}</TD>
+                <TD>{elem.volume}</TD>
+                <TD>{elem.converted_volume}</TD>
+                <TD>{elem.bid_ask_spread_percentage}</TD>
+                <TD> {elem.is_anomaly}</TD>
+                <TD>{elem.is_stale}</TD>
+                <TD>{elem.last_fetch_at}</TD>
             </TR>
         );
     });
 
     return (
         <Wrapper>
-            {exchanges.length == 0 ? (
+            {props.exchanges.length == 0 ? (
                 <Spinner />
             ) : (
                 <TableWrapper>
                     <Table>
                         <TableHead>
                             <TR>
-                                <TH>Name</TH>
-                                <TH>id</TH>
-                                <TH>country</TH>
-                                <TH>year established</TH>
-                                <TH>website</TH>
-                                <TH>Trade vol 24h btc</TH>
-                                <TH>Trust score</TH>
-                                <TH>Trust score rank</TH>
+                                <TH>Base</TH>
+                                <TH>Target</TH>
+                                <TH>Volume</TH>
+                                <TH>Converted Volume</TH>
+                                <TH>Bid ask spread %</TH>
+                                <TH>Is anomaly</TH>
+                                <TH>Is stale</TH>
+                                <TH>Last fetched</TH>
                             </TR>
                         </TableHead>
                         {tableEntries}
@@ -125,14 +117,4 @@ const Exchanges = ({ getExchanges, exchanges: { exchanges } }) => {
     );
 };
 
-Exchanges.propTypes = {
-    getExchanges: PropTypes.func.isRequired,
-    exchanges: PropTypes.object.isRequired
-};
-
-const mapStateToProps = state => ({
-    exchanges: state.exchanges
-});
-export default connect(mapStateToProps, { getExchanges })(
-    withRouter(Exchanges)
-);
+export default TickerTable;

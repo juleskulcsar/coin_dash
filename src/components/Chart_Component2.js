@@ -22,8 +22,8 @@ export default function Chart_Component2(props) {
         const ctx = document.getElementById('my_Chart2');
         let c = ctx.getContext('2d');
         let gradientLine = c.createLinearGradient(0, 0, 0, ctx.height);
-        gradientLine.addColorStop(0, '#3F5B51');
-        gradientLine.addColorStop(1, '#8BCBB5');
+        gradientLine.addColorStop(0, '#D13C18');
+        gradientLine.addColorStop(1, '#F6B4A4');
         new Chart(ctx, {
             type: 'line',
             data: {
@@ -31,8 +31,8 @@ export default function Chart_Component2(props) {
                 datasets: [
                     {
                         label: 'volume',
-                        backgroundColor: gradientLine,
-                        borderColor: '#2A3D36',
+                        // backgroundColor: gradientLine,
+                        borderColor: 'white',
                         data: props.values,
                         borderWidth: 1
                     }
@@ -56,7 +56,7 @@ export default function Chart_Component2(props) {
                             ticks: {
                                 beginAtZero: false,
                                 fontColor: 'white',
-                                display: false
+                                display: true
                             }
                         }
                     ],
@@ -65,7 +65,7 @@ export default function Chart_Component2(props) {
                             ticks: {
                                 beginAtZero: false,
                                 fontColor: 'white',
-                                display: false
+                                display: true
                             }
                         }
                     ]
