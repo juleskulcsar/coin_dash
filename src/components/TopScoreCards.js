@@ -137,12 +137,14 @@ const TopScoreCards = ({ getCoinData, coinData: { coinDataLoad, coin } }) => {
                             value={coinDataLoad.market_data.max_supply}
                             icon={icons[0]}
                             symbolIs={''}
+                            transparent={false}
                         />
                         <ScoreCard
                             text={'Circulating supply:   '}
                             value={coinDataLoad.market_data.circulating_supply}
                             icon={icons[1]}
                             symbolIs={''}
+                            transparent={false}
                         />
 
                         <ScoreCard
@@ -153,6 +155,7 @@ const TopScoreCards = ({ getCoinData, coinData: { coinDataLoad, coin } }) => {
                             }
                             icon={icons[2]}
                             symbolIs={'$'}
+                            transparent={false}
                         />
                     </ScoreCardWrapper>
                 </>

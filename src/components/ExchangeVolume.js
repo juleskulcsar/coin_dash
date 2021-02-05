@@ -6,6 +6,7 @@ import styled, { css } from 'styled-components';
 import { rgba } from 'polished';
 import { getExchangeVolume } from '../actions/exchangeVolume';
 import { getExchanges } from '../actions/exchanges';
+import { getExchangeById } from '../actions/exchangesById';
 import Chart_Component2 from './Chart_Component2';
 import ScoreCard from './ScoreCard';
 import TickerTable from './TickerTable';
@@ -19,7 +20,8 @@ const transition = css`
 const Card = styled.div`
     overflow: hidden;
     position: relative;
-    width: 810px;
+    width: 850px;
+    margin: 2rem 0 0 3rem;
     /* height: 400px; */
 `;
 const Row = styled.div`
@@ -30,9 +32,10 @@ const Underline = styled.div`
     position: absolute;
     left: 0;
     bottom: 0;
-    width: 405px;
-    height: 4px;
-    background: gray;
+    top: 2.5em;
+    width: 425px;
+    height: 8px;
+    background: #e47656;
     transform: translateX(${p => (p.active === 0 ? 0 : p.active * 100)}%);
     ${transition};
 `;
@@ -40,22 +43,29 @@ const Underline = styled.div`
 const Button = styled.button`
     flex: 1 1 33.33%;
     border-bottom: 1px solid ${rgba('white', 0.25)};
-    color: ${p => rgba('white', p.active ? 0.85 : 0.25)};
-    background: orange;
+    color: ${p => rgba('white', p.active ? 1 : 0.25)};
+    font-size: 20px;
+    background: #5b6f7c;
+    height: 2em;
+    opacity: 0.8;
+    backdrop-filter: blur(20px);
+    border-radius: 4px;
 `;
 
 const Content = styled.div`
-    position: relative;
-    top: 10em;
-    /* height: 100%; */
+    /* position: relative; */
+    /* top: 2em; */
+    height: 100%;
     display: flex;
-    transform: translate(${p => (p.active === 0 ? 0 : `-${p.active * 820}px`)});
+    transform: translate(${p => (p.active === 0 ? 0 : `-${p.active * 850}px`)});
     ${transition};
+    justify-content: space-between;
 `;
 
 const Tab = styled.div`
-    width: 800px;
-    height: 800px;
+    width: 780px;
+    height: 90vh;
+    margin: 2em 2em 0 2em;
 `;
 
 const Panel = styled.div`
@@ -89,19 +99,14 @@ const ScoreCardWrapper = styled.div`
     }
 `;
 
-const icons = [
-    <i className='fas fa-parachute-box'></i>,
-    <span className='material-icons'>loop</span>,
-    <span className='material-icons'>monetization_on</span>
-];
-
-const tabs1 = ['volumes', 'tickers'];
+const tabs = ['volumes', 'tickers'];
 
 const ExchangeVolume = ({
     getExchangeVolume,
+    getExchangeById,
     exchangeVolumes: { exchangeVolumeLoad, params },
-    getExchanges,
-    exchanges: { exchanges }
+    exchanges: { exchanges },
+    exchange: { exchange }
 }) => {
     useEffect(() => {
         getExchangeVolume(params);
@@ -109,22 +114,23 @@ const ExchangeVolume = ({
     useEffect(() => {
         getExchanges();
     }, []);
+    useEffect(() => {
+        getExchangeById();
+    }, []);
 
-    // console.log('exchangeVolumeLoad: ', exchangeVolumeLoad);
-    // console.log('exchanges in ExchangeVolume: ', exchanges);
     const idList = [];
     for (let i = 0; i < exchanges.length; i++) {
         idList.push(exchanges[i].id);
     }
-    const id = idList.indexOf('aax');
-    // console.log('id: ', id);
+    let idIndex = idList.indexOf('aax');
+    console.log('id: ', idIndex);
 
     const [active, setActive] = useState(0);
 
     const Tabs = ({ active, setActive }) => (
         <Row>
             <Underline active={active} />
-            {tabs1.map((tab, index) => (
+            {tabs.map((tab, index) => (
                 <Button
                     active={active === index}
                     onClick={() => setActive(index)}
@@ -137,22 +143,26 @@ const ExchangeVolume = ({
 
     return (
         <>
-            <Card>
-                <Tabs active={active} setActive={setActive} />
-                <Content active={active}>
-                    <div>
-                        <ExchangeScoreCards />
-                        <Chart_Component2
-                            values={exchangeVolumeLoad[0]}
-                            dates={exchangeVolumeLoad[1]}
-                            params={params.id}
-                        />
-                    </div>
-                    <div>
-                        <TickerTable exchanges={exchanges} />
-                    </div>
-                </Content>
-            </Card>
+            {exchanges.length == 0 ? (
+                <Spinner />
+            ) : (
+                <Card>
+                    <Tabs active={active} setActive={setActive} />
+                    <Content active={active}>
+                        <Tab>
+                            <ExchangeScoreCards />
+                            <Chart_Component2
+                                values={exchangeVolumeLoad[0]}
+                                dates={exchangeVolumeLoad[1]}
+                                params={params.id}
+                            />
+                        </Tab>
+                        <Tab>
+                            <TickerTable exchange={exchange} />
+                        </Tab>
+                    </Content>
+                </Card>
+            )}
         </>
     );
 };
@@ -162,13 +172,17 @@ ExchangeVolume.propTypes = {
     exchangeVolumeLoad: PropTypes.object.isRequired,
     params: PropTypes.object.isRequired,
     getExchanges: PropTypes.func.isRequired,
-    exchanges: PropTypes.object.isRequired
+    getExchangeById: PropTypes.func.isRequired,
+    exchange: PropTypes.object.isRequired
 };
 
 const mapStateToProps = state => ({
     exchangeVolumes: state.exchangeVolumes,
-    exchanges: state.exchanges
+    exchanges: state.exchanges,
+    exchange: state.exchange
 });
-export default connect(mapStateToProps, { getExchanges, getExchangeVolume })(
-    withRouter(ExchangeVolume)
-);
+export default connect(mapStateToProps, {
+    getExchanges,
+    getExchangeVolume,
+    getExchangeById
+})(withRouter(ExchangeVolume));

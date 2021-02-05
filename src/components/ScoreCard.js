@@ -17,11 +17,22 @@ const Card = styled.div`
     opacity: 0.9;
 
     border: 1px solid rgb(235, 233, 233);
-    background: linear-gradient(
-        111.29deg,
-        rgba(255, 255, 255, 0.53) -1.83%,
-        rgba(255, 255, 255, 0) 189.95%
-    );
+    ${props =>
+        props.transparent
+            ? css`
+                  background: linear-gradient(
+                      111.29deg,
+                      rgba(255, 255, 255, 0.1) -1.83%,
+                      rgba(255, 255, 255, 0) 189.95%
+                  );
+              `
+            : css`
+                  background: linear-gradient(
+                      111.29deg,
+                      rgba(255, 255, 255, 0.53) -1.83%,
+                      rgba(255, 255, 255, 0) 189.95%
+                  );
+              `}
     box-shadow: 50px, 60px, 189px rgba(0, 0, 0, 0.95);
     backdrop-filter: blur(70px);
     @media (max-width: 768px) {
@@ -52,7 +63,7 @@ const Paragraph = styled.p`
 
 const ScoreCard = props => {
     return (
-        <Card>
+        <Card transparent={props.transparent}>
             <Scrollbars>
                 <ListWrapper>
                     <div style={{ display: 'flex' }}>

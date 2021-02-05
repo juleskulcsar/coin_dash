@@ -4,16 +4,16 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 import { rgba, modularScale } from 'polished';
-import { getExchanges } from '../actions/exchanges';
+import { getExchangeById } from '../actions/exchangesById';
 import { Spinner } from './Spinner';
 
 const Wrapper = styled.div`
     display: flex;
     flex-wrap: wrap;
     position: relative;
-    top: 2rem;
+    /* top: 2rem; */
     justify-content: space-around;
-    height: 90vh;
+    height: 90%;
     overflow: scroll;
 `;
 
@@ -39,6 +39,8 @@ const Table = styled.table`
     width: 100%;
     max-width: 100%;
     white-space: nowrap;
+    height: 70%;
+    overflow: scroll;
 `;
 
 const TD = styled.td`
@@ -65,34 +67,16 @@ const TableHead = styled.thead`
     color: #ffffff;
 `;
 
-const UrlLink = styled.a`
-    float: left;
-    color: white;
-    text-decoration: none;
-    :hover {
-        color: #ef7b5f;
-    }
-`;
+const TickerTable = ({ exchange }) => {
+    // useEffect(() => {
+    //     getExchangeById();
+    // }, []);
 
-const TickerTable = props => {
-    const tableEntries = props.exchanges.map((elem, i) => {
-        return (
-            <TR key={i}>
-                <TD color={true}>{elem.base}</TD>
-                <TD>{elem.target}</TD>
-                <TD>{elem.volume}</TD>
-                <TD>{elem.converted_volume}</TD>
-                <TD>{elem.bid_ask_spread_percentage}</TD>
-                <TD> {elem.is_anomaly}</TD>
-                <TD>{elem.is_stale}</TD>
-                <TD>{elem.last_fetch_at}</TD>
-            </TR>
-        );
-    });
+    console.log('exchangeById in tickerTable: ', exchange);
 
     return (
         <Wrapper>
-            {props.exchanges.length == 0 ? (
+            {exchange.tickers.length < 1 ? (
                 <Spinner />
             ) : (
                 <TableWrapper>
@@ -109,12 +93,44 @@ const TickerTable = props => {
                                 <TH>Last fetched</TH>
                             </TR>
                         </TableHead>
-                        {tableEntries}
+                        {exchange.tickers.map((elem, i) => {
+                            return (
+                                <TR key={i}>
+                                    <TD color={true}>{elem.base}</TD>
+                                    <TD>{elem.target}</TD>
+                                    <TD>{elem.volume.toFixed(2)}</TD>
+                                    <TD>
+                                        {elem.converted_volume.btc.toFixed(2)}
+                                    </TD>
+                                    <TD>
+                                        {elem.bid_ask_spread_percentage.toFixed(
+                                            2
+                                        )}
+                                    </TD>
+                                    <TD> {elem.is_anomaly.toString()}</TD>
+                                    <TD>{elem.is_stale.toString()}</TD>
+                                    <TD>{elem.last_fetch_at}</TD>
+                                </TR>
+                            );
+                        })}
                     </Table>
                 </TableWrapper>
             )}
         </Wrapper>
     );
 };
+
+// TickerTable.propTypes = {
+//     getExchangeById: PropTypes.func.isRequired,
+//     exchange: PropTypes.object.isRequired
+// };
+
+// const mapStateToProps = state => ({
+//     exchange: state.exchange
+// });
+
+// export default connect(mapStateToProps, {
+//     getExchangeById
+// })(TickerTable);
 
 export default TickerTable;
