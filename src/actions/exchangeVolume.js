@@ -17,7 +17,7 @@ export const getExchangeVolume = params => async dispatch => {
             dates.push(timeConverter(res.data[i][0]));
         }
         data.push(volumes, dates);
-        // console.log('data is: ', data);
+
         dispatch({
             type: GET_EXCHANGE_VOLUME,
             payload: data

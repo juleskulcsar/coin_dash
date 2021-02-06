@@ -12,6 +12,8 @@ import ScoreCard from './ScoreCard';
 import TickerTable from './TickerTable';
 import { Spinner } from './Spinner';
 import ExchangeScoreCards from './ExchangeScoreCards';
+import VolumeRightCard from './VolumeRightCard';
+import ExchangeIdTable from './ExchangeIdTable';
 
 const transition = css`
     transition: transform 0.45s;
@@ -21,18 +23,23 @@ const Card = styled.div`
     overflow: hidden;
     position: relative;
     width: 850px;
-    margin: 2rem 0 0 3rem;
+    /* margin: 2rem 0 0 3rem; */
     /* height: 400px; */
+    margin: 0 auto;
+    /* display: flex;
+    flex-direction: column;
+    justify-content: space-between; */
+    height: 100%;
 `;
 const Row = styled.div`
-    display: flex;
+    /* display: flex; */
     position: relative;
 `;
 const Underline = styled.div`
-    position: absolute;
+    position: relative;
     left: 0;
     bottom: 0;
-    top: 2.5em;
+    top: 3em;
     width: 425px;
     height: 8px;
     background: #e47656;
@@ -41,12 +48,16 @@ const Underline = styled.div`
 `;
 
 const Button = styled.button`
-    flex: 1 1 33.33%;
+    position: relative;
+    right: 0;
+    bottom: 0;
+    /* flex: 1 1 33.33%; */
     border-bottom: 1px solid ${rgba('white', 0.25)};
     color: ${p => rgba('white', p.active ? 1 : 0.25)};
     font-size: 20px;
     background: #5b6f7c;
     height: 2em;
+    width: 100%;
     opacity: 0.8;
     backdrop-filter: blur(20px);
     border-radius: 4px;
@@ -58,7 +69,7 @@ const Button = styled.button`
 const Content = styled.div`
     /* position: relative; */
     /* top: 2em; */
-    height: 100%;
+    height: 90%;
     display: flex;
     transform: translate(${p => (p.active === 0 ? 0 : `-${p.active * 850}px`)});
     ${transition};
@@ -67,23 +78,11 @@ const Content = styled.div`
 
 const Tab = styled.div`
     width: 780px;
-    height: 90vh;
+    /* height: 100%; */
     margin: 2em 2em 0 2em;
     /* @media (max-width: 768px) {
         display: ${props => (props.hide ? 'none' : null)};
     } */
-`;
-
-const Panel = styled.div`
-    display: flex;
-    justify-content: space-around;
-    flex-direction: row;
-    width: 80%;
-    margin: 0 auto;
-    @media (max-width: 768px) {
-        flex-direction: column;
-        align-items: center;
-    }
 `;
 
 const Wrapper = styled.div`
@@ -91,18 +90,8 @@ const Wrapper = styled.div`
     position: relative;
     /* top: 0.5em; */
     border-radius: 20px;
-`;
-const ScoreCardWrapper = styled.div`
-    display: flex;
-    /* flex: 1; */
-    position: relative;
-    top: 1em;
-    border-radius: 20px;
-    justify-content: space-between;
-    @media (max-width: 768px) {
-        flex-direction: column;
-        align-items: center;
-    }
+    height: 98vh;
+    margin: 0 auto;
 `;
 
 const tabs = ['volumes', 'tickers'];
@@ -136,15 +125,17 @@ const ExchangeVolume = ({
     const Tabs = ({ active, setActive }) => (
         <Row>
             <Underline active={active} />
-            {tabs.map((tab, index) => (
-                <Button
-                    active={active === index}
-                    onClick={() => setActive(index)}
-                    hide={true}
-                >
-                    {tab}
-                </Button>
-            ))}
+            <div style={{ display: 'flex' }}>
+                {tabs.map((tab, index) => (
+                    <Button
+                        active={active === index}
+                        onClick={() => setActive(index)}
+                        hide={true}
+                    >
+                        {tab}
+                    </Button>
+                ))}
+            </div>
         </Row>
     );
 
@@ -153,22 +144,25 @@ const ExchangeVolume = ({
             {exchanges.length == 0 ? (
                 <Spinner />
             ) : (
-                <Card>
-                    <Tabs active={active} setActive={setActive} />
-                    <Content active={active}>
-                        <Tab>
-                            <ExchangeScoreCards />
-                            <Chart_Component2
-                                values={exchangeVolumeLoad[0]}
-                                dates={exchangeVolumeLoad[1]}
-                                params={params.id}
-                            />
-                        </Tab>
-                        <Tab hide={true}>
-                            <TickerTable exchange={exchange} />
-                        </Tab>
-                    </Content>
-                </Card>
+                <Wrapper>
+                    <ExchangeIdTable exchanges={exchanges} />
+                    <Card>
+                        <Tabs active={active} setActive={setActive} />
+                        <Content active={active}>
+                            <Tab>
+                                <ExchangeScoreCards />
+                                <Chart_Component2
+                                    values={exchangeVolumeLoad[0]}
+                                    dates={exchangeVolumeLoad[1]}
+                                    params={params.id}
+                                />
+                            </Tab>
+                            <Tab hide={true}>
+                                <TickerTable exchange={exchange} />
+                            </Tab>
+                        </Content>
+                    </Card>
+                </Wrapper>
             )}
         </>
     );

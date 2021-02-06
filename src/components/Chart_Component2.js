@@ -20,7 +20,7 @@ const Canvas = styled.canvas`
 
 const CanvasWrapper = styled.div`
     width: 800px;
-    height: 20em;
+    height: 50%;
     @media (max-width: 768px) {
         width: 300px;
     }
