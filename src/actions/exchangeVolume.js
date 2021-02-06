@@ -3,10 +3,10 @@ import timeConverter from '../utils/timeConverter';
 import { GET_EXCHANGE_VOLUME, GET_EXCHANGE_VOLUME_ERROR } from './types';
 
 //get historical data
-export const getExchangeVolume = params => async dispatch => {
+export const getExchangeVolume = id => async dispatch => {
     try {
         const res = await axios.get(
-            `https://api.coingecko.com/api/v3/exchanges/${params.id}/volume_chart?days=30`
+            `https://api.coingecko.com/api/v3/exchanges/${id}/volume_chart?days=30`
         );
         console.log('wtf volume??? ', res.data);
         let volumes = [];

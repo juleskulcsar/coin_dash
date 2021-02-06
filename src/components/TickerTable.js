@@ -2,6 +2,9 @@ import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import { rgba, modularScale } from 'polished';
 import { Spinner } from './Spinner';
+import { getExchangeById } from '../actions/exchangesById';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
 const Wrapper = styled.div`
     display: flex;
@@ -9,8 +12,10 @@ const Wrapper = styled.div`
     position: relative;
     /* top: 2rem; */
     justify-content: space-around;
-    height: 90%;
+    height: 95%;
     overflow: scroll;
+    border: 1px solid transparent;
+    border-radius: 20px;
 `;
 
 const TableWrapper = styled.div`
@@ -30,7 +35,6 @@ const Table = styled.table`
     border-radius: 5px;
     font-size: 13px;
     font-weight: normal;
-    border: none;
     border-collapse: collapse;
     width: 100%;
     max-width: 100%;
@@ -66,10 +70,12 @@ const TH = styled.th`
 
 const TR = styled.tr`
     color: white;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 `;
 
 const TableHead = styled.thead`
     color: #ffffff;
+    border-bottom: 1px solid white;
 `;
 
 const TickerTable = ({ exchange }) => {

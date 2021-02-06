@@ -25,7 +25,11 @@ const icons = [
     <span className='material-icons'>monetization_on</span>
 ];
 
-const ExchangeScoreCards = ({ getExchanges, exchanges: { exchanges } }) => {
+const ExchangeScoreCards = ({
+    getExchanges,
+    exchanges: { exchanges },
+    param
+}) => {
     useEffect(() => {
         getExchanges();
     }, []);
@@ -34,7 +38,7 @@ const ExchangeScoreCards = ({ getExchanges, exchanges: { exchanges } }) => {
     for (let i = 0; i < exchanges.length; i++) {
         idList.push(exchanges[i].id);
     }
-    const id = idList.indexOf('aax');
+    const id = idList.indexOf(param);
 
     return (
         <>
@@ -43,14 +47,14 @@ const ExchangeScoreCards = ({ getExchanges, exchanges: { exchanges } }) => {
             ) : (
                 <ScoreCardWrapper>
                     <ScoreCard
-                        text={'Trade Vol 24h:   '}
+                        text={`${exchanges[id].name} Vol 24h:   `}
                         value={exchanges[id].trade_volume_24h_btc.toFixed(2)}
                         icon={icons[0]}
                         symbolIs={'btc'}
                         transparent={true}
                     />
                     <ScoreCard
-                        text={'Trade Volnormalized 24h:   '}
+                        text={`${exchanges[id].name} Vol Normalized 24h:   `}
                         value={exchanges[
                             id
                         ].trade_volume_24h_btc_normalized.toFixed(2)}

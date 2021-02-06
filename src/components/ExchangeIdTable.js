@@ -1,4 +1,5 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+import { connect } from 'react-redux';
 import styled from 'styled-components';
 import { rgba, modularScale } from 'polished';
 
@@ -48,7 +49,7 @@ const Table = styled.table`
 
 const TD = styled.td`
     text-align: center;
-    font-size: 13px;
+    font-size: 18px;
     padding: 8px;
     color: ${props => (props.color ? '#bacdca' : null)};
 `;
@@ -61,6 +62,7 @@ const TH = styled.th`
     position: sticky;
     top: 0;
     height: 2em;
+    z-index: 20;
 `;
 
 const TR = styled.tr`
@@ -71,7 +73,25 @@ const TableHead = styled.thead`
     color: #ffffff;
 `;
 
-const ExchangeIdTable = ({ exchanges }) => {
+let color = '#37434a';
+
+const Button = styled.button`
+    border-bottom: 1px solid ${rgba('white', 0.25)};
+    color: white;
+    font-size: 18px;
+    background: ${color};
+    height: 2em;
+    width: 100%;
+    opacity: 0.8;
+    backdrop-filter: blur(20px);
+    border-radius: 4px;
+    z-index: -1;
+`;
+
+const ExchangeIdTable = ({ exchanges, handleClick }) => {
+    const clickHandler = id => {
+        handleClick(id);
+    };
     return (
         <Wrapper>
             {exchanges.length < 1 ? (
@@ -81,7 +101,7 @@ const ExchangeIdTable = ({ exchanges }) => {
                     <Table>
                         <TableHead>
                             <TR>
-                                <TH>Name</TH>
+                                <TH>Exchange</TH>
                                 <TH>Id</TH>
                             </TR>
                         </TableHead>
@@ -89,7 +109,16 @@ const ExchangeIdTable = ({ exchanges }) => {
                             return (
                                 <TR key={i}>
                                     <TD color={true}>{elem.name}</TD>
-                                    <TD>{elem.id}</TD>
+
+                                    <TD>
+                                        <Button
+                                            onClick={() => {
+                                                clickHandler(elem.id);
+                                            }}
+                                        >
+                                            {elem.id}
+                                        </Button>
+                                    </TD>
                                 </TR>
                             );
                         })}
@@ -100,4 +129,20 @@ const ExchangeIdTable = ({ exchanges }) => {
     );
 };
 
-export default ExchangeIdTable;
+// export default ExchangeIdTable;
+
+// ExchangeIdTable.propTypes = {
+//     getExchangeVolume: PropTypes.func.isRequired,
+//     exchangeVolumeLoad: PropTypes.object.isRequired,
+//     params: PropTypes.object.isRequired,
+//     getExchanges: PropTypes.func.isRequired,
+//     getExchangeById: PropTypes.func.isRequired,
+//     exchange: PropTypes.object.isRequired
+// };
+
+// const mapStateToProps = state => ({
+//     exchangeVolumes: state.exchangeVolumes,
+//     exchanges: state.exchanges,
+//     exchange: state.exchange
+// });
+export default connect()(ExchangeIdTable);

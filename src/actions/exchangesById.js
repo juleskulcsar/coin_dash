@@ -2,10 +2,10 @@ import axios from 'axios';
 import { GET_EXCHANGE, GET_EXCHANGE_ERROR } from './types';
 
 //get coin data
-export const getExchangeById = () => async dispatch => {
+export const getExchangeById = id => async dispatch => {
     try {
         const res = await axios.get(
-            `https://api.coingecko.com/api/v3/exchanges/aax`
+            `https://api.coingecko.com/api/v3/exchanges/${id}`
         );
         dispatch({
             type: GET_EXCHANGE,

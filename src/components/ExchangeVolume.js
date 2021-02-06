@@ -28,8 +28,8 @@ const Card = styled.div`
     margin: 0 auto;
     /* display: flex;
     flex-direction: column;
-    justify-content: space-between; */
-    height: 100%;
+    justify-content: space-between;
+    height: 100%; */
 `;
 const Row = styled.div`
     /* display: flex; */
@@ -71,9 +71,9 @@ const Content = styled.div`
     /* top: 2em; */
     height: 90%;
     display: flex;
+    justify-content: space-between;
     transform: translate(${p => (p.active === 0 ? 0 : `-${p.active * 850}px`)});
     ${transition};
-    justify-content: space-between;
 `;
 
 const Tab = styled.div`
@@ -83,6 +83,7 @@ const Tab = styled.div`
     /* @media (max-width: 768px) {
         display: ${props => (props.hide ? 'none' : null)};
     } */
+    /* height: 90%; */
 `;
 
 const Wrapper = styled.div`
@@ -103,15 +104,17 @@ const ExchangeVolume = ({
     exchanges: { exchanges },
     exchange: { exchange }
 }) => {
+    const [param, setParam] = useState('aax');
+
     useEffect(() => {
-        getExchangeVolume(params);
-    }, [getExchangeVolume]);
+        getExchangeVolume(param);
+    }, [param]);
     useEffect(() => {
         getExchanges();
     }, []);
     useEffect(() => {
-        getExchangeById();
-    }, []);
+        getExchangeById(param);
+    }, [param]);
 
     const idList = [];
     for (let i = 0; i < exchanges.length; i++) {
@@ -139,26 +142,37 @@ const ExchangeVolume = ({
         </Row>
     );
 
+    const handleClick = id => {
+        setParam(id);
+    };
+
     return (
         <>
-            {exchanges.length == 0 ? (
+            {exchangeVolumeLoad.length < 1 ? (
                 <Spinner />
             ) : (
                 <Wrapper>
-                    <ExchangeIdTable exchanges={exchanges} />
+                    <ExchangeIdTable
+                        handleClick={handleClick}
+                        exchanges={exchanges}
+                        params={params}
+                    />
                     <Card>
                         <Tabs active={active} setActive={setActive} />
                         <Content active={active}>
                             <Tab>
-                                <ExchangeScoreCards />
+                                <ExchangeScoreCards param={param} />
                                 <Chart_Component2
                                     values={exchangeVolumeLoad[0]}
                                     dates={exchangeVolumeLoad[1]}
-                                    params={params.id}
+                                    params={param}
                                 />
                             </Tab>
                             <Tab hide={true}>
-                                <TickerTable exchange={exchange} />
+                                <TickerTable
+                                    param={param}
+                                    exchange={exchange}
+                                />
                             </Tab>
                         </Content>
                     </Card>

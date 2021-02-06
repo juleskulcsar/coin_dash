@@ -16,7 +16,7 @@ const Card = styled.div`
     filter: drop-shadow(1px 4px 12px #101820);
     opacity: 0.9;
 
-    border: 1px solid rgb(235, 233, 233);
+    /* border: 1px solid rgb(235, 233, 233); */
     ${props =>
         props.transparent
             ? css`
@@ -32,6 +32,7 @@ const Card = styled.div`
                       rgba(255, 255, 255, 0.53) -1.83%,
                       rgba(255, 255, 255, 0) 189.95%
                   );
+                  border: 1px solid rgb(235, 233, 233);
               `}
     box-shadow: 50px, 60px, 189px rgba(0, 0, 0, 0.95);
     backdrop-filter: blur(70px);
