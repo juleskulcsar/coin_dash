@@ -26,75 +26,79 @@ const CanvasWrapper = styled.div`
     }
 `;
 
-export default function Chart_Component2(props) {
-    useEffect(() => {
-        const ctx = document.getElementById('my_Chart2');
-        let c = ctx.getContext('2d');
-        let gradientLine = c.createLinearGradient(0, 0, 0, ctx.height);
-        gradientLine.addColorStop(0, '#8c9aa3');
-        gradientLine.addColorStop(1, '#5b6f7c');
-        new Chart(ctx, {
-            type: 'line',
-            data: {
-                labels: props.dates,
-                datasets: [
+const myChart = props => {
+    const ctx = document.getElementById('my_Chart2');
+    let c = ctx.getContext('2d');
+    let gradientLine = c.createLinearGradient(0, 0, 0, ctx.height);
+    gradientLine.addColorStop(0, '#8c9aa3');
+    gradientLine.addColorStop(1, '#5b6f7c');
+    if (window.myChart) window.myChart.destroy();
+    window.myChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: props.dates,
+            datasets: [
+                {
+                    label: 'volume',
+                    backgroundColor: gradientLine,
+                    borderColor: 'white',
+                    data: props.values,
+                    borderWidth: 1
+                }
+            ]
+        },
+        options: {
+            responsive: true,
+            scaleFontColor: 'white',
+            maintainAspectRatio: false,
+            layout: {
+                padding: {
+                    top: 5,
+                    left: 15,
+                    right: 15,
+                    bottom: 15
+                }
+            },
+            scales: {
+                yAxes: [
                     {
-                        label: 'volume',
-                        backgroundColor: gradientLine,
-                        borderColor: 'white',
-                        data: props.values,
-                        borderWidth: 1
+                        ticks: {
+                            beginAtZero: false,
+                            fontColor: 'white',
+                            display: true
+                        }
+                    }
+                ],
+                xAxes: [
+                    {
+                        ticks: {
+                            beginAtZero: false,
+                            fontColor: 'white',
+                            display: true
+                        }
                     }
                 ]
             },
-            options: {
-                responsive: true,
-                scaleFontColor: 'white',
-                maintainAspectRatio: false,
-                layout: {
-                    padding: {
-                        top: 5,
-                        left: 15,
-                        right: 15,
-                        bottom: 15
-                    }
-                },
-                scales: {
-                    yAxes: [
-                        {
-                            ticks: {
-                                beginAtZero: false,
-                                fontColor: 'white',
-                                display: true
-                            }
-                        }
-                    ],
-                    xAxes: [
-                        {
-                            ticks: {
-                                beginAtZero: false,
-                                fontColor: 'white',
-                                display: true
-                            }
-                        }
-                    ]
-                },
-                tooltips: {
-                    mode: 'nearest'
-                },
-                title: {
-                    display: true,
-                    text: `${props.params} volumes`,
-                    fontSize: 20,
-                    fontColor: 'white'
-                }
-                // events: ['click']
+            tooltips: {
+                mode: 'nearest'
+            },
+            title: {
+                display: true,
+                text: `${props.params} volumes`,
+                fontSize: 20,
+                fontColor: 'white'
             }
-        });
-    }, [props]);
+            // events: ['click']
+        }
+    });
+};
+
+export default function Chart_Component2(props) {
+    useEffect(() => {
+        myChart(props);
+    }, [myChart, props]);
     return (
         <CanvasWrapper>
-            {/* <Canvas id='my_Chart2' width='800' height='400' /> */}
             <Canvas id='my_Chart2' />
         </CanvasWrapper>
     );

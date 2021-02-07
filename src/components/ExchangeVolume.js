@@ -107,14 +107,32 @@ const ExchangeVolume = ({
     const [param, setParam] = useState('aax');
 
     useEffect(() => {
-        getExchangeVolume(param);
-    }, [param]);
+        let mounted = true;
+        if (mounted) {
+            getExchangeVolume(param);
+        }
+        return function cleanuo() {
+            mounted = false;
+        };
+    }, [getExchangeVolume, param]);
     useEffect(() => {
-        getExchanges();
+        let mounted = true;
+        if (mounted) {
+            getExchanges();
+        }
+        return function cleanuo() {
+            mounted = false;
+        };
     }, []);
     useEffect(() => {
-        getExchangeById(param);
-    }, [param]);
+        let mounted = true;
+        if (mounted) {
+            getExchangeById(param);
+        }
+        return function cleanuo() {
+            mounted = false;
+        };
+    }, [getExchangeById, param]);
 
     const idList = [];
     for (let i = 0; i < exchanges.length; i++) {
