@@ -26,7 +26,7 @@ export const getHistoricalData = params => async dispatch => {
             type: GET_HISTORICAL_DATA,
             payload: data
         });
-        console.log('res.data: ', res.data);
+        // console.log('res.data: ', res.data);
     } catch (err) {
         dispatch({
             type: HISTORICAL_DATA_ERROR,

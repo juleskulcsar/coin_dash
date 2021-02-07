@@ -110,29 +110,13 @@ const ExchangeVolume = ({
         let mounted = true;
         if (mounted) {
             getExchangeVolume(param);
-        }
-        return function cleanuo() {
-            mounted = false;
-        };
-    }, [getExchangeVolume, param]);
-    useEffect(() => {
-        let mounted = true;
-        if (mounted) {
+            getExchangeById(param);
             getExchanges();
         }
-        return function cleanuo() {
+        return function cleanup() {
             mounted = false;
         };
-    }, []);
-    useEffect(() => {
-        let mounted = true;
-        if (mounted) {
-            getExchangeById(param);
-        }
-        return function cleanuo() {
-            mounted = false;
-        };
-    }, [getExchangeById, param]);
+    }, [param]);
 
     const idList = [];
     for (let i = 0; i < exchanges.length; i++) {
@@ -180,11 +164,7 @@ const ExchangeVolume = ({
                         <Content active={active}>
                             <Tab>
                                 <ExchangeScoreCards param={param} />
-                                <Chart_Component2
-                                    values={exchangeVolumeLoad[0]}
-                                    dates={exchangeVolumeLoad[1]}
-                                    params={param}
-                                />
+                                <Chart_Component2 param={param} />
                             </Tab>
                             <Tab hide={true}>
                                 <TickerTable

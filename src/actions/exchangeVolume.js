@@ -8,7 +8,7 @@ export const getExchangeVolume = id => async dispatch => {
         const res = await axios.get(
             `https://api.coingecko.com/api/v3/exchanges/${id}/volume_chart?days=30`
         );
-        console.log('wtf volume??? ', res.data);
+
         let volumes = [];
         let dates = [];
         let data = [];
@@ -22,7 +22,7 @@ export const getExchangeVolume = id => async dispatch => {
             type: GET_EXCHANGE_VOLUME,
             payload: data
         });
-        console.log('res.data: ', res.data);
+        // console.log('res.data: ', res.data);
     } catch (err) {
         dispatch({
             type: GET_EXCHANGE_VOLUME_ERROR,
