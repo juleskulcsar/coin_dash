@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import styled from 'styled-components';
 import { rgba, modularScale } from 'polished';
 import { Spinner } from './Spinner';
 import { getExchangeById } from '../actions/exchangesById';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
 
 const Wrapper = styled.div`
     display: flex;
@@ -78,10 +78,21 @@ const TableHead = styled.thead`
     border-bottom: 1px solid white;
 `;
 
-const TickerTable = ({ exchange }) => {
+const TickerTable = ({ exchange: { exchange }, param }) => {
+    useEffect(() => {
+        let mounted = true;
+        if (mounted) {
+            getExchangeById(param);
+        }
+        return function cleanup() {
+            mounted = false;
+        };
+    }, [param]);
+
+    console.log('exchange in ticket table: ', exchange);
     return (
         <Wrapper>
-            {exchange.tickers.length < 1 ? (
+            {Object.keys(exchange).length < 1 ? (
                 <Spinner />
             ) : (
                 <TableWrapper>
@@ -125,4 +136,16 @@ const TickerTable = ({ exchange }) => {
     );
 };
 
-export default TickerTable;
+// export default TickerTable;
+
+TickerTable.propTypes = {
+    getExchangeById: PropTypes.func.isRequired,
+    exchange: PropTypes.object.isRequired
+};
+
+const mapStateToProps = state => ({
+    exchange: state.exchange
+});
+export default connect(mapStateToProps, {
+    getExchangeById
+})(TickerTable);

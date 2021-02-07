@@ -13,9 +13,9 @@ const Wrapper = styled.div`
     justify-content: space-around;
     height: 90%;
     overflow: scroll;
-    border-bottom: 1px solid white;
+    border-bottom: 1px solid #8c9aa3;
     border-radius: 10px;
-    margin: 0 auto;
+    margin: 0 2em;
 `;
 
 const TableWrapper = styled.div`

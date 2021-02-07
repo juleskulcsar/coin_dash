@@ -16,6 +16,7 @@ const Wrapper = styled.div`
     left: 10em; */
     height: 100vh;
     overflow: scroll;
+    /* margin: 2em; */
 `;
 
 const CoinList = ({ getCoins, coinsList: { coinsListData } }) => {

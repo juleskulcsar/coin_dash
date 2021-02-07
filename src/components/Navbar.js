@@ -27,9 +27,9 @@ const LogoLink = styled(Link)`
 
 const Menu = styled.nav`
     display: ${p => (p.open ? 'block' : 'none')};
-    position: absolute;
+    /* position: absolute; */
     width: 100%;
-    top: 60px;
+    /* top: 60px; */
     left: 0;
     padding: 8px;
     box-sizing: border-box;

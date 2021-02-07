@@ -11,10 +11,11 @@ const Wrapper = styled.div`
     display: flex;
     flex-wrap: wrap;
     position: relative;
-    top: 2rem;
+    /* top: 2rem; */
     justify-content: space-around;
     height: 90vh;
     overflow: scroll;
+    margin: 8px 2em;
 `;
 
 const TableWrapper = styled.div`
@@ -28,6 +29,7 @@ const TableWrapper = styled.div`
     );
     box-shadow: 50px, 60px, 189px rgba(0, 0, 0, 0.95);
     backdrop-filter: blur(70px);
+    width: 100%;
 `;
 
 const Table = styled.table`
@@ -55,6 +57,7 @@ const TH = styled.th`
     background: #5b6f7c;
     position: sticky;
     top: 0;
+    height: 2em;
 `;
 
 const TR = styled.tr`

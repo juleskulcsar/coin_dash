@@ -169,7 +169,7 @@ const ExchangeVolume = ({
                             <Tab hide={true}>
                                 <TickerTable
                                     param={param}
-                                    exchange={exchange}
+                                    // exchange={exchange}
                                 />
                             </Tab>
                         </Content>

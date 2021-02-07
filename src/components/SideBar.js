@@ -51,7 +51,7 @@ const StyledList = styled.li`
         text-decoration: none;
     }
     > a:hover {
-        color: #ad4d2a;
+        color: #e47656;
     }
     > a:before {
         content: '';
