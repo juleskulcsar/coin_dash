@@ -3,7 +3,7 @@ import Chart from 'chart.js';
 import styled from 'styled-components';
 
 const Canvas = styled.canvas`
-    border: 1px solid rgb(235, 233, 233);
+    /* border: 1px solid rgb(235, 233, 233); */
     background: linear-gradient(
         111.29deg,
         rgba(255, 255, 255, 0.53) -1.83%,

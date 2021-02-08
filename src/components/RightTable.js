@@ -18,7 +18,7 @@ const Card = styled.div`
     filter: drop-shadow(1px 4px 12px #101820);
     opacity: 0.9;
 
-    border: 1px solid rgb(235, 233, 233);
+    border: 1px solid rgb(235, 233, 233, 0.3);
     background: linear-gradient(
         111.29deg,
         rgba(34, 41, 46, 0.53) -1.83%,

@@ -30,6 +30,8 @@ const StyledSelect = styled.select`
     height: 40px;
     background: transparent;
     color: #bfbdbc;
+    /* box-shadow: 50px, 60px, 189px rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(70px); */
     :focus {
         outline: none !important;
     }
@@ -39,7 +41,7 @@ const Input = styled.input.attrs(props => ({
     type: props.num ? 'number' : null
 }))`
     padding: 4px 8px;
-    border: 1px solid gray;
+    border: 1px solid rgb(235, 233, 233, 0.3);
     border-radius: 4px;
     font-size: 1em;
     margin-bottom: 8px;
