@@ -8,6 +8,7 @@ import ChartComponent from './Chart_Component';
 import ChartComponent3 from './Chart_Component3';
 import TopScoreCards from './TopScoreCards';
 import RightPanel from './RightPanel';
+import CoinListDropdown from './CoinListDropdown';
 
 const Panel = styled.div`
     display: flex;
@@ -36,11 +37,12 @@ const TopChart = ({
         getHistoricalData(params);
     }, [getHistoricalData]);
 
-    // console.log('historical: ', historicalDataLoad);
+    console.log('historical: ', historicalDataLoad);
 
     return (
         <Panel>
-            <div>
+            <div style={{ display: 'flex', flexDirection: 'column' }}>
+                <CoinListDropdown />
                 <TopScoreCards />
                 <Wrapper>
                     <div
@@ -51,6 +53,7 @@ const TopChart = ({
                         <div style={{ display: 'block' }}>
                             <ChartComponent
                                 values={historicalDataLoad[0]}
+                                totalVolumes={historicalDataLoad[1]}
                                 dates={historicalDataLoad[2]}
                                 params={params.coin}
                             />
