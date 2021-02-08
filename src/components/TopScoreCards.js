@@ -9,9 +9,9 @@ import { Spinner } from './Spinner';
 
 const ScoreCardWrapper = styled.div`
     display: flex;
-    /* flex: 1; */
     position: relative;
     top: 1em;
+    margin-bottom: 2em;
     border-radius: 20px;
     justify-content: space-between;
     @media (max-width: 768px) {
@@ -138,6 +138,7 @@ const TopScoreCards = ({ getCoinData, coinData: { coinDataLoad, coin } }) => {
                             icon={icons[0]}
                             symbolIs={''}
                             transparent={false}
+                            margin={true}
                         />
                         <ScoreCard
                             text={'Circulating supply:   '}
@@ -145,6 +146,7 @@ const TopScoreCards = ({ getCoinData, coinData: { coinDataLoad, coin } }) => {
                             icon={icons[1]}
                             symbolIs={''}
                             transparent={false}
+                            margin={true}
                         />
 
                         <ScoreCard

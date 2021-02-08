@@ -5,9 +5,9 @@ import { rgba, modularScale } from 'polished';
 
 const Card = styled.div`
     position: relative;
-    width: ${props => (props.transparent ? '20em' : '14em')};
+    width: ${props => (props.transparent ? '20em' : '100%')};
     height: ${props => (props.transparent ? '6em' : '7em')};
-    margin: 2rem;
+    margin-right: ${props => (props.margin ? '1em' : '0')};
     overflow: hidden;
     border-radius: 1rem;
     padding-top: 1rem;
@@ -15,8 +15,6 @@ const Card = styled.div`
     box-shadow: 0 4px 15px ${rgba('black', 0.1)};
     filter: drop-shadow(1px 4px 12px #101820);
     opacity: 0.9;
-
-    /* border: 1px solid rgb(235, 233, 233); */
     ${props =>
         props.transparent
             ? css`
@@ -47,13 +45,11 @@ const ListWrapper = styled.div`
     position: relative;
     align-self: center;
     left: 1rem;
-    /* margin: auto; */
     overflow: hidden;
 `;
 
 const Paragraph = styled.p`
     color: white;
-    /* line-height: 1.6; */
     font-size: ${props =>
         props.tes ? '20px' : props.transparent ? '30px' : '15px'};
     font-weight: ${props => (props.tes ? 'bold' : null)};
@@ -65,7 +61,7 @@ const Paragraph = styled.p`
 
 const ScoreCard = props => {
     return (
-        <Card transparent={props.transparent}>
+        <Card transparent={props.transparent} margin={props.margin}>
             <Scrollbars>
                 <ListWrapper>
                     <div style={{ display: 'flex' }}>

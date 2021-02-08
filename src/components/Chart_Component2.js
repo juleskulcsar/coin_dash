@@ -9,8 +9,6 @@ const Canvas = styled.canvas`
     filter: drop-shadow(1px 4px 12px #101820);
     border-radius: 20px;
     margin-top: 20px;
-
-    /* border: 1px solid rgb(235, 233, 233); */
     background: linear-gradient(
         111.29deg,
         rgba(255, 255, 255, 0.1) -1.83%,
@@ -23,7 +21,7 @@ const Canvas = styled.canvas`
 
 const CanvasWrapper = styled.div`
     width: 800px;
-    height: 50%;
+    height: 60%;
     @media (max-width: 768px) {
         width: 300px;
     }

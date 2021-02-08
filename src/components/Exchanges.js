@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Link, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
@@ -11,11 +11,13 @@ const Wrapper = styled.div`
     display: flex;
     flex-wrap: wrap;
     position: relative;
-    /* top: 2rem; */
     justify-content: space-around;
     height: 90vh;
     overflow: scroll;
     margin: 8px 2em;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    border-bottom: 1px solid #8c9aa3;
 `;
 
 const TableWrapper = styled.div`

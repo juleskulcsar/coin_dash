@@ -1,7 +1,6 @@
-import React, { Fragment, useState, useEffect } from 'react';
+import React, { Fragment, useState } from 'react';
 import { Link as RouterDomLink, useLocation } from 'react-router-dom';
 import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { rgba, modularScale } from 'polished';
 
@@ -27,9 +26,6 @@ const LogoLink = styled(Link)`
 
 const Menu = styled.nav`
     display: ${p => (p.open ? 'block' : 'none')};
-    /* position: absolute; */
-    width: 100%;
-    /* top: 60px; */
     left: 0;
     padding: 8px;
     box-sizing: border-box;
@@ -42,12 +38,11 @@ const Menu = styled.nav`
         margin: auto 0 auto auto;
         border-bottom: none;
         position: relative;
-        width: initial;
     }
 `;
 
 const MobileMenuIcon = styled.div`
-    margin: auto 0 auto auto;
+    margin: auto 2em auto auto;
     width: 25px;
     min-width: 25px;
     padding: 5px;
@@ -66,11 +61,9 @@ const HeaderWrapper = styled.div`
     height: 60px;
     width: 100%;
     box-sizing: border-box;
-    display: flex;
     padding: 0 16px;
     position: fixed;
     top: 0;
-    justify-content: space-between;
     background: #2d363d;
     opacity: 0.95;
     border-bottom: 1px solid #682e19;
@@ -81,8 +74,9 @@ const HeaderWrapper = styled.div`
 const StyledUl = styled.ul`
     list-style: none;
     display: flex;
+    margin: auto 1em auto auto;
     @media (max-width: 768px) {
-        padding-right: 10px;
+        padding: 1em 2em;
         flex-direction: column;
         background: gray;
         width: 30%;

@@ -8,9 +8,10 @@ import { getExchanges } from '../actions/exchanges';
 
 const ScoreCardWrapper = styled.div`
     display: flex;
-    /* flex: 1; */
     position: relative;
     top: 1em;
+    margin: 1em;
+    width: 100%;
     border-radius: 20px;
     justify-content: space-between;
     @media (max-width: 768px) {
@@ -62,13 +63,6 @@ const ExchangeScoreCards = ({
                         symbolIs={'btc'}
                         transparent={true}
                     />
-
-                    {/* <ScoreCard
-                        text={'Diluted valuation:   '}
-                        icon={icons[2]}
-                        symbolIs={'$'}
-                        transparent={true}
-                    /> */}
                 </ScoreCardWrapper>
             )}
         </>

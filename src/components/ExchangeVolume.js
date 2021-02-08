@@ -6,13 +6,10 @@ import styled, { css } from 'styled-components';
 import { rgba } from 'polished';
 import { getExchangeVolume } from '../actions/exchangeVolume';
 import { getExchanges } from '../actions/exchanges';
-import { getExchangeById } from '../actions/exchangesById';
 import Chart_Component2 from './Chart_Component2';
-import ScoreCard from './ScoreCard';
 import TickerTable from './TickerTable';
 import { Spinner } from './Spinner';
 import ExchangeScoreCards from './ExchangeScoreCards';
-import VolumeRightCard from './VolumeRightCard';
 import ExchangeIdTable from './ExchangeIdTable';
 
 const transition = css`
@@ -23,16 +20,9 @@ const Card = styled.div`
     overflow: hidden;
     position: relative;
     width: 850px;
-    /* margin: 2rem 0 0 3rem; */
-    /* height: 400px; */
     margin: 0 auto;
-    /* display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 100%; */
 `;
 const Row = styled.div`
-    /* display: flex; */
     position: relative;
 `;
 const Underline = styled.div`
@@ -51,8 +41,16 @@ const Button = styled.button`
     position: relative;
     right: 0;
     bottom: 0;
-    /* flex: 1 1 33.33%; */
+    border: 1px solid transparent;
     border-bottom: 1px solid ${rgba('white', 0.25)};
+    ${props =>
+        props.borderTop
+            ? css`
+                  border-top-left-radius: 10px;
+              `
+            : css`
+                  border-top-right-radius: 10px;
+              `}
     color: ${p => rgba('white', p.active ? 1 : 0.25)};
     font-size: 20px;
     background: #5b6f7c;
@@ -60,15 +58,12 @@ const Button = styled.button`
     width: 100%;
     opacity: 0.8;
     backdrop-filter: blur(20px);
-    border-radius: 4px;
     @media (max-width: 768px) {
         display: ${props => (props.hide ? 'none' : null)};
     }
 `;
 
 const Content = styled.div`
-    /* position: relative; */
-    /* top: 2em; */
     height: 90%;
     display: flex;
     justify-content: space-between;
@@ -77,19 +72,19 @@ const Content = styled.div`
 `;
 
 const Tab = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
     width: 780px;
-    /* height: 100%; */
     margin: 2em 2em 0 2em;
-    /* @media (max-width: 768px) {
+    @media (max-width: 768px) {
         display: ${props => (props.hide ? 'none' : null)};
-    } */
-    /* height: 90%; */
+    }
 `;
 
 const Wrapper = styled.div`
     display: flex;
     position: relative;
-    /* top: 0.5em; */
     border-radius: 20px;
     height: 90vh;
     margin: 0 auto;
@@ -99,18 +94,15 @@ const tabs = ['volumes', 'tickers'];
 
 const ExchangeVolume = ({
     getExchangeVolume,
-    getExchangeById,
     exchangeVolumes: { exchangeVolumeLoad, params },
-    exchanges: { exchanges },
-    exchange: { exchange }
+    exchanges: { exchanges }
 }) => {
-    const [param, setParam] = useState('aax');
+    const [param, setParam] = useState('binance');
 
     useEffect(() => {
         let mounted = true;
         if (mounted) {
             getExchangeVolume(param);
-            getExchangeById(param);
             getExchanges();
         }
         return function cleanup() {
@@ -131,7 +123,7 @@ const ExchangeVolume = ({
         <Row>
             <Underline active={active} />
             <div style={{ display: 'flex' }}>
-                {tabs.map((tab, index) => (
+                {/* {tabs.map((tab, index) => (
                     <Button
                         active={active === index}
                         onClick={() => setActive(index)}
@@ -139,7 +131,22 @@ const ExchangeVolume = ({
                     >
                         {tab}
                     </Button>
-                ))}
+                    ))} */}
+                <Button
+                    active={active === 0}
+                    onClick={() => setActive(0)}
+                    hide={true}
+                    borderTop={true}
+                >
+                    {tabs[0]}
+                </Button>
+                <Button
+                    active={active === 1}
+                    onClick={() => setActive(1)}
+                    hide={true}
+                >
+                    {tabs[1]}
+                </Button>
             </div>
         </Row>
     );
@@ -167,10 +174,7 @@ const ExchangeVolume = ({
                                 <Chart_Component2 param={param} />
                             </Tab>
                             <Tab hide={true}>
-                                <TickerTable
-                                    param={param}
-                                    // exchange={exchange}
-                                />
+                                <TickerTable param={param} />
                             </Tab>
                         </Content>
                     </Card>
@@ -184,18 +188,14 @@ ExchangeVolume.propTypes = {
     getExchangeVolume: PropTypes.func.isRequired,
     exchangeVolumeLoad: PropTypes.object.isRequired,
     params: PropTypes.object.isRequired,
-    getExchanges: PropTypes.func.isRequired,
-    getExchangeById: PropTypes.func.isRequired,
-    exchange: PropTypes.object.isRequired
+    getExchanges: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => ({
     exchangeVolumes: state.exchangeVolumes,
-    exchanges: state.exchanges,
-    exchange: state.exchange
+    exchanges: state.exchanges
 });
 export default connect(mapStateToProps, {
     getExchanges,
-    getExchangeVolume,
-    getExchangeById
+    getExchangeVolume
 })(withRouter(ExchangeVolume));

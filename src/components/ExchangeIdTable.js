@@ -16,6 +16,9 @@ const Wrapper = styled.div`
     border-bottom: 1px solid #8c9aa3;
     border-radius: 10px;
     margin: 0 2em;
+    @media (max-width: 768px) {
+        display: ${props => (props.hide ? 'none' : null)};
+    }
 `;
 
 const TableWrapper = styled.div`
@@ -93,7 +96,7 @@ const ExchangeIdTable = ({ exchanges, handleClick }) => {
         handleClick(id);
     };
     return (
-        <Wrapper>
+        <Wrapper hide={true}>
             {exchanges.length < 1 ? (
                 <Spinner />
             ) : (
