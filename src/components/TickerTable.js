@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import { rgba, modularScale } from 'polished';
 import { Spinner } from './Spinner';
 import { getExchangeById } from '../actions/exchangesById';
+import { getExchangeVolume } from '../actions/exchangeVolume';
 
 const Wrapper = styled.div`
     display: flex;
@@ -83,13 +84,14 @@ const TickerTable = ({ exchange: { exchange }, param }) => {
         let mounted = true;
         if (mounted) {
             getExchangeById(param);
+            // getExchangeVolume(param);
         }
         return function cleanup() {
             mounted = false;
         };
-    }, [param]);
+    }, [param, getExchangeById]);
 
-    console.log('exchange in ticket table: ', exchange);
+    console.log('exchange in ticker table: ', exchange);
     return (
         <Wrapper>
             {Object.keys(exchange).length < 1 ? (
@@ -109,26 +111,30 @@ const TickerTable = ({ exchange: { exchange }, param }) => {
                                 <TH>Last fetched</TH>
                             </TR>
                         </TableHead>
-                        {exchange.tickers.map((elem, i) => {
-                            return (
-                                <TR key={i}>
-                                    <TD color={true}>{elem.base}</TD>
-                                    <TD>{elem.target}</TD>
-                                    <TD>{elem.volume.toFixed(2)}</TD>
-                                    <TD>
-                                        {elem.converted_volume.btc.toFixed(2)}
-                                    </TD>
-                                    <TD>
-                                        {elem.bid_ask_spread_percentage.toFixed(
-                                            2
-                                        )}
-                                    </TD>
-                                    <TD> {elem.is_anomaly.toString()}</TD>
-                                    <TD>{elem.is_stale.toString()}</TD>
-                                    <TD>{elem.last_fetch_at}</TD>
-                                </TR>
-                            );
-                        })}
+                        <tbody>
+                            {exchange.tickers.map((elem, i) => {
+                                return (
+                                    <TR key={i}>
+                                        <TD color='true'>{elem.base}</TD>
+                                        <TD>{elem.target}</TD>
+                                        <TD>{elem.volume.toFixed(2)}</TD>
+                                        <TD>
+                                            {elem.converted_volume.btc.toFixed(
+                                                2
+                                            )}
+                                        </TD>
+                                        <TD>
+                                            {elem.bid_ask_spread_percentage.toFixed(
+                                                2
+                                            )}
+                                        </TD>
+                                        <TD> {elem.is_anomaly.toString()}</TD>
+                                        <TD>{elem.is_stale.toString()}</TD>
+                                        <TD>{elem.last_fetch_at}</TD>
+                                    </TR>
+                                );
+                            })}
+                        </tbody>
                     </Table>
                 </TableWrapper>
             )}
@@ -139,6 +145,7 @@ const TickerTable = ({ exchange: { exchange }, param }) => {
 // export default TickerTable;
 
 TickerTable.propTypes = {
+    // getExchangeVolume: PropTypes.func.isRequired,
     getExchangeById: PropTypes.func.isRequired,
     exchange: PropTypes.object.isRequired
 };
@@ -148,4 +155,5 @@ const mapStateToProps = state => ({
 });
 export default connect(mapStateToProps, {
     getExchangeById
+    // getExchangeVolume
 })(TickerTable);

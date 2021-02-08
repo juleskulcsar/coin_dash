@@ -9,9 +9,9 @@ import { Spinner } from './Spinner';
 
 const ScoreCardWrapper = styled.div`
     display: flex;
-    position: relative;
-    top: 1em;
-    margin-bottom: 2em;
+    /* position: relative; */
+    /* top: 1em; */
+    /* margin-bottom: 2em; */
     border-radius: 20px;
     justify-content: space-between;
     @media (max-width: 768px) {

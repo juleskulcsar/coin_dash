@@ -22,7 +22,7 @@ export const getExchangeVolume = id => async dispatch => {
             type: GET_EXCHANGE_VOLUME,
             payload: data
         });
-        // console.log('res.data: ', res.data);
+        console.log('volume chart: ', res.data);
     } catch (err) {
         dispatch({
             type: GET_EXCHANGE_VOLUME_ERROR,

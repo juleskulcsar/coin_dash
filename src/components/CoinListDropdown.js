@@ -15,7 +15,7 @@ const Wrapper = styled.div`
     /* width: 70%;
     left: 10em; */
     overflow: scroll;
-    /* margin: 2em; */
+    margin-top: 1em;
     /* height: fit-content; */
 `;
 
@@ -32,6 +32,7 @@ const StyledSelect = styled.select`
     border-radius: 4px;
     font-size: 1em;
     margin-bottom: 8px;
+    margin-right: 1em;
     /* width: 100%; */
     box-sizing: border-box;
     height: 40px;
@@ -64,9 +65,15 @@ const Input = styled.input.attrs(props => ({
 `;
 
 const Label = styled.label`
-    background: gray;
+    background: #44535d;
     align-self: center;
     color: white;
+    padding: 10px 20px 10px 20px;
+    margin-bottom: 8px;
+`;
+
+const ConversionContainer = styled.div`
+    /* margin-left: 1em; */
 `;
 
 const CoinListDropdown = ({ getCoins, coinsList: { coinsListData } }) => {
@@ -101,10 +108,8 @@ const CoinListDropdown = ({ getCoins, coinsList: { coinsListData } }) => {
                     >
                         compare_arrows
                     </span>
-                    <>
-                        <Label>USD</Label>
-                        <Input value={val * coinsListData[0].current_price} />
-                    </>
+                    <Label>USD</Label>
+                    <Input value={val * coinsListData[0].current_price} />
                 </Dropdown>
             )}
         </Wrapper>

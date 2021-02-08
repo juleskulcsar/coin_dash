@@ -41,13 +41,19 @@ const TopChart = ({
 
     return (
         <Panel>
-            <div style={{ display: 'flex', flexDirection: 'column' }}>
+            <div
+                style={{
+                    display: 'flex',
+                    flexDirection: 'column'
+                }}
+            >
                 <CoinListDropdown />
                 <TopScoreCards />
                 <Wrapper>
                     <div
                         style={{
-                            borderRadius: '20px'
+                            borderRadius: '20px',
+                            marginTop: '1em'
                         }}
                     >
                         <div style={{ display: 'block' }}>

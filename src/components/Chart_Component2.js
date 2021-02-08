@@ -101,7 +101,7 @@ function Chart_Component2({
 }) {
     console.log('chart2 params: ', params);
     useEffect(() => {
-        getExchangeVolume(params);
+        // getExchangeVolume(params);
         myChart(exchangeVolumeLoad, param);
     }, [myChart, exchangeVolumeLoad]);
 

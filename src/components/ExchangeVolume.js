@@ -6,6 +6,7 @@ import styled, { css } from 'styled-components';
 import { rgba } from 'polished';
 import { getExchangeVolume } from '../actions/exchangeVolume';
 import { getExchanges } from '../actions/exchanges';
+import { getExchangeById } from '../actions/exchangesById';
 import Chart_Component2 from './Chart_Component2';
 import TickerTable from './TickerTable';
 import { Spinner } from './Spinner';
@@ -94,6 +95,7 @@ const tabs = ['volumes', 'tickers'];
 
 const ExchangeVolume = ({
     getExchangeVolume,
+    getExchangeById,
     exchangeVolumes: { exchangeVolumeLoad, params },
     exchanges: { exchanges }
 }) => {
@@ -104,6 +106,7 @@ const ExchangeVolume = ({
         if (mounted) {
             getExchangeVolume(param);
             getExchanges();
+            getExchangeById(param);
         }
         return function cleanup() {
             mounted = false;
@@ -186,6 +189,7 @@ const ExchangeVolume = ({
 
 ExchangeVolume.propTypes = {
     getExchangeVolume: PropTypes.func.isRequired,
+    getExchangeById: PropTypes.func.isRequired,
     exchangeVolumeLoad: PropTypes.object.isRequired,
     params: PropTypes.object.isRequired,
     getExchanges: PropTypes.func.isRequired
@@ -197,5 +201,6 @@ const mapStateToProps = state => ({
 });
 export default connect(mapStateToProps, {
     getExchanges,
-    getExchangeVolume
+    getExchangeVolume,
+    getExchangeById
 })(withRouter(ExchangeVolume));
