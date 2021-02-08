@@ -8,6 +8,7 @@ const Card = styled.div`
     width: 16em;
     height: 20em;
     margin-top: 1em;
+    margin-bottom: 1em;
     padding-left: 1em;
     overflow: hidden;
     border-radius: 1rem;

@@ -16,32 +16,32 @@ const Wrapper = styled.div`
     margin: 0 auto;
     top: 4em;
     border-radius: 20px;
-    /* height: 98vh; */
+    height: 92vh;
     width: 100%;
     @media (max-width: 768px) {
         padding-left: 0;
     }
 `;
 
-const Container = styled.div`
-    height: 98vh;
-    display: flex;
-    flex-direction: column;
-`;
+// const Container = styled.div`
+//     /* height: 98vh; */
+//     display: flex;
+//     flex-direction: column;
+// `;
 
 const App = () => {
     return (
         <Provider store={store}>
             <Router>
-                <Container>
-                    <Navbar />
-                    <Wrapper>
-                        <SideBar />
-                        <Switch>
-                            <Route component={Routes} />
-                        </Switch>
-                    </Wrapper>
-                </Container>
+                {/* <Container> */}
+                <Navbar />
+                <Wrapper>
+                    <SideBar />
+                    <Switch>
+                        <Route component={Routes} />
+                    </Switch>
+                </Wrapper>
+                {/* </Container> */}
             </Router>
         </Provider>
     );

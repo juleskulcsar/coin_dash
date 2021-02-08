@@ -14,6 +14,7 @@ const Panel = styled.div`
     justify-content: space-around;
     flex-direction: row;
     width: 80%;
+    /* height: 90vh; */
     margin: 0 auto;
     @media (max-width: 768px) {
         flex-direction: column;
@@ -46,7 +47,7 @@ const TopChart = ({
                 <Wrapper>
                     <div
                         style={{
-                            padding: '2em',
+                            padding: '0 2em',
                             borderRadius: '20px'
                         }}
                     >

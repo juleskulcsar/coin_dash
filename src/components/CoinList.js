@@ -14,7 +14,7 @@ const Wrapper = styled.div`
     justify-content: space-around;
     /* width: 70%;
     left: 10em; */
-    height: 100vh;
+    height: 92vh;
     overflow: scroll;
     /* margin: 2em; */
 `;

@@ -12,7 +12,7 @@ const Wrapper = styled.div`
     position: relative;
     /* top: 2rem; */
     justify-content: space-around;
-    height: 95%;
+    height: 100%;
     overflow: scroll;
     border: 1px solid transparent;
     border-radius: 20px;

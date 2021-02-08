@@ -12,8 +12,9 @@ const ScoreCardWrapper = styled.div`
     display: flex;
     flex-direction: column;
     position: relative;
-    /* bottom: 0.7em; */
+    bottom: 2em;
     border-radius: 20px;
+    padding: 0 2em;
 `;
 
 const Paragraph = styled.p`
