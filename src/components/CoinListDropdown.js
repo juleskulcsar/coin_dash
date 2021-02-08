@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
@@ -26,7 +26,7 @@ const Dropdown = styled.div`
     justify-content: space-between;
 `;
 
-const StyledSelect = styled.select.attrs({ type: 'number' })`
+const StyledSelect = styled.select`
     padding: 4px 8px;
     border: 1px solid gray;
     border-radius: 4px;
@@ -42,7 +42,9 @@ const StyledSelect = styled.select.attrs({ type: 'number' })`
     }
 `;
 
-const Input = styled.input`
+const Input = styled.input.attrs(props => ({
+    type: props.num ? 'number' : null
+}))`
     padding: 4px 8px;
     border: 1px solid gray;
     border-radius: 4px;
@@ -53,7 +55,6 @@ const Input = styled.input`
     background: transparent;
     /* color: #bfbdbc; */
     color: ${props => (props.submitProfile ? '#F16350' : '#bfbdbc')};
-    cursor: ${props => (props.submitProfile ? 'pointer' : 'default')};
     :focus {
         outline: none !important;
     }
@@ -62,12 +63,20 @@ const Input = styled.input`
     }
 `;
 
+const Label = styled.label`
+    background: gray;
+    align-self: center;
+    color: white;
+`;
+
 const CoinListDropdown = ({ getCoins, coinsList: { coinsListData } }) => {
     useEffect(() => {
         getCoins();
     }, [getCoins]);
 
     console.log('coinsListData in dropdown', coinsListData);
+
+    const [val, setVal] = useState('');
 
     return (
         <Wrapper>
@@ -80,10 +89,22 @@ const CoinListDropdown = ({ getCoins, coinsList: { coinsListData } }) => {
                             <option id={item.id}>{item.id}</option>
                         ))}
                     </StyledSelect>
-                    <p style={{ color: 'white' }}>{coinsListData[0].id}</p>
-                    <Input />
-                    <p style={{ color: 'white' }}>USD</p>
-                    <Input />
+                    <Label>{coinsListData[0].id}</Label>
+                    <Input num={true} onChange={e => setVal(e.target.value)} />
+                    <span
+                        style={{
+                            color: 'white',
+                            fontSize: '2em',
+                            marginTop: '5px'
+                        }}
+                        class='material-icons'
+                    >
+                        compare_arrows
+                    </span>
+                    <>
+                        <Label>USD</Label>
+                        <Input value={val * coinsListData[0].current_price} />
+                    </>
                 </Dropdown>
             )}
         </Wrapper>
