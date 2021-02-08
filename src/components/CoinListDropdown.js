@@ -8,15 +8,8 @@ import CoinItem from './CoinItem';
 import { Spinner } from './Spinner';
 
 const Wrapper = styled.div`
-    /* display: flex;
-    flex-wrap: wrap;
-    position: relative;
-    justify-content: space-around; */
-    /* width: 70%;
-    left: 10em; */
     overflow: scroll;
     margin-top: 1em;
-    /* height: fit-content; */
 `;
 
 const Dropdown = styled.div`
@@ -33,7 +26,6 @@ const StyledSelect = styled.select`
     font-size: 1em;
     margin-bottom: 8px;
     margin-right: 1em;
-    /* width: 100%; */
     box-sizing: border-box;
     height: 40px;
     background: transparent;
@@ -72,16 +64,12 @@ const Label = styled.label`
     margin-bottom: 8px;
 `;
 
-const ConversionContainer = styled.div`
-    /* margin-left: 1em; */
-`;
-
 const CoinListDropdown = ({ getCoins, coinsList: { coinsListData } }) => {
     useEffect(() => {
         getCoins();
     }, [getCoins]);
 
-    console.log('coinsListData in dropdown', coinsListData);
+    // console.log('coinsListData in dropdown', coinsListData);
 
     const [val, setVal] = useState('');
 
