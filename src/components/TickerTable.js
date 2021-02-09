@@ -104,10 +104,10 @@ const TickerTable = ({ exchange: { exchange }, param }) => {
                                 <TH>Base</TH>
                                 <TH>Target</TH>
                                 <TH>Volume</TH>
-                                <TH>Converted Volume</TH>
+                                <TH>Converted Vol</TH>
                                 <TH>Bid ask spread %</TH>
-                                <TH>Is anomaly</TH>
-                                <TH>Is stale</TH>
+                                <TH>Anomaly</TH>
+                                <TH>Stale</TH>
                                 <TH>Last fetched</TH>
                             </TR>
                         </TableHead>

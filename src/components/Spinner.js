@@ -17,7 +17,7 @@ const Spinner = styled.div`
     border-radius: 50%;
     border-top: none;
     border-right: none;
-    visibility: ${props => (props.isVisible ? 'visible' : 'hidden')};
+    /* visibility: ${props => (props.isVisible ? 'visible' : 'hidden')}; */
     position: relative;
     top: 15rem;
     left: 5rem;

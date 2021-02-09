@@ -42,7 +42,7 @@ const myChart = (props, param) => {
                 {
                     label: 'volume',
                     backgroundColor: gradientLine,
-                    borderColor: 'white',
+                    borderColor: '#d6dbde',
                     data: props[0],
                     borderWidth: 1
                 }

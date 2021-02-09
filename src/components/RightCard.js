@@ -6,7 +6,9 @@ import { rgba, modularScale } from 'polished';
 const Card = styled.div`
     position: relative;
     width: 17em;
-    height: 22em;
+    /* height: 22em; */
+    height: 50%;
+    max-height: 40vh;
     margin-top: 3em;
     overflow: hidden;
     border-radius: 1rem;

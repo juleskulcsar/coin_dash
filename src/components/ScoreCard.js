@@ -27,7 +27,7 @@ const Card = styled.div`
             : css`
                   background: linear-gradient(
                       111.29deg,
-                      rgba(255, 255, 255, 0.53) -1.83%,
+                      rgba(255, 255, 255, 0.43) -1.83%,
                       rgba(255, 255, 255, 0) 189.95%
                   );
                   /* border: 1px solid rgb(235, 233, 233); */

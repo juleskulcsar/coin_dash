@@ -8,8 +8,14 @@ import CoinItem from './CoinItem';
 import { Spinner } from './Spinner';
 
 const Wrapper = styled.div`
-    overflow: scroll;
+    /* overflow: scroll; */
     margin-top: 1em;
+    height: 5vh;
+    @media (max-width: 768px) {
+        position: relative;
+        top: 23em;
+        width: 300px;
+    }
 `;
 
 const Dropdown = styled.div`
@@ -17,6 +23,11 @@ const Dropdown = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    @media (max-width: 768px) {
+        flex-direction: column;
+        position: relative;
+        top: 25em;
+    }
 `;
 
 const StyledSelect = styled.select`
@@ -30,10 +41,13 @@ const StyledSelect = styled.select`
     height: 40px;
     background: transparent;
     color: #bfbdbc;
-    /* box-shadow: 50px, 60px, 189px rgba(0, 0, 0, 0.95);
-    backdrop-filter: blur(70px); */
     :focus {
         outline: none !important;
+    }
+    @media (max-width: 768px) {
+        position: relative;
+        bottom: 25em;
+        width: 300px;
     }
 `;
 
@@ -42,19 +56,17 @@ const Input = styled.input.attrs(props => ({
 }))`
     padding: 4px 8px;
     border: 1px solid rgb(235, 233, 233, 0.3);
-    border-radius: 4px;
+    border-left: 1px solid transparent;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
     font-size: 1em;
     margin-bottom: 8px;
     box-sizing: border-box;
     height: 40px;
     background: transparent;
-    /* color: #bfbdbc; */
-    color: ${props => (props.submitProfile ? '#F16350' : '#bfbdbc')};
+    color: #bfbdbc;
     :focus {
         outline: none !important;
-    }
-    :hover {
-        background: ${props => (props.submitProfile ? '#34170d' : null)};
     }
 `;
 
@@ -64,6 +76,18 @@ const Label = styled.label`
     color: white;
     padding: 10px 20px 10px 20px;
     margin-bottom: 8px;
+    border: 1px solid rgb(235, 233, 233, 0.1);
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+`;
+
+const TestDiv = styled.div`
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    @media (max-width: 768px) {
+        display: none;
+    }
 `;
 
 const CoinListDropdown = ({ getCoins, coinsList: { coinsListData } }) => {
@@ -86,20 +110,25 @@ const CoinListDropdown = ({ getCoins, coinsList: { coinsListData } }) => {
                             <option id={item.id}>{item.id}</option>
                         ))}
                     </StyledSelect>
-                    <Label>{coinsListData[0].id}</Label>
-                    <Input num={true} onChange={e => setVal(e.target.value)} />
-                    <span
-                        style={{
-                            color: 'white',
-                            fontSize: '2em',
-                            marginTop: '5px'
-                        }}
-                        class='material-icons'
-                    >
-                        compare_arrows
-                    </span>
-                    <Label>USD</Label>
-                    <Input value={val * coinsListData[0].current_price} />
+                    <TestDiv>
+                        <Label>{coinsListData[0].id}</Label>
+                        <Input
+                            num={true}
+                            onChange={e => setVal(e.target.value)}
+                        />
+                        <span
+                            style={{
+                                color: 'white',
+                                fontSize: '1.5em',
+                                marginTop: '5px'
+                            }}
+                            class='material-icons'
+                        >
+                            compare_arrows
+                        </span>
+                        <Label>USD</Label>
+                        <Input value={val * coinsListData[0].current_price} />
+                    </TestDiv>
                 </Dropdown>
             )}
         </Wrapper>

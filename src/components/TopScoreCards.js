@@ -9,14 +9,14 @@ import { Spinner } from './Spinner';
 
 const ScoreCardWrapper = styled.div`
     display: flex;
-    /* position: relative; */
-    /* top: 1em; */
-    /* margin-bottom: 2em; */
+    max-width: 800px;
     border-radius: 20px;
     justify-content: space-between;
     @media (max-width: 768px) {
         flex-direction: column;
         align-items: center;
+        position: relative;
+        top: 24em;
     }
 `;
 
@@ -72,7 +72,7 @@ const TopScoreCards = ({ getCoinData, coinData: { coinDataLoad, coin } }) => {
                             <Paragraph>{coinDataLoad.name}</Paragraph>
                         </div>
                         <Paragraph>
-                            Current Price{' '}
+                            Price{' '}
                             <span
                                 style={{ color: '#bacdca', fontSize: '30px' }}
                             >

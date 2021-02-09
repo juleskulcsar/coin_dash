@@ -15,12 +15,10 @@ const ScoreCardWrapper = styled.div`
     bottom: 2em;
     border-radius: 20px;
     padding: 0 2em;
-`;
-
-const Paragraph = styled.p`
-    color: white;
-    line-height: 1.6;
-    font-size: 30px;
+    height: 98vh;
+    @media (max-width: 768px) {
+        top: 40em;
+    }
 `;
 
 const RightPanel = ({ getCoinData, coinData: { coinDataLoad, coin } }) => {

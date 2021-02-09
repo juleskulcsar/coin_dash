@@ -10,7 +10,7 @@ const Canvas = styled.canvas`
     /* border: 1px solid rgb(235, 233, 233); */
     background: linear-gradient(
         111.29deg,
-        rgba(255, 255, 255, 0.53) -1.83%,
+        rgba(255, 255, 255, 0.43) -1.83%,
         rgba(255, 255, 255, 0) 189.95%
     );
     box-shadow: 50px, 60px, 189px rgba(0, 0, 0, 0.95);
@@ -19,7 +19,8 @@ const Canvas = styled.canvas`
 
 const CanvasWrapper = styled.div`
     width: 800px;
-    height: 13em;
+    height: 50%;
+    position: relative;
     @media (max-width: 768px) {
         width: 300px;
     }
@@ -94,7 +95,7 @@ export default function Chart_Component(props) {
     }, [props]);
     return (
         <CanvasWrapper>
-            {/* <Canvas id='my_Chart' width='800' height='300' /> */}
+            {/* <Canvas id='my_Chart' width='800' height='500' /> */}
             <Canvas id='my_Chart' />
         </CanvasWrapper>
     );

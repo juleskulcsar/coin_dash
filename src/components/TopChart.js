@@ -15,6 +15,7 @@ const Panel = styled.div`
     justify-content: space-around;
     flex-direction: row;
     width: 80%;
+    height: 98vh;
     margin: 0 auto;
     @media (max-width: 768px) {
         flex-direction: column;
@@ -24,8 +25,23 @@ const Panel = styled.div`
 
 const Wrapper = styled.div`
     display: flex;
+    flex-direction: column;
     position: relative;
     border-radius: 20px;
+    height: 50vh;
+    margin-top: 1em;
+    @media (max-width: 768px) {
+        top: 38em;
+    }
+`;
+
+const TopSectionWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    height: 37vh;
+    @media (max-width: 768px) {
+        position: relative;
+    }
 `;
 
 const TopChart = ({
@@ -44,34 +60,26 @@ const TopChart = ({
             <div
                 style={{
                     display: 'flex',
-                    flexDirection: 'column'
+                    flexDirection: 'column',
+                    height: '98vh'
                 }}
             >
-                <CoinListDropdown />
-                <TopScoreCards />
+                <TopSectionWrapper>
+                    <CoinListDropdown />
+                    <TopScoreCards />
+                </TopSectionWrapper>
                 <Wrapper>
-                    <div
-                        style={{
-                            borderRadius: '20px',
-                            marginTop: '1em'
-                        }}
-                    >
-                        <div style={{ display: 'block' }}>
-                            <ChartComponent
-                                values={historicalDataLoad[0]}
-                                totalVolumes={historicalDataLoad[1]}
-                                dates={historicalDataLoad[2]}
-                                params={params.coin}
-                            />
-                        </div>
-                        <div style={{ display: 'block' }}>
-                            <ChartComponent3
-                                totalVolumes={historicalDataLoad[1]}
-                                dates={historicalDataLoad[2]}
-                                params={params.coin}
-                            />
-                        </div>
-                    </div>
+                    <ChartComponent
+                        values={historicalDataLoad[0]}
+                        totalVolumes={historicalDataLoad[1]}
+                        dates={historicalDataLoad[2]}
+                        params={params.coin}
+                    />
+                    <ChartComponent3
+                        totalVolumes={historicalDataLoad[1]}
+                        dates={historicalDataLoad[2]}
+                        params={params.coin}
+                    />
                 </Wrapper>
             </div>
             <div>
