@@ -25,14 +25,15 @@ const CanvasWrapper = styled.div`
     }
 `;
 
-export default function Chart_Component3(props) {
+export default function ChartComponent3(props) {
     useEffect(() => {
         const ctx = document.getElementById('my_Chart3');
         let c = ctx.getContext('2d');
         let gradientLine = c.createLinearGradient(0, 0, 0, ctx.height);
         gradientLine.addColorStop(0, '#D13C18');
         gradientLine.addColorStop(1, '#F6B4A4');
-        new Chart(ctx, {
+        if (window.myChart) window.myChart.destroy();
+        window.myChart = new Chart(ctx, {
             type: 'line',
             data: {
                 labels: props.dates,

@@ -42,10 +42,14 @@ const Paragraph = styled.p`
     }
 `;
 
-const TopScoreCards = ({ getCoinData, coinData: { coinDataLoad, coin } }) => {
+const TopScoreCards = ({
+    getCoinData,
+    coinData: { coinDataLoad, coin },
+    param
+}) => {
     useEffect(() => {
-        getCoinData(coin);
-    }, [getCoinData]);
+        getCoinData(param.coin);
+    }, [getCoinData, param.coin]);
 
     console.log('coinDataLoad: ', coinDataLoad);
 

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
@@ -46,14 +46,25 @@ const TopSectionWrapper = styled.div`
 
 const TopChart = ({
     getHistoricalData,
-    historicalData: { historicalDataLoad, params },
+    historicalData: { historicalDataLoad },
     coinData: { coinDataLoad, coin }
 }) => {
+    const [param, setParam] = useState({
+        coin: 'bitcoin',
+        currency: 'usd',
+        days: '30',
+        interval: 'daily'
+    });
     useEffect(() => {
-        getHistoricalData(params);
-    }, [getHistoricalData]);
+        getHistoricalData(param);
+    }, [param]);
 
-    console.log('historical: ', historicalDataLoad);
+    // console.log('historical: ', historicalDataLoad);
+
+    const handleClick = currency => {
+        param.coin = currency;
+        setParam({ ...param });
+    };
 
     return (
         <Panel>
@@ -65,20 +76,20 @@ const TopChart = ({
                 }}
             >
                 <TopSectionWrapper>
-                    <CoinListDropdown />
-                    <TopScoreCards />
+                    <CoinListDropdown handleClick={handleClick} />
+                    <TopScoreCards param={param} />
                 </TopSectionWrapper>
                 <Wrapper>
                     <ChartComponent
                         values={historicalDataLoad[0]}
-                        totalVolumes={historicalDataLoad[1]}
+                        // totalVolumes={historicalDataLoad[1]}
                         dates={historicalDataLoad[2]}
-                        params={params.coin}
+                        params={param.coin}
                     />
                     <ChartComponent3
                         totalVolumes={historicalDataLoad[1]}
                         dates={historicalDataLoad[2]}
-                        params={params.coin}
+                        params={param.coin}
                     />
                 </Wrapper>
             </div>

@@ -1,14 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 import { getCoins } from '../actions/coinsList';
-import CoinItem from './CoinItem';
 import { Spinner } from './Spinner';
 
 const Wrapper = styled.div`
-    /* overflow: scroll; */
     margin-top: 1em;
     height: 5vh;
     @media (max-width: 768px) {
@@ -84,13 +81,18 @@ const Label = styled.label`
 const TestDiv = styled.div`
     margin: 0;
     padding: 0;
-    width: 100%;
+    display: flex;
+    flex-direction: row;
     @media (max-width: 768px) {
         display: none;
     }
 `;
 
-const CoinListDropdown = ({ getCoins, coinsList: { coinsListData } }) => {
+const CoinListDropdown = ({
+    getCoins,
+    coinsList: { coinsListData },
+    handleClick
+}) => {
     useEffect(() => {
         getCoins();
     }, [getCoins]);
@@ -99,13 +101,17 @@ const CoinListDropdown = ({ getCoins, coinsList: { coinsListData } }) => {
 
     const [val, setVal] = useState('');
 
+    const clickHandler = params => {
+        handleClick(params);
+    };
+
     return (
         <Wrapper>
             {coinsListData.length == 0 ? (
                 <Spinner />
             ) : (
                 <Dropdown>
-                    <StyledSelect>
+                    <StyledSelect onChange={e => clickHandler(e.target.value)}>
                         {coinsListData.map(item => (
                             <option id={item.id}>{item.id}</option>
                         ))}

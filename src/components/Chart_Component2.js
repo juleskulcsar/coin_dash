@@ -99,13 +99,9 @@ function Chart_Component2({
     exchangeVolumes: { exchangeVolumeLoad, params },
     param
 }) {
-    console.log('chart2 params: ', params);
     useEffect(() => {
-        // getExchangeVolume(params);
         myChart(exchangeVolumeLoad, param);
     }, [myChart, exchangeVolumeLoad]);
-
-    console.log('char2 exchangeVolumeLoad: ', exchangeVolumeLoad);
 
     return (
         <CanvasWrapper>

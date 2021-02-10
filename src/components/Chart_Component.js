@@ -26,76 +26,144 @@ const CanvasWrapper = styled.div`
     }
 `;
 
-export default function Chart_Component(props) {
-    useEffect(() => {
-        const ctx = document.getElementById('my_Chart');
-        let c = ctx.getContext('2d');
-        let gradientLine = c.createLinearGradient(0, 0, 0, ctx.height);
-        gradientLine.addColorStop(0, 'rgba(250,174,50,1)');
-        gradientLine.addColorStop(1, 'rgba(250,174,50,0)');
-        new Chart(ctx, {
-            type: 'line',
+const myChart1 = props => {
+    const ctx = document.getElementById('my_Chart');
+    let c = ctx.getContext('2d');
+    let gradientLine = c.createLinearGradient(0, 0, 0, ctx.height);
+    gradientLine.addColorStop(0, 'rgba(250,174,50,1)');
+    gradientLine.addColorStop(1, 'rgba(250,174,50,0)');
+    if (window.myChart1) window.myChart1.destroy();
+    window.myChart1 = new Chart(ctx, {
+        type: 'line',
+        scaleFontColor: 'white',
+        data: {
+            labels: props.dates,
+            datasets: [
+                {
+                    label: 'price',
+                    // backgroundColor: gradientLine,
+                    borderColor: '#153144',
+                    data: props.values,
+                    borderWidth: 2
+                }
+            ]
+        },
+        options: {
+            responsive: true,
             scaleFontColor: 'white',
-            data: {
-                labels: props.dates,
-                datasets: [
+            maintainAspectRatio: false,
+            layout: {
+                padding: {
+                    top: 5,
+                    left: 15,
+                    right: 15,
+                    bottom: 15
+                }
+            },
+            scales: {
+                yAxes: [
                     {
-                        label: 'price',
-                        // backgroundColor: gradientLine,
-                        borderColor: '#153144',
-                        data: props.values,
-                        borderWidth: 2
+                        ticks: {
+                            beginAtZero: false,
+                            fontColor: 'white',
+                            display: false
+                        }
+                    }
+                ],
+                xAxes: [
+                    {
+                        ticks: {
+                            beginAtZero: false,
+                            fontColor: 'white',
+                            display: false
+                        }
                     }
                 ]
             },
-            options: {
-                responsive: true,
-                scaleFontColor: 'white',
-                maintainAspectRatio: false,
-                layout: {
-                    padding: {
-                        top: 5,
-                        left: 15,
-                        right: 15,
-                        bottom: 15
-                    }
-                },
-                scales: {
-                    yAxes: [
-                        {
-                            ticks: {
-                                beginAtZero: false,
-                                fontColor: 'white',
-                                display: false
-                            }
-                        }
-                    ],
-                    xAxes: [
-                        {
-                            ticks: {
-                                beginAtZero: false,
-                                fontColor: 'white',
-                                display: false
-                            }
-                        }
-                    ]
-                },
-                tooltips: {
-                    mode: 'nearest'
-                },
-                title: {
-                    display: true,
-                    text: `${props.params} price`,
-                    fontSize: 20,
-                    fontColor: 'white'
-                }
-                // events: ['click']
+            tooltips: {
+                mode: 'nearest'
+            },
+            title: {
+                display: true,
+                text: `${props.params} price`,
+                fontSize: 20,
+                fontColor: 'white'
             }
-        });
-    }, [props]);
+            // events: ['click']
+        }
+    });
+};
+
+export default function Chart_Component(props) {
+    useEffect(() => {
+        myChart1(props);
+        // const ctx = document.getElementById('my_Chart');
+        // let c = ctx.getContext('2d');
+        // let gradientLine = c.createLinearGradient(0, 0, 0, ctx.height);
+        // gradientLine.addColorStop(0, 'rgba(250,174,50,1)');
+        // gradientLine.addColorStop(1, 'rgba(250,174,50,0)');
+        // new Chart(ctx, {
+        //     type: 'line',
+        //     scaleFontColor: 'white',
+        //     data: {
+        //         labels: props.dates,
+        //         datasets: [
+        //             {
+        //                 label: 'price',
+        //                 // backgroundColor: gradientLine,
+        //                 borderColor: '#153144',
+        //                 data: props.values,
+        //                 borderWidth: 2
+        //             }
+        //         ]
+        //     },
+        //     options: {
+        //         responsive: true,
+        //         scaleFontColor: 'white',
+        //         maintainAspectRatio: false,
+        //         layout: {
+        //             padding: {
+        //                 top: 5,
+        //                 left: 15,
+        //                 right: 15,
+        //                 bottom: 15
+        //             }
+        //         },
+        //         scales: {
+        //             yAxes: [
+        //                 {
+        //                     ticks: {
+        //                         beginAtZero: false,
+        //                         fontColor: 'white',
+        //                         display: false
+        //                     }
+        //                 }
+        //             ],
+        //             xAxes: [
+        //                 {
+        //                     ticks: {
+        //                         beginAtZero: false,
+        //                         fontColor: 'white',
+        //                         display: false
+        //                     }
+        //                 }
+        //             ]
+        //         },
+        //         tooltips: {
+        //             mode: 'nearest'
+        //         },
+        //         title: {
+        //             display: true,
+        //             text: `${props.params} price`,
+        //             fontSize: 20,
+        //             fontColor: 'white'
+        //         }
+        //         // events: ['click']
+        //     }
+        // });
+    }, [props, myChart1]);
     return (
         <CanvasWrapper>
-            {/* <Canvas id='my_Chart' width='800' height='500' /> */}
             <Canvas id='my_Chart' />
         </CanvasWrapper>
     );
