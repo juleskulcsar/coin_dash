@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { withRouter } from 'react-router-dom';
-import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
-import { getHistoricalData } from '../actions/historicalData';
 import ChartComponent from './Chart_Component';
 import ChartComponent3 from './Chart_Component3';
 import TopScoreCards from './TopScoreCards';
 import RightPanel from './RightPanel';
 import CoinListDropdown from './CoinListDropdown';
+import { Spinner } from './Spinner';
 
 const Panel = styled.div`
     display: flex;
@@ -44,22 +43,13 @@ const TopSectionWrapper = styled.div`
     }
 `;
 
-const TopChart = ({
-    getHistoricalData,
-    historicalData: { historicalDataLoad },
-    coinData: { coinDataLoad, coin }
-}) => {
+const TopChart = ({ coinData: { coinDataLoad } }) => {
     const [param, setParam] = useState({
         coin: 'bitcoin',
         currency: 'usd',
         days: '30',
         interval: 'daily'
     });
-    useEffect(() => {
-        getHistoricalData(param);
-    }, [param]);
-
-    // console.log('historical: ', historicalDataLoad);
 
     const handleClick = currency => {
         param.coin = currency;
@@ -68,50 +58,36 @@ const TopChart = ({
 
     return (
         <Panel>
-            <div
-                style={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    height: '98vh'
-                }}
-            >
-                <TopSectionWrapper>
-                    <CoinListDropdown handleClick={handleClick} />
-                    <TopScoreCards param={param} />
-                </TopSectionWrapper>
-                <Wrapper>
-                    <ChartComponent
-                        values={historicalDataLoad[0]}
-                        // totalVolumes={historicalDataLoad[1]}
-                        dates={historicalDataLoad[2]}
-                        params={param.coin}
-                    />
-                    <ChartComponent3
-                        totalVolumes={historicalDataLoad[1]}
-                        dates={historicalDataLoad[2]}
-                        params={param.coin}
-                    />
-                </Wrapper>
-            </div>
-            <div>
-                <RightPanel coinDataLoad={coinDataLoad} />
-            </div>
+            {/* {historicalDataLoad.length < 1 ? (
+                <Spinner />
+            ) : ( */}
+            <>
+                <div
+                    style={{
+                        display: 'flex',
+                        flexDirection: 'column',
+                        height: '98vh'
+                    }}
+                >
+                    <TopSectionWrapper>
+                        <CoinListDropdown onChange={handleClick} />
+                        <TopScoreCards param={param} />
+                    </TopSectionWrapper>
+                    <Wrapper>
+                        <ChartComponent param={param} />
+                        <ChartComponent3 param={param} />
+                    </Wrapper>
+                </div>
+                <div>
+                    <RightPanel coinDataLoad={coinDataLoad} coin={param.coin} />
+                </div>
+            </>
+            {/* )} */}
         </Panel>
     );
 };
 
-TopChart.propTypes = {
-    getHistoricalData: PropTypes.func.isRequired,
-    historicalDataLoad: PropTypes.object.isRequired,
-    params: PropTypes.object.isRequired,
-    coinDataLoad: PropTypes.object.isRequired,
-    coin: PropTypes.object.isRequired
-};
-
 const mapStateToProps = state => ({
-    historicalData: state.historicalData,
     coinData: state.coinData
 });
-export default connect(mapStateToProps, { getHistoricalData })(
-    withRouter(TopChart)
-);
+export default connect(mapStateToProps)(withRouter(TopChart));

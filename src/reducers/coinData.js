@@ -1,7 +1,7 @@
 import { GET_COIN_DATA } from '../actions/types';
 
 const initialState = {
-    coinDataLoad: [],
+    coinDataLoad: {},
     coin: 'bitcoin',
     loading: true,
     error: {}

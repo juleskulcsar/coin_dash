@@ -21,14 +21,14 @@ const ScoreCardWrapper = styled.div`
     }
 `;
 
-const RightPanel = ({ getCoinData, coinData: { coinDataLoad, coin } }) => {
+const RightPanel = ({ getCoinData, coinData: { coinDataLoad }, coin }) => {
     useEffect(() => {
         getCoinData(coin);
     }, [getCoinData]);
 
     return (
         <>
-            {coinDataLoad.length == 0 ? (
+            {Object.keys(coinDataLoad).length == 0 ? (
                 <Spinner />
             ) : (
                 <ScoreCardWrapper>
@@ -43,8 +43,8 @@ const RightPanel = ({ getCoinData, coinData: { coinDataLoad, coin } }) => {
 
 RightPanel.propTypes = {
     getCoinData: PropTypes.func.isRequired,
-    coinDataLoad: PropTypes.object.isRequired,
-    coin: PropTypes.object.isRequired
+    coinDataLoad: PropTypes.object.isRequired
+    // coin: PropTypes.object.isRequired
 };
 
 const mapStateToProps = state => ({

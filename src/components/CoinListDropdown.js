@@ -91,7 +91,7 @@ const TestDiv = styled.div`
 const CoinListDropdown = ({
     getCoins,
     coinsList: { coinsListData },
-    handleClick
+    onChange
 }) => {
     useEffect(() => {
         getCoins();
@@ -102,7 +102,7 @@ const CoinListDropdown = ({
     const [val, setVal] = useState('');
 
     const clickHandler = params => {
-        handleClick(params);
+        onChange(params);
     };
 
     return (
@@ -112,8 +112,10 @@ const CoinListDropdown = ({
             ) : (
                 <Dropdown>
                     <StyledSelect onChange={e => clickHandler(e.target.value)}>
-                        {coinsListData.map(item => (
-                            <option id={item.id}>{item.id}</option>
+                        {coinsListData.map((item, index) => (
+                            <option key={index} id={item.id}>
+                                {item.id}
+                            </option>
                         ))}
                     </StyledSelect>
                     <TestDiv>
@@ -128,12 +130,15 @@ const CoinListDropdown = ({
                                 fontSize: '1.5em',
                                 marginTop: '5px'
                             }}
-                            class='material-icons'
+                            className='material-icons'
                         >
                             compare_arrows
                         </span>
                         <Label>USD</Label>
-                        <Input value={val * coinsListData[0].current_price} />
+                        <Input
+                            value={val * coinsListData[0].current_price}
+                            readOnly
+                        />
                     </TestDiv>
                 </Dropdown>
             )}

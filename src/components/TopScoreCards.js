@@ -42,11 +42,7 @@ const Paragraph = styled.p`
     }
 `;
 
-const TopScoreCards = ({
-    getCoinData,
-    coinData: { coinDataLoad, coin },
-    param
-}) => {
+const TopScoreCards = ({ getCoinData, coinData: { coinDataLoad }, param }) => {
     useEffect(() => {
         getCoinData(param.coin);
     }, [getCoinData, param.coin]);
@@ -61,7 +57,7 @@ const TopScoreCards = ({
 
     return (
         <>
-            {coinDataLoad.length == 0 ? (
+            {Object.keys(coinDataLoad).length == 0 ? (
                 <Spinner />
             ) : (
                 <>
@@ -137,10 +133,24 @@ const TopScoreCards = ({
 
                     <ScoreCardWrapper>
                         <ScoreCard
-                            text={'Max supply:   '}
-                            value={coinDataLoad.market_data.max_supply}
+                            text={`All time high: ${coinDataLoad.market_data.ath_date.usd.slice(
+                                0,
+                                10
+                            )}  `}
+                            value={coinDataLoad.market_data.ath.usd}
                             icon={icons[0]}
-                            symbolIs={''}
+                            symbolIs={'$'}
+                            transparent={false}
+                            margin={true}
+                        />
+                        <ScoreCard
+                            text={`All time low: ${coinDataLoad.market_data.atl_date.usd.slice(
+                                0,
+                                10
+                            )}   `}
+                            value={coinDataLoad.market_data.atl.usd}
+                            icon={icons[2]}
+                            symbolIs={'$'}
                             transparent={false}
                             margin={true}
                         />
@@ -149,18 +159,6 @@ const TopScoreCards = ({
                             value={coinDataLoad.market_data.circulating_supply}
                             icon={icons[1]}
                             symbolIs={''}
-                            transparent={false}
-                            margin={true}
-                        />
-
-                        <ScoreCard
-                            text={'Diluted valuation:   '}
-                            value={
-                                coinDataLoad.market_data.fully_diluted_valuation
-                                    .usd
-                            }
-                            icon={icons[2]}
-                            symbolIs={'$'}
                             transparent={false}
                         />
                     </ScoreCardWrapper>
@@ -171,9 +169,8 @@ const TopScoreCards = ({
 };
 
 TopScoreCards.propTypes = {
-    getCoinData: PropTypes.func.isRequired,
-    coinDataLoad: PropTypes.object.isRequired,
-    coin: PropTypes.object.isRequired
+    getCoinData: PropTypes.func.isRequired
+    // coinDataLoad: PropTypes.object.isRequired
 };
 
 const mapStateToProps = state => ({

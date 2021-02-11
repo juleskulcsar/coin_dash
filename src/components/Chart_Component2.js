@@ -41,7 +41,7 @@ const myChart = (props, param) => {
             datasets: [
                 {
                     label: 'volume',
-                    backgroundColor: gradientLine,
+                    // backgroundColor: gradientLine,
                     borderColor: '#d6dbde',
                     data: props[0],
                     borderWidth: 1
@@ -88,6 +88,11 @@ const myChart = (props, param) => {
                 text: `${param} volumes`,
                 fontSize: 20,
                 fontColor: 'white'
+            },
+            legend: {
+                labels: {
+                    boxWidth: 0
+                }
             }
             // events: ['click']
         }

@@ -55,367 +55,432 @@ const RightTable = ({ coinDataLoad }) => {
         <Card>
             <Scrollbars>
                 <Table>
-                    <tr>
-                        <TD>Timeframe</TD>
-                        <TH>% Change</TH>
-                    </tr>
-                    <tr>
-                        <TD>1h</TD>
-                        {coinDataLoad.market_data
-                            .price_change_percentage_1h_in_currency.usd < 0 ? (
-                            <TD>
-                                <span
-                                    style={{
-                                        color: '#E8431B',
-                                        fontSize: '20px'
-                                    }}
-                                >
-                                    {coinDataLoad.market_data.price_change_percentage_1h_in_currency.usd.toFixed(
-                                        2
+                    <tbody>
+                        <tr>
+                            <TD>Timeframe</TD>
+                            <TD>% Change</TD>
+                        </tr>
+                        <tr>
+                            <TD>1h</TD>
+                            {coinDataLoad.market_data
+                                .price_change_percentage_1h_in_currency.usd <
+                            0 ? (
+                                <TD>
+                                    <span
+                                        style={{
+                                            color: '#E8431B',
+                                            fontSize: '20px'
+                                        }}
+                                    >
+                                        {coinDataLoad.market_data.price_change_percentage_1h_in_currency.usd.toFixed(
+                                            2
+                                        )}
+                                        %
+                                    </span>
+                                    <span
+                                        className='material-icons'
+                                        style={{
+                                            color: '#E8431B',
+                                            fontSize: '20px'
+                                        }}
+                                    >
+                                        trending_down
+                                    </span>
+                                </TD>
+                            ) : (
+                                <TD>
+                                    {coinDataLoad.market_data
+                                        .price_change_percentage_1h_in_currency
+                                        .usd ? (
+                                        <>
+                                            <span
+                                                style={{
+                                                    color: '#56a192',
+                                                    fontSize: '20px'
+                                                }}
+                                            >
+                                                {coinDataLoad.market_data.price_change_percentage_1h_in_currency.usd.toFixed(
+                                                    2
+                                                )}
+                                                %
+                                            </span>
+                                            <span
+                                                className='material-icons'
+                                                style={{
+                                                    color: '#56a192',
+                                                    fontSize: '20px'
+                                                }}
+                                            >
+                                                trending_up
+                                            </span>
+                                        </>
+                                    ) : (
+                                        '--'
                                     )}
-                                    %
-                                </span>
-                                <span
-                                    className='material-icons'
-                                    style={{
-                                        color: '#E8431B',
-                                        fontSize: '20px'
-                                    }}
-                                >
-                                    trending_down
-                                </span>
-                            </TD>
-                        ) : (
-                            <TD>
-                                <span
-                                    style={{
-                                        color: '#56a192',
-                                        fontSize: '20px'
-                                    }}
-                                >
-                                    {coinDataLoad.market_data.price_change_percentage_1h_in_currency.usd.toFixed(
-                                        2
+                                </TD>
+                            )}
+                        </tr>
+                        <tr>
+                            <TD>24h</TD>
+                            {coinDataLoad.market_data
+                                .price_change_percentage_24h_in_currency.usd <
+                            0 ? (
+                                <TD>
+                                    <span
+                                        style={{
+                                            color: '#E8431B',
+                                            fontSize: '20px'
+                                        }}
+                                    >
+                                        {coinDataLoad.market_data.price_change_percentage_24h_in_currency.usd.toFixed(
+                                            2
+                                        )}
+                                        %
+                                    </span>
+                                    <span
+                                        className='material-icons'
+                                        style={{
+                                            color: '#E8431B',
+                                            fontSize: '20px'
+                                        }}
+                                    >
+                                        trending_down
+                                    </span>
+                                </TD>
+                            ) : (
+                                <TD>
+                                    {coinDataLoad.market_data
+                                        .price_change_percentage_24h_in_currency
+                                        .usd ? (
+                                        <>
+                                            <span
+                                                style={{
+                                                    color: '#56a192',
+                                                    fontSize: '20px'
+                                                }}
+                                            >
+                                                {coinDataLoad.market_data.price_change_percentage_24h_in_currency.usd.toFixed(
+                                                    2
+                                                )}
+                                                %
+                                            </span>
+                                            <span
+                                                className='material-icons'
+                                                style={{
+                                                    color: '#56a192',
+                                                    fontSize: '20px'
+                                                }}
+                                            >
+                                                trending_up
+                                            </span>
+                                        </>
+                                    ) : (
+                                        '--'
                                     )}
-                                    %
-                                </span>
-                                <span
-                                    className='material-icons'
-                                    style={{
-                                        color: '#56a192',
-                                        fontSize: '20px'
-                                    }}
-                                >
-                                    trending_up
-                                </span>
-                            </TD>
-                        )}
-                    </tr>
-                    <tr>
-                        <TD>24h</TD>
-                        {coinDataLoad.market_data
-                            .price_change_percentage_24h_in_currency.usd < 0 ? (
-                            <TD>
-                                <span
-                                    style={{
-                                        color: '#E8431B',
-                                        fontSize: '20px'
-                                    }}
-                                >
-                                    {coinDataLoad.market_data.price_change_percentage_24h_in_currency.usd.toFixed(
-                                        2
+                                </TD>
+                            )}
+                        </tr>
+                        <tr>
+                            <TD>7d</TD>
+                            {coinDataLoad.market_data
+                                .price_change_percentage_7d_in_currency.usd <
+                            0 ? (
+                                <TD>
+                                    <span
+                                        style={{
+                                            color: '#E8431B',
+                                            fontSize: '20px'
+                                        }}
+                                    >
+                                        {coinDataLoad.market_data.price_change_percentage_7d_in_currency.usd.toFixed(
+                                            2
+                                        )}
+                                        %
+                                    </span>
+                                    <span
+                                        className='material-icons'
+                                        style={{
+                                            color: '#E8431B',
+                                            fontSize: '20px'
+                                        }}
+                                    >
+                                        trending_down
+                                    </span>
+                                </TD>
+                            ) : (
+                                <TD>
+                                    {coinDataLoad.market_data
+                                        .price_change_percentage_7d_in_currency
+                                        .usd ? (
+                                        <>
+                                            <span
+                                                style={{
+                                                    color: '#56a192',
+                                                    fontSize: '20px'
+                                                }}
+                                            >
+                                                {coinDataLoad.market_data.price_change_percentage_7d_in_currency.usd.toFixed(
+                                                    2
+                                                )}
+                                                %
+                                            </span>
+                                            <span
+                                                className='material-icons'
+                                                style={{
+                                                    color: '#56a192',
+                                                    fontSize: '20px'
+                                                }}
+                                            >
+                                                trending_up
+                                            </span>
+                                        </>
+                                    ) : (
+                                        '--'
                                     )}
-                                    %
-                                </span>
-                                <span
-                                    className='material-icons'
-                                    style={{
-                                        color: '#E8431B',
-                                        fontSize: '20px'
-                                    }}
-                                >
-                                    trending_down
-                                </span>
-                            </TD>
-                        ) : (
-                            <TD>
-                                <span
-                                    style={{
-                                        color: '#56a192',
-                                        fontSize: '20px'
-                                    }}
-                                >
-                                    {coinDataLoad.market_data.price_change_percentage_24h_in_currency.usd.toFixed(
-                                        2
+                                </TD>
+                            )}
+                        </tr>
+                        <tr>
+                            <TD>14d</TD>
+                            {coinDataLoad.market_data
+                                .price_change_percentage_14d_in_currency.usd <
+                            0 ? (
+                                <TD>
+                                    <span
+                                        style={{
+                                            color: '#E8431B',
+                                            fontSize: '20px'
+                                        }}
+                                    >
+                                        {coinDataLoad.market_data.price_change_percentage_14d_in_currency.usd.toFixed(
+                                            2
+                                        )}
+                                        %
+                                    </span>
+                                    <span
+                                        className='material-icons'
+                                        style={{
+                                            color: '#E8431B',
+                                            fontSize: '20px'
+                                        }}
+                                    >
+                                        trending_down
+                                    </span>
+                                </TD>
+                            ) : (
+                                <TD>
+                                    {coinDataLoad.market_data
+                                        .price_change_percentage_14d_in_currency
+                                        .usd ? (
+                                        <>
+                                            <span
+                                                style={{
+                                                    color: '#56a192',
+                                                    fontSize: '20px'
+                                                }}
+                                            >
+                                                {coinDataLoad.market_data.price_change_percentage_14d_in_currency.usd.toFixed(
+                                                    2
+                                                )}
+                                                %
+                                            </span>
+                                            <span
+                                                className='material-icons'
+                                                style={{
+                                                    color: '#56a192',
+                                                    fontSize: '20px'
+                                                }}
+                                            >
+                                                trending_up
+                                            </span>
+                                        </>
+                                    ) : (
+                                        '--'
                                     )}
-                                    %
-                                </span>
-                                <span
-                                    className='material-icons'
-                                    style={{
-                                        color: '#56a192',
-                                        fontSize: '20px'
-                                    }}
-                                >
-                                    trending_up
-                                </span>
-                            </TD>
-                        )}
-                    </tr>
-                    <tr>
-                        <TD>7d</TD>
-                        {coinDataLoad.market_data
-                            .price_change_percentage_7d_in_currency.usd < 0 ? (
-                            <TD>
-                                <span
-                                    style={{
-                                        color: '#E8431B',
-                                        fontSize: '20px'
-                                    }}
-                                >
-                                    {coinDataLoad.market_data.price_change_percentage_7d_in_currency.usd.toFixed(
-                                        2
+                                </TD>
+                            )}
+                        </tr>
+                        <tr>
+                            <TD>30d</TD>
+                            {coinDataLoad.market_data
+                                .price_change_percentage_30d_in_currency.usd <
+                            0 ? (
+                                <TD>
+                                    <span
+                                        style={{
+                                            color: '#E8431B',
+                                            fontSize: '20px'
+                                        }}
+                                    >
+                                        {coinDataLoad.market_data.price_change_percentage_30d_in_currency.usd.toFixed(
+                                            2
+                                        )}
+                                        %
+                                    </span>
+                                    <span
+                                        className='material-icons'
+                                        style={{
+                                            color: '#E8431B',
+                                            fontSize: '20px'
+                                        }}
+                                    >
+                                        trending_down
+                                    </span>
+                                </TD>
+                            ) : (
+                                <TD>
+                                    {coinDataLoad.market_data
+                                        .price_change_percentage_30d_in_currency
+                                        .usd ? (
+                                        <>
+                                            <span
+                                                style={{
+                                                    color: '#56a192',
+                                                    fontSize: '20px'
+                                                }}
+                                            >
+                                                {coinDataLoad.market_data.price_change_percentage_30d_in_currency.usd.toFixed(
+                                                    2
+                                                )}
+                                                %
+                                            </span>
+                                            <span
+                                                className='material-icons'
+                                                style={{
+                                                    color: '#56a192',
+                                                    fontSize: '20px'
+                                                }}
+                                            >
+                                                trending_up
+                                            </span>
+                                        </>
+                                    ) : (
+                                        '--'
                                     )}
-                                    %
-                                </span>
-                                <span
-                                    className='material-icons'
-                                    style={{
-                                        color: '#E8431B',
-                                        fontSize: '20px'
-                                    }}
-                                >
-                                    trending_down
-                                </span>
-                            </TD>
-                        ) : (
-                            <TD>
-                                <span
-                                    style={{
-                                        color: '#56a192',
-                                        fontSize: '20px'
-                                    }}
-                                >
-                                    {coinDataLoad.market_data.price_change_percentage_7d_in_currency.usd.toFixed(
-                                        2
+                                </TD>
+                            )}
+                        </tr>
+                        <tr>
+                            <TD>60d</TD>
+                            {coinDataLoad.market_data
+                                .price_change_percentage_60d_in_currency.usd <
+                            0 ? (
+                                <TD>
+                                    <span
+                                        style={{
+                                            color: '#E8431B',
+                                            fontSize: '20px'
+                                        }}
+                                    >
+                                        {coinDataLoad.market_data.price_change_percentage_60d_in_currency.usd.toFixed(
+                                            2
+                                        )}
+                                        %
+                                    </span>
+                                    <span
+                                        className='material-icons'
+                                        style={{
+                                            color: '#E8431B',
+                                            fontSize: '20px'
+                                        }}
+                                    >
+                                        trending_down
+                                    </span>
+                                </TD>
+                            ) : (
+                                <TD>
+                                    {coinDataLoad.market_data
+                                        .price_change_percentage_60d_in_currency
+                                        .usd ? (
+                                        <>
+                                            <span
+                                                style={{
+                                                    color: '#56a192',
+                                                    fontSize: '20px'
+                                                }}
+                                            >
+                                                {coinDataLoad.market_data.price_change_percentage_60d_in_currency.usd.toFixed(
+                                                    2
+                                                )}
+                                                %
+                                            </span>
+                                            <span
+                                                className='material-icons'
+                                                style={{
+                                                    color: '#56a192',
+                                                    fontSize: '20px'
+                                                }}
+                                            >
+                                                trending_up
+                                            </span>
+                                        </>
+                                    ) : (
+                                        '--'
                                     )}
-                                    %
-                                </span>
-                                <span
-                                    className='material-icons'
-                                    style={{
-                                        color: '#56a192',
-                                        fontSize: '20px'
-                                    }}
-                                >
-                                    trending_up
-                                </span>
-                            </TD>
-                        )}
-                    </tr>
-                    <tr>
-                        <TD>14d</TD>
-                        {coinDataLoad.market_data
-                            .price_change_percentage_14d_in_currency.usd < 0 ? (
-                            <TD>
-                                <span
-                                    style={{
-                                        color: '#E8431B',
-                                        fontSize: '20px'
-                                    }}
-                                >
-                                    {coinDataLoad.market_data.price_change_percentage_14d_in_currency.usd.toFixed(
-                                        2
+                                </TD>
+                            )}
+                        </tr>
+                        <tr>
+                            <TD>1y</TD>
+                            {coinDataLoad.market_data
+                                .price_change_percentage_1y_in_currency.usd <
+                            0 ? (
+                                <TD>
+                                    <span
+                                        style={{
+                                            color: '#E8431B',
+                                            fontSize: '20px'
+                                        }}
+                                    >
+                                        {coinDataLoad.market_data.price_change_percentage_1y_in_currency.usd.toFixed(
+                                            2
+                                        )}
+                                        %
+                                    </span>
+                                    <span
+                                        className='material-icons'
+                                        style={{
+                                            color: '#E8431B',
+                                            fontSize: '20px'
+                                        }}
+                                    >
+                                        trending_down
+                                    </span>
+                                </TD>
+                            ) : (
+                                <TD>
+                                    {coinDataLoad.market_data
+                                        .price_change_percentage_1y_in_currency
+                                        .usd ? (
+                                        <>
+                                            <span
+                                                style={{
+                                                    color: '#56a192',
+                                                    fontSize: '20px'
+                                                }}
+                                            >
+                                                {coinDataLoad.market_data.price_change_percentage_1y_in_currency.usd.toFixed(
+                                                    2
+                                                )}
+                                                %
+                                            </span>
+                                            <span
+                                                className='material-icons'
+                                                style={{
+                                                    color: '#56a192',
+                                                    fontSize: '20px'
+                                                }}
+                                            >
+                                                trending_up
+                                            </span>
+                                        </>
+                                    ) : (
+                                        '--'
                                     )}
-                                    %
-                                </span>
-                                <span
-                                    className='material-icons'
-                                    style={{
-                                        color: '#E8431B',
-                                        fontSize: '20px'
-                                    }}
-                                >
-                                    trending_down
-                                </span>
-                            </TD>
-                        ) : (
-                            <TD>
-                                <span
-                                    style={{
-                                        color: '#56a192',
-                                        fontSize: '20px'
-                                    }}
-                                >
-                                    {coinDataLoad.market_data.price_change_percentage_14d_in_currency.usd.toFixed(
-                                        2
-                                    )}
-                                    %
-                                </span>
-                                <span
-                                    className='material-icons'
-                                    style={{
-                                        color: '#56a192',
-                                        fontSize: '20px'
-                                    }}
-                                >
-                                    trending_up
-                                </span>
-                            </TD>
-                        )}
-                    </tr>
-                    <tr>
-                        <TD>30d</TD>
-                        {coinDataLoad.market_data
-                            .price_change_percentage_30d_in_currency.usd < 0 ? (
-                            <TD>
-                                <span
-                                    style={{
-                                        color: '#E8431B',
-                                        fontSize: '20px'
-                                    }}
-                                >
-                                    {coinDataLoad.market_data.price_change_percentage_30d_in_currency.usd.toFixed(
-                                        2
-                                    )}
-                                    %
-                                </span>
-                                <span
-                                    className='material-icons'
-                                    style={{
-                                        color: '#E8431B',
-                                        fontSize: '20px'
-                                    }}
-                                >
-                                    trending_down
-                                </span>
-                            </TD>
-                        ) : (
-                            <TD>
-                                <span
-                                    style={{
-                                        color: '#56a192',
-                                        fontSize: '20px'
-                                    }}
-                                >
-                                    {coinDataLoad.market_data.price_change_percentage_30d_in_currency.usd.toFixed(
-                                        2
-                                    )}
-                                    %
-                                </span>
-                                <span
-                                    className='material-icons'
-                                    style={{
-                                        color: '#56a192',
-                                        fontSize: '20px'
-                                    }}
-                                >
-                                    trending_up
-                                </span>
-                            </TD>
-                        )}
-                    </tr>
-                    <tr>
-                        <TD>60d</TD>
-                        {coinDataLoad.market_data
-                            .price_change_percentage_60d_in_currency.usd < 0 ? (
-                            <TD>
-                                <span
-                                    style={{
-                                        color: '#E8431B',
-                                        fontSize: '20px'
-                                    }}
-                                >
-                                    {coinDataLoad.market_data.price_change_percentage_60d_in_currency.usd.toFixed(
-                                        2
-                                    )}
-                                    %
-                                </span>
-                                <span
-                                    className='material-icons'
-                                    style={{
-                                        color: '#E8431B',
-                                        fontSize: '20px'
-                                    }}
-                                >
-                                    trending_down
-                                </span>
-                            </TD>
-                        ) : (
-                            <TD>
-                                <span
-                                    style={{
-                                        color: '#56a192',
-                                        fontSize: '20px'
-                                    }}
-                                >
-                                    {coinDataLoad.market_data.price_change_percentage_60d_in_currency.usd.toFixed(
-                                        2
-                                    )}
-                                    %
-                                </span>
-                                <span
-                                    className='material-icons'
-                                    style={{
-                                        color: '#56a192',
-                                        fontSize: '20px'
-                                    }}
-                                >
-                                    trending_up
-                                </span>
-                            </TD>
-                        )}
-                    </tr>
-                    <tr>
-                        <TD>1y</TD>
-                        {coinDataLoad.market_data
-                            .price_change_percentage_1y_in_currency.usd < 0 ? (
-                            <TD>
-                                <span
-                                    style={{
-                                        color: '#E8431B',
-                                        fontSize: '20px'
-                                    }}
-                                >
-                                    {coinDataLoad.market_data.price_change_percentage_1y_in_currency.usd.toFixed(
-                                        2
-                                    )}
-                                    %
-                                </span>
-                                <span
-                                    className='material-icons'
-                                    style={{
-                                        color: '#E8431B',
-                                        fontSize: '20px'
-                                    }}
-                                >
-                                    trending_down
-                                </span>
-                            </TD>
-                        ) : (
-                            <TD>
-                                <span
-                                    style={{
-                                        color: '#56a192',
-                                        fontSize: '20px'
-                                    }}
-                                >
-                                    {coinDataLoad.market_data.price_change_percentage_1y_in_currency.usd.toFixed(
-                                        2
-                                    )}
-                                    %
-                                </span>
-                                <span
-                                    className='material-icons'
-                                    style={{
-                                        color: '#56a192',
-                                        fontSize: '20px'
-                                    }}
-                                >
-                                    trending_up
-                                </span>
-                            </TD>
-                        )}
-                    </tr>
+                                </TD>
+                            )}
+                        </tr>
+                    </tbody>
                 </Table>
             </Scrollbars>
         </Card>

@@ -86,7 +86,7 @@ const SideBar = () => {
                                     paddingRight: '1em',
                                     marginTop: '1em'
                                 }}
-                                class='material-icons'
+                                className='material-icons'
                             >
                                 dashboard
                             </span>
@@ -100,7 +100,7 @@ const SideBar = () => {
                                     paddingRight: '1em',
                                     marginTop: '1em'
                                 }}
-                                class='material-icons'
+                                className='material-icons'
                             >
                                 view_list
                             </span>
@@ -114,7 +114,7 @@ const SideBar = () => {
                                     paddingRight: '1em',
                                     marginTop: '1em'
                                 }}
-                                class='material-icons'
+                                className='material-icons'
                             >
                                 inventory_2
                             </span>
@@ -128,7 +128,7 @@ const SideBar = () => {
                                     paddingRight: '1em',
                                     marginTop: '1em'
                                 }}
-                                class='material-icons'
+                                className='material-icons'
                             >
                                 equalizer
                             </span>

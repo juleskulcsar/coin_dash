@@ -1,6 +1,10 @@
 import React, { useEffect } from 'react';
 import Chart from 'chart.js';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { getHistoricalData } from '../actions/historicalData';
+import { Spinner } from './Spinner';
 
 const Canvas = styled.canvas`
     filter: drop-shadow(1px 4px 12px #101820);
@@ -26,25 +30,25 @@ const CanvasWrapper = styled.div`
     }
 `;
 
-const myChart1 = props => {
+const myChart1 = (data, coin) => {
     const ctx = document.getElementById('my_Chart');
     let c = ctx.getContext('2d');
     let gradientLine = c.createLinearGradient(0, 0, 0, ctx.height);
     gradientLine.addColorStop(0, 'rgba(250,174,50,1)');
     gradientLine.addColorStop(1, 'rgba(250,174,50,0)');
-    if (window.myChart1) window.myChart1.destroy();
+    if (window.myChart1 != undefined) window.myChart1.destroy();
     window.myChart1 = new Chart(ctx, {
         type: 'line',
-        scaleFontColor: 'white',
+        // scaleFontColor: 'white',
         data: {
-            labels: props.dates,
+            labels: data[2],
             datasets: [
                 {
                     label: 'price',
                     // backgroundColor: gradientLine,
                     borderColor: '#153144',
-                    data: props.values,
-                    borderWidth: 2
+                    data: data[0],
+                    borderWidth: 1
                 }
             ]
         },
@@ -85,86 +89,45 @@ const myChart1 = props => {
             },
             title: {
                 display: true,
-                text: `${props.params} price`,
+                text: `${coin.coin} price`,
                 fontSize: 20,
                 fontColor: 'white'
+            },
+            legend: {
+                labels: {
+                    boxWidth: 0
+                }
             }
             // events: ['click']
         }
     });
 };
 
-export default function Chart_Component(props) {
+const Chart_Component = ({
+    getHistoricalData,
+    historicalData: { historicalDataLoad },
+    param
+}) => {
     useEffect(() => {
-        myChart1(props);
-        // const ctx = document.getElementById('my_Chart');
-        // let c = ctx.getContext('2d');
-        // let gradientLine = c.createLinearGradient(0, 0, 0, ctx.height);
-        // gradientLine.addColorStop(0, 'rgba(250,174,50,1)');
-        // gradientLine.addColorStop(1, 'rgba(250,174,50,0)');
-        // new Chart(ctx, {
-        //     type: 'line',
-        //     scaleFontColor: 'white',
-        //     data: {
-        //         labels: props.dates,
-        //         datasets: [
-        //             {
-        //                 label: 'price',
-        //                 // backgroundColor: gradientLine,
-        //                 borderColor: '#153144',
-        //                 data: props.values,
-        //                 borderWidth: 2
-        //             }
-        //         ]
-        //     },
-        //     options: {
-        //         responsive: true,
-        //         scaleFontColor: 'white',
-        //         maintainAspectRatio: false,
-        //         layout: {
-        //             padding: {
-        //                 top: 5,
-        //                 left: 15,
-        //                 right: 15,
-        //                 bottom: 15
-        //             }
-        //         },
-        //         scales: {
-        //             yAxes: [
-        //                 {
-        //                     ticks: {
-        //                         beginAtZero: false,
-        //                         fontColor: 'white',
-        //                         display: false
-        //                     }
-        //                 }
-        //             ],
-        //             xAxes: [
-        //                 {
-        //                     ticks: {
-        //                         beginAtZero: false,
-        //                         fontColor: 'white',
-        //                         display: false
-        //                     }
-        //                 }
-        //             ]
-        //         },
-        //         tooltips: {
-        //             mode: 'nearest'
-        //         },
-        //         title: {
-        //             display: true,
-        //             text: `${props.params} price`,
-        //             fontSize: 20,
-        //             fontColor: 'white'
-        //         }
-        //         // events: ['click']
-        //     }
-        // });
-    }, [props, myChart1]);
+        getHistoricalData(param);
+    }, [getHistoricalData, param]);
+    useEffect(() => {
+        myChart1(historicalDataLoad, param);
+    }, [myChart1, historicalDataLoad]);
+
     return (
         <CanvasWrapper>
             <Canvas id='my_Chart' />
         </CanvasWrapper>
     );
-}
+};
+
+Chart_Component.propTypes = {
+    getHistoricalData: PropTypes.func.isRequired,
+    historicalDataLoad: PropTypes.object.isRequired
+};
+
+const mapStateToProps = state => ({
+    historicalData: state.historicalData
+});
+export default connect(mapStateToProps, { getHistoricalData })(Chart_Component);
