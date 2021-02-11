@@ -1,7 +1,6 @@
 import axios from 'axios';
 import { GET_EXCHANGES, GET_EXCHANGES_ERROR } from './types';
 
-//get coin data
 export const getExchanges = () => async dispatch => {
     try {
         const res = await axios.get(
@@ -11,7 +10,6 @@ export const getExchanges = () => async dispatch => {
             type: GET_EXCHANGES,
             payload: res.data
         });
-        console.log('exchanges in actions: ', res.data);
     } catch (err) {
         dispatch({
             type: GET_EXCHANGES_ERROR,

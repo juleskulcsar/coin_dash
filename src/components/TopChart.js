@@ -70,7 +70,10 @@ const TopChart = ({ coinData: { coinDataLoad } }) => {
                     }}
                 >
                     <TopSectionWrapper>
-                        <CoinListDropdown onChange={handleClick} />
+                        <CoinListDropdown
+                            onChange={handleClick}
+                            coin={param.coin}
+                        />
                         <TopScoreCards param={param} />
                     </TopSectionWrapper>
                     <Wrapper>

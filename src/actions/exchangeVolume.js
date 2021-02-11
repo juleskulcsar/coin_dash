@@ -2,7 +2,6 @@ import axios from 'axios';
 import timeConverter from '../utils/timeConverter';
 import { GET_EXCHANGE_VOLUME, GET_EXCHANGE_VOLUME_ERROR } from './types';
 
-//get historical data
 export const getExchangeVolume = id => async dispatch => {
     try {
         const res = await axios.get(
@@ -22,7 +21,6 @@ export const getExchangeVolume = id => async dispatch => {
             type: GET_EXCHANGE_VOLUME,
             payload: data
         });
-        console.log('volume chart: ', res.data);
     } catch (err) {
         dispatch({
             type: GET_EXCHANGE_VOLUME_ERROR,

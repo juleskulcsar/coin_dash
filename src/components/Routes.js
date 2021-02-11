@@ -5,6 +5,7 @@ import TopChart from './TopChart';
 import CoinList from './CoinList';
 import Exchanges from './Exchanges';
 import ExchangeVolume from './ExchangeVolume';
+import GlobalData from './GlobalData';
 
 const Container = styled.div`
     background: #2d363d;
@@ -25,6 +26,7 @@ const Routes = () => {
             <Route exact path='/coinlist' component={CoinList} />
             <Route exact path='/exchanges' component={Exchanges} />
             <Route exact path='/volumes' component={ExchangeVolume} />
+            <Route exact path='/global-data' component={GlobalData} />
             {/* <Route component={NotFound} /> */}
         </Container>
     );

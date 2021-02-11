@@ -135,6 +135,20 @@ const SideBar = () => {
                             Volumes
                         </StyledLink>
                     </StyledList>
+                    <StyledList>
+                        <StyledLink to={`/global-data`}>
+                            <span
+                                style={{
+                                    paddingRight: '1em',
+                                    marginTop: '1em'
+                                }}
+                                className='material-icons'
+                            >
+                                equalizer
+                            </span>
+                            Global Data
+                        </StyledLink>
+                    </StyledList>
                 </StyledUl>
             </StyledDiv>
         </>

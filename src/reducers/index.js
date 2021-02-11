@@ -5,6 +5,7 @@ import coinData from './coinData';
 import exchanges from './exchanges';
 import exchangeVolumes from './exchangeVolumes';
 import exchange from './exchangeById';
+import globalData from './globalData';
 
 export default combineReducers({
     historicalData,
@@ -12,5 +13,6 @@ export default combineReducers({
     coinData,
     exchanges,
     exchangeVolumes,
-    exchange
+    exchange,
+    globalData
 });

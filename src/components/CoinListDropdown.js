@@ -91,19 +91,27 @@ const TestDiv = styled.div`
 const CoinListDropdown = ({
     getCoins,
     coinsList: { coinsListData },
-    onChange
+    onChange,
+    coin
 }) => {
     useEffect(() => {
         getCoins();
     }, [getCoins]);
 
-    // console.log('coinsListData in dropdown', coinsListData);
+    console.log('coinsListData in dropdown', coinsListData);
 
     const [val, setVal] = useState('');
 
     const clickHandler = params => {
         onChange(params);
     };
+
+    const idList = [];
+    for (let i = 0; i < coinsListData.length; i++) {
+        idList.push(coinsListData[i].id);
+    }
+    const id = idList.indexOf(coin);
+    console.log('id in coinListDropdown: ', id);
 
     return (
         <Wrapper>
@@ -119,7 +127,7 @@ const CoinListDropdown = ({
                         ))}
                     </StyledSelect>
                     <TestDiv>
-                        <Label>{coinsListData[0].id}</Label>
+                        <Label>{coinsListData[id].symbol}</Label>
                         <Input
                             num={true}
                             onChange={e => setVal(e.target.value)}
@@ -136,7 +144,7 @@ const CoinListDropdown = ({
                         </span>
                         <Label>USD</Label>
                         <Input
-                            value={val * coinsListData[0].current_price}
+                            value={val * coinsListData[id].current_price}
                             readOnly
                         />
                     </TestDiv>
