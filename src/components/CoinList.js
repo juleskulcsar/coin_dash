@@ -24,8 +24,6 @@ const CoinList = ({ getCoins, coinsList: { coinsListData } }) => {
         getCoins();
     }, [getCoins]);
 
-    console.log('coinsListData', coinsListData);
-
     return (
         <Wrapper>
             {coinsListData.length == 0 ? (

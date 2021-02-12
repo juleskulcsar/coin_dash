@@ -91,7 +91,6 @@ const TickerTable = ({ exchange: { exchange }, param }) => {
         };
     }, [param, getExchangeById]);
 
-    console.log('exchange in ticker table: ', exchange);
     return (
         <Wrapper>
             {Object.keys(exchange).length < 1 ? (

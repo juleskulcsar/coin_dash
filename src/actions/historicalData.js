@@ -7,7 +7,7 @@ export const getHistoricalData = params => async dispatch => {
         const res = await axios.get(
             `https://api.coingecko.com/api/v3/coins/${params.coin}/market_chart?vs_currency=${params.currency}&days=${params.days}&interval=${params.interval}`
         );
-        console.log('wtf??? ', res.data);
+
         let prices = [];
         let volumes = [];
         let marketCaps = [];

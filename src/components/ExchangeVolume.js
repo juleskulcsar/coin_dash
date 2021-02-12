@@ -118,7 +118,6 @@ const ExchangeVolume = ({
         idList.push(exchanges[i].id);
     }
     let idIndex = idList.indexOf('aax');
-    console.log('id: ', idIndex);
 
     const [active, setActive] = useState(0);
 

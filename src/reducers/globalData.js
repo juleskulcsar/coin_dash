@@ -1,7 +1,7 @@
 import { GET_GLOBAL_DATA } from '../actions/types';
 
 const initialState = {
-    globalDataLoad: {},
+    globalDataLoad: [],
     loading: true,
     error: {}
 };

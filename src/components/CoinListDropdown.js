@@ -98,8 +98,6 @@ const CoinListDropdown = ({
         getCoins();
     }, [getCoins]);
 
-    console.log('coinsListData in dropdown', coinsListData);
-
     const [val, setVal] = useState('');
 
     const clickHandler = params => {
@@ -111,7 +109,6 @@ const CoinListDropdown = ({
         idList.push(coinsListData[i].id);
     }
     const id = idList.indexOf(coin);
-    console.log('id in coinListDropdown: ', id);
 
     return (
         <Wrapper>

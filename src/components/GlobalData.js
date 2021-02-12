@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { getGlobalData } from '../actions/globalData';
 import { Spinner } from './Spinner';
+import PolarAreaChart from './PolarAreaChart';
 
 const GlobalData = ({
     getGlobalData,
@@ -11,15 +12,26 @@ const GlobalData = ({
 }) => {
     useEffect(() => {
         getGlobalData();
-    }, []);
+    }, [getGlobalData]);
 
-    console.log('globalDataLoad in component: ', globalDataLoad);
+    // const marketCapPercentage = globalDataLoad.market_cap_percentage;
+    // const labels = Object.keys(marketCapPercentage);
+    // const values = Object.values(marketCapPercentage);
+    console.log('global data: ', globalDataLoad);
 
-    return <>{loading ? <Spinner /> : <p>test</p>}</>;
+    return (
+        <>
+            {loading ? (
+                <Spinner />
+            ) : (
+                <PolarAreaChart globalDataLoad={globalDataLoad} />
+            )}
+        </>
+    );
 };
 
 GlobalData.propTypes = {
-    getGlobaldata: PropTypes.func.isRequired,
+    getGlobalData: PropTypes.func.isRequired,
     globalDataLoad: PropTypes.object.isRequired
 };
 
