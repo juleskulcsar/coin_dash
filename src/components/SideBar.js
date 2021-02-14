@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Link as RouterDomLink } from 'react-router-dom';
 import styled from 'styled-components';
+import logo from '../images/logo.png';
+import CoinGecko from '../images/CoinGecko.png';
 
 const Link = ({ isActive, children, ...props }) => {
     return <RouterDomLink {...props}>{children}</RouterDomLink>;
@@ -18,10 +20,8 @@ const StyledDiv = styled.div`
     padding-top: 1.5em;
     width: 14em;
     background: gray;
-    /* height: 100vh; */
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
-
     filter: drop-shadow(1px 4px 12px #101820);
     background: linear-gradient(
         111.29deg,
@@ -74,10 +74,45 @@ const StyledList = styled.li`
     }
 `;
 
+const Logo = styled.img`
+    height: 6em;
+    width: 6em;
+    margin-left: 3em;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: ${props => (props.square ? null : '50%')};
+    padding: 0.5em;
+    background: #44535d;
+`;
+
+const CoinGeckoLogo = styled.img`
+    height: 1.5em;
+    width: 1.5em;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    vertical-align: middle;
+`;
+
+const Paragraph = styled.p`
+    color: white;
+    line-height: 1.6;
+    font-size: 15px;
+    position: absolute;
+    bottom: 0;
+`;
+const ExternalLink = styled.a`
+    text-decoration: none;
+    line-height: 1.6;
+    color: white;
+`;
+const CoinGeckoWrapper = styled.div`
+    text-align: center;
+`;
+
 const SideBar = () => {
     return (
         <>
             <StyledDiv>
+                <Logo src={logo} />
                 <StyledUl>
                     <StyledList>
                         <StyledLink to={`/`}>
@@ -144,12 +179,23 @@ const SideBar = () => {
                                 }}
                                 className='material-icons'
                             >
-                                equalizer
+                                public
                             </span>
                             Global Data
                         </StyledLink>
                     </StyledList>
                 </StyledUl>
+                <CoinGeckoWrapper>
+                    <ExternalLink
+                        href='https://www.coingecko.com/'
+                        target='_blank'
+                    >
+                        <Paragraph>
+                            Data from CoinGecko{' '}
+                            <CoinGeckoLogo src={CoinGecko} square={true} />
+                        </Paragraph>
+                    </ExternalLink>
+                </CoinGeckoWrapper>
             </StyledDiv>
         </>
     );
