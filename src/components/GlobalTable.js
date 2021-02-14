@@ -5,18 +5,6 @@ import styled from 'styled-components';
 import { rgba, modularScale } from 'polished';
 import { Spinner } from './Spinner';
 
-const Wrapper = styled.div`
-    display: flex;
-    flex-wrap: wrap;
-    position: relative;
-    /* top: 2rem; */
-    justify-content: space-around;
-    height: 100%;
-    overflow: scroll;
-    border: 1px solid transparent;
-    border-radius: 20px;
-`;
-
 const TableWrapper = styled.div`
     box-shadow: 0 4px 15px ${rgba('black', 0.1)};
     filter: drop-shadow(1px 4px 12px #101820);
@@ -28,6 +16,11 @@ const TableWrapper = styled.div`
     );
     box-shadow: 50px, 60px, 189px rgba(0, 0, 0, 0.95);
     backdrop-filter: blur(70px);
+    overflow: scroll;
+    border-bottom: 1px solid white;
+    border-radius: 10px;
+    width: 40%;
+    margin-top: 8px;
 `;
 
 const Table = styled.table`
@@ -80,7 +73,7 @@ const TableHead = styled.thead`
 const GlobalTable = coins => {
     console.log('coins in globaltable: ', coins.coins);
     return (
-        <Wrapper>
+        <>
             {coins.length < 1 ? (
                 <Spinner />
             ) : (
@@ -107,7 +100,7 @@ const GlobalTable = coins => {
                     </Table>
                 </TableWrapper>
             )}
-        </Wrapper>
+        </>
     );
 };
 
