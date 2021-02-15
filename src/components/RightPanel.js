@@ -44,7 +44,6 @@ const RightPanel = ({ getCoinData, coinData: { coinDataLoad }, coin }) => {
 RightPanel.propTypes = {
     getCoinData: PropTypes.func.isRequired,
     coinDataLoad: PropTypes.object.isRequired
-    // coin: PropTypes.object.isRequired
 };
 
 const mapStateToProps = state => ({

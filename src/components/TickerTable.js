@@ -5,7 +5,6 @@ import styled from 'styled-components';
 import { rgba, modularScale } from 'polished';
 import { Spinner } from './Spinner';
 import { getExchangeById } from '../actions/exchangesById';
-import { getExchangeVolume } from '../actions/exchangeVolume';
 
 const Wrapper = styled.div`
     display: flex;
@@ -40,7 +39,6 @@ const Table = styled.table`
     width: 100%;
     max-width: 100%;
     white-space: nowrap;
-    /* height: 70%; */
     overflow: scroll;
     @media (max-width: 768px) {
         display: none;
@@ -58,7 +56,6 @@ const TH = styled.th`
     text-align: center;
     padding: 8px;
     color: #ffffff;
-    /* background: #5b6f7c; */
     background: linear-gradient(
         111.29deg,
         rgba(34, 41, 46, 1) -1.83%,
@@ -84,7 +81,6 @@ const TickerTable = ({ exchange: { exchange }, param }) => {
         let mounted = true;
         if (mounted) {
             getExchangeById(param);
-            // getExchangeVolume(param);
         }
         return function cleanup() {
             mounted = false;
@@ -141,10 +137,7 @@ const TickerTable = ({ exchange: { exchange }, param }) => {
     );
 };
 
-// export default TickerTable;
-
 TickerTable.propTypes = {
-    // getExchangeVolume: PropTypes.func.isRequired,
     getExchangeById: PropTypes.func.isRequired,
     exchange: PropTypes.object.isRequired
 };
@@ -154,5 +147,4 @@ const mapStateToProps = state => ({
 });
 export default connect(mapStateToProps, {
     getExchangeById
-    // getExchangeVolume
 })(TickerTable);

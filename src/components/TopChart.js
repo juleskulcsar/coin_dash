@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
@@ -7,7 +7,6 @@ import ChartComponent3 from './Chart_Component3';
 import TopScoreCards from './TopScoreCards';
 import RightPanel from './RightPanel';
 import CoinListDropdown from './CoinListDropdown';
-import { Spinner } from './Spinner';
 
 const Panel = styled.div`
     display: flex;
@@ -58,34 +57,28 @@ const TopChart = ({ coinData: { coinDataLoad } }) => {
 
     return (
         <Panel>
-            {/* {historicalDataLoad.length < 1 ? (
-                <Spinner />
-            ) : ( */}
-            <>
-                <div
-                    style={{
-                        display: 'flex',
-                        flexDirection: 'column',
-                        height: '98vh'
-                    }}
-                >
-                    <TopSectionWrapper>
-                        <CoinListDropdown
-                            onChange={handleClick}
-                            coin={param.coin}
-                        />
-                        <TopScoreCards param={param} />
-                    </TopSectionWrapper>
-                    <Wrapper>
-                        <ChartComponent param={param} />
-                        <ChartComponent3 param={param} />
-                    </Wrapper>
-                </div>
-                <div>
-                    <RightPanel coinDataLoad={coinDataLoad} coin={param.coin} />
-                </div>
-            </>
-            {/* )} */}
+            <div
+                style={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    height: '98vh'
+                }}
+            >
+                <TopSectionWrapper>
+                    <CoinListDropdown
+                        onChange={handleClick}
+                        coin={param.coin}
+                    />
+                    <TopScoreCards param={param} />
+                </TopSectionWrapper>
+                <Wrapper>
+                    <ChartComponent param={param} />
+                    <ChartComponent3 param={param} />
+                </Wrapper>
+            </div>
+            <div>
+                <RightPanel coinDataLoad={coinDataLoad} coin={param.coin} />
+            </div>
         </Panel>
     );
 };

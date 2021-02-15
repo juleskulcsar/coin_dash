@@ -1,6 +1,4 @@
-import React, { useEffect } from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
+import React from 'react';
 import styled from 'styled-components';
 import { rgba, modularScale } from 'polished';
 import { Spinner } from './Spinner';
@@ -31,7 +29,6 @@ const Table = styled.table`
     width: 100%;
     max-width: 100%;
     white-space: nowrap;
-    /* height: 70%; */
     overflow: scroll;
     @media (max-width: 768px) {
         display: none;
@@ -49,7 +46,6 @@ const TH = styled.th`
     text-align: center;
     padding: 8px;
     color: #ffffff;
-    /* background: #5b6f7c; */
     background: linear-gradient(
         111.29deg,
         rgba(34, 41, 46, 1) -1.83%,
@@ -71,7 +67,6 @@ const TableHead = styled.thead`
 `;
 
 const GlobalTable = coins => {
-    console.log('coins in globaltable: ', coins.coins);
     return (
         <>
             {coins.length < 1 ? (

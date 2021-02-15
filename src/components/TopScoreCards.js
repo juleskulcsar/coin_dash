@@ -47,8 +47,6 @@ const TopScoreCards = ({ getCoinData, coinData: { coinDataLoad }, param }) => {
         getCoinData(param.coin);
     }, [getCoinData, param.coin]);
 
-    console.log('coinDataLoad: ', coinDataLoad);
-
     const icons = [
         <i className='fas fa-parachute-box'></i>,
         <span className='material-icons'>loop</span>,
@@ -170,7 +168,6 @@ const TopScoreCards = ({ getCoinData, coinData: { coinDataLoad }, param }) => {
 
 TopScoreCards.propTypes = {
     getCoinData: PropTypes.func.isRequired
-    // coinDataLoad: PropTypes.object.isRequired
 };
 
 const mapStateToProps = state => ({

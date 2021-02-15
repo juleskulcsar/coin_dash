@@ -6,7 +6,6 @@ import { rgba, modularScale } from 'polished';
 const Card = styled.div`
     position: relative;
     width: 16em;
-    /* height: 20em; */
     height: 40%;
     max-height: 40vh;
     margin-top: 1em;
@@ -29,23 +28,12 @@ const Card = styled.div`
     box-shadow: 50px, 60px, 189px rgba(0, 0, 0, 0.95);
     backdrop-filter: blur(70px);
 `;
-
-const Paragraph = styled.p`
-    color: white;
-    line-height: 1.6;
-    font-size: ${props => (props.tes ? '20px' : '15px')};
-    font-weight: ${props => (props.tes ? 'bold' : null)};
-    padding-left: 1em;
-`;
-
 const Table = styled.table`
     color: white;
 `;
-
 const TD = styled.td`
     padding: 0.4rem;
 `;
-
 const TH = styled.th`
     padding: 0.5rem;
 `;

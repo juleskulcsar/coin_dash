@@ -1,11 +1,6 @@
 import React, { useEffect } from 'react';
-import { withRouter } from 'react-router-dom';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
 import styled from 'styled-components';
 import Chart from 'chart.js';
-import { getGlobalData } from '../actions/globalData';
-import { Spinner } from './Spinner';
 
 const CanvasWrapper = styled.div`
     width: 800px;

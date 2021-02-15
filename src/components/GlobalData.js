@@ -37,10 +37,7 @@ const GlobalData = ({
         getGlobalData();
     }, [getGlobalData]);
 
-    console.log('global data: ', globalDataLoad);
-
     let coins = [];
-
     for (const property in globalDataLoad.total_volume) {
         let coin = {};
         coin.coin = property;

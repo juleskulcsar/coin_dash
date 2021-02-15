@@ -30,7 +30,6 @@ const Card = styled.div`
                       rgba(255, 255, 255, 0.43) -1.83%,
                       rgba(255, 255, 255, 0) 189.95%
                   );
-                  /* border: 1px solid rgb(235, 233, 233); */
               `}
     box-shadow: 50px, 60px, 189px rgba(0, 0, 0, 0.95);
     backdrop-filter: blur(70px);

@@ -1,9 +1,5 @@
-import React, { useEffect } from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
+import React from 'react';
 import styled from 'styled-components';
-import { rgba, modularScale } from 'polished';
-import { Spinner } from './Spinner';
 
 const StyledUl = styled.ul`
     list-style: none;
@@ -24,7 +20,6 @@ const StyledList = styled.li`
 `;
 
 const GlobalList = globalDataLoad => {
-    console.log('global list: ', globalDataLoad);
     return (
         <>
             <StyledUl>
