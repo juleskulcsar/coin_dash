@@ -12,7 +12,7 @@ import Navbar from './components/Navbar';
 const Wrapper = styled.div`
     display: flex;
     position: relative;
-    padding-left: 3em;
+    /* padding-left: 3em; */
     margin: 0 auto;
     top: 4em;
     border-radius: 20px;

@@ -27,6 +27,12 @@ const RightFlex = styled.div`
     flex-direction: column;
     justify-content: space-between;
     padding-bottom: 2em;
+    @media (min-width: 2560px) {
+        /* justify-content: space-around; */
+        justify-content: flex-start;
+        margin-top: 2em;
+        margin-left: 1em;
+    }
 `;
 
 const GlobalData = ({

@@ -18,7 +18,8 @@ const StyledDiv = styled.div`
     border-left: 1px solid #682e19;
     padding-left: 1em;
     padding-top: 1.5em;
-    width: 14em;
+    /* width: 14em; */
+    width: 15vw;
     background: gray;
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
@@ -32,6 +33,9 @@ const StyledDiv = styled.div`
     backdrop-filter: blur(70px);
     @media (max-width: 768px) {
         display: none;
+    }
+    @media (min-width: 3840px) {
+        width: 10vw;
     }
 `;
 

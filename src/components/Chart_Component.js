@@ -10,8 +10,6 @@ const Canvas = styled.canvas`
     filter: drop-shadow(1px 4px 12px #101820);
     border-radius: 20px;
     margin-bottom: 20px;
-
-    /* border: 1px solid rgb(235, 233, 233); */
     background: linear-gradient(
         111.29deg,
         rgba(255, 255, 255, 0.43) -1.83%,
@@ -22,11 +20,17 @@ const Canvas = styled.canvas`
 `;
 
 const CanvasWrapper = styled.div`
-    width: 800px;
+    /* width: 800px; */
+    width: 60vw;
+    max-width: 1200px;
     height: 50%;
+    /* max-height: 20vw; */
     position: relative;
     @media (max-width: 768px) {
         width: 300px;
+    }
+    @media (min-width: 2560px) {
+        max-height: 20vw;
     }
 `;
 

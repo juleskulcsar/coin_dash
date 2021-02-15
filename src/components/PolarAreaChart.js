@@ -9,6 +9,9 @@ const CanvasWrapper = styled.div`
     @media (max-width: 768px) {
         width: 300px;
     }
+    @media (min-width: 2560px) {
+        width: 1000px;
+    }
 `;
 
 const Canvas = styled.canvas`

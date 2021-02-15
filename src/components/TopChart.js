@@ -31,12 +31,15 @@ const Wrapper = styled.div`
     @media (max-width: 768px) {
         top: 38em;
     }
+    @media (min-width: 2560px) {
+        height: 100%;
+    }
 `;
 
 const TopSectionWrapper = styled.div`
     display: flex;
     flex-direction: column;
-    height: 37vh;
+    /* height: 37vh; */
     @media (max-width: 768px) {
         position: relative;
     }

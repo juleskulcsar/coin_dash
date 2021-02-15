@@ -12,7 +12,7 @@ const Container = styled.div`
     border-top-right-radius: 20px;
     border-bottom-right-radius: 20px;
     padding: 0 1em 0 0;
-    width: 80%;
+    width: 100%;
     @media (max-width: 768px) {
         width: 100%;
         border-radius: 0 0 0 0;

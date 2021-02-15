@@ -60,6 +60,7 @@ const MobileMenuIcon = styled.div`
 const HeaderWrapper = styled.div`
     height: 60px;
     width: 100%;
+    max-width: 2000px;
     box-sizing: border-box;
     padding: 0 16px;
     position: fixed;

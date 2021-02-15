@@ -21,8 +21,11 @@ const Canvas = styled.canvas`
 `;
 
 const CanvasWrapper = styled.div`
-    width: 800px;
+    /* width: 800px; */
+    width: 60vw;
+    max-width: 1200px;
     height: 50%;
+    max-height: 20vw;
     position: relative;
     @media (max-width: 768px) {
         width: 300px;
