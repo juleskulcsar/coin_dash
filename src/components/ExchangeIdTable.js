@@ -132,20 +132,4 @@ const ExchangeIdTable = ({ exchanges, handleClick }) => {
     );
 };
 
-// export default ExchangeIdTable;
-
-// ExchangeIdTable.propTypes = {
-//     getExchangeVolume: PropTypes.func.isRequired,
-//     exchangeVolumeLoad: PropTypes.object.isRequired,
-//     params: PropTypes.object.isRequired,
-//     getExchanges: PropTypes.func.isRequired,
-//     getExchangeById: PropTypes.func.isRequired,
-//     exchange: PropTypes.object.isRequired
-// };
-
-// const mapStateToProps = state => ({
-//     exchangeVolumes: state.exchangeVolumes,
-//     exchanges: state.exchanges,
-//     exchange: state.exchange
-// });
 export default connect()(ExchangeIdTable);

@@ -1,14 +1,7 @@
-import React, { useState } from 'react';
-import { withRouter } from 'react-router-dom';
-import { connect } from 'react-redux';
+import React from 'react';
 import { Scrollbars } from 'react-custom-scrollbars';
 import styled, { css, keyframes } from 'styled-components';
 import { rgba, modularScale } from 'polished';
-
-const breatheAnimation = keyframes`
- 0% { height: 0; width: 0; }
- 100% { height: 290px; width: 300px; opacity: 0.9; }
- `;
 
 const Card = styled.div`
     position: relative;
@@ -30,9 +23,6 @@ const Card = styled.div`
         rgba(27, 32, 37, 0) 189.95%
     );
     box-shadow: 50px, 60px, 189px rgba(0, 0, 0, 0.95);
-    /* animation-name: ${breatheAnimation};
-    animation-duration: 0.8s;
-    animation-iteration-count: 1; */
     color: white;
 `;
 

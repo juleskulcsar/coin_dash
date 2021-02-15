@@ -125,15 +125,6 @@ const ExchangeVolume = ({
         <Row>
             <Underline active={active} />
             <div style={{ display: 'flex' }}>
-                {/* {tabs.map((tab, index) => (
-                    <Button
-                        active={active === index}
-                        onClick={() => setActive(index)}
-                        hide={true}
-                    >
-                        {tab}
-                    </Button>
-                    ))} */}
                 <Button
                     active={active === 0}
                     onClick={() => setActive(0)}

@@ -12,11 +12,8 @@ const Wrapper = styled.div`
     flex-wrap: wrap;
     position: relative;
     justify-content: space-around;
-    /* width: 70%;
-    left: 10em; */
     height: 92vh;
     overflow: scroll;
-    /* margin: 2em; */
 `;
 
 const CoinList = ({ getCoins, coinsList: { coinsListData } }) => {
