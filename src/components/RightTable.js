@@ -7,9 +7,9 @@ const Card = styled.div`
     position: relative;
     width: 16em;
     height: 40%;
-    max-height: 40vh;
+    max-height: 38vh;
     margin-top: 1em;
-    margin-bottom: 1em;
+    /* margin-bottom: 1em; */
     padding-left: 1em;
     overflow: hidden;
     border-radius: 1rem;

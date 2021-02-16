@@ -14,7 +14,9 @@ const Panel = styled.div`
     flex-direction: row;
     width: 80%;
     height: 98vh;
-    margin: 0 auto;
+    /* margin: 0 auto; */
+    position: relative;
+    left: 10em;
     @media (max-width: 768px) {
         flex-direction: column;
         align-items: center;
@@ -79,7 +81,13 @@ const TopChart = ({ coinData: { coinDataLoad } }) => {
                     <ChartComponent3 param={param} />
                 </Wrapper>
             </div>
-            <div>
+            <div
+                style={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    height: '98vh'
+                }}
+            >
                 <RightPanel coinDataLoad={coinDataLoad} coin={param.coin} />
             </div>
         </Panel>

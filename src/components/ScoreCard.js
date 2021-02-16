@@ -6,12 +6,12 @@ import { rgba, modularScale } from 'polished';
 const Card = styled.div`
     position: relative;
     width: ${props => (props.transparent ? '20em' : '100%')};
-    height: ${props => (props.transparent ? '6em' : '7em')};
+    height: ${props => (props.transparent ? '5em' : '6em')};
     margin-right: ${props => (props.margin ? '1em' : '0')};
     overflow: hidden;
     border-radius: 1rem;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
+    /* padding-top: 1rem;
+    padding-bottom: 1rem; */
     box-shadow: 0 4px 15px ${rgba('black', 0.1)};
     filter: drop-shadow(1px 4px 12px #101820);
     opacity: 0.9;
@@ -50,9 +50,10 @@ const ListWrapper = styled.div`
 const Paragraph = styled.p`
     color: white;
     font-size: ${props =>
-        props.tes ? '20px' : props.transparent ? '30px' : '15px'};
+        props.tes ? '20px' : props.transparent ? '25px' : '15px'};
     font-weight: ${props => (props.tes ? 'bold' : null)};
     padding-left: 1em;
+    margin: 10px 0 10px 0;
     @media (max-width: 768px) {
         margin: 0;
     }

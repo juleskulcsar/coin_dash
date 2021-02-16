@@ -18,8 +18,8 @@ const StyledDiv = styled.div`
     border-left: 1px solid #682e19;
     padding-left: 1em;
     padding-top: 1.5em;
-    /* width: 14em; */
     width: 15vw;
+    min-width: 15vw;
     background: gray;
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
@@ -46,9 +46,9 @@ const StyledUl = styled.ul`
 
 const StyledList = styled.li`
     text-align: left;
-    font-size: 20px;
-    line-height: 1.7;
-    padding: 5px;
+    font-size: 16px;
+    line-height: 1.6;
+    padding: 2px;
     > a {
         position: relative;
         color: white;
@@ -79,8 +79,8 @@ const StyledList = styled.li`
 `;
 
 const Logo = styled.img`
-    height: 6em;
-    width: 6em;
+    height: 4em;
+    width: 4em;
     margin-left: 3em;
     border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: ${props => (props.square ? null : '50%')};

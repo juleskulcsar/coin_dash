@@ -50,9 +50,9 @@ const TopScoreCards = ({ getCoinData, coinData: { coinDataLoad }, param }) => {
     }, [getCoinData, param.coin]);
 
     const icons = [
-        <i className='fas fa-parachute-box'></i>,
+        <span className='material-icons'>slow_motion_video</span>,
         <span className='material-icons'>loop</span>,
-        <span className='material-icons'>monetization_on</span>
+        <span className='material-icons'>speed</span>
     ];
 
     return (
@@ -74,7 +74,7 @@ const TopScoreCards = ({ getCoinData, coinData: { coinDataLoad }, param }) => {
                         <Paragraph>
                             Price{' '}
                             <span
-                                style={{ color: '#bacdca', fontSize: '30px' }}
+                                style={{ color: '#bacdca', fontSize: '25px' }}
                             >
                                 ${coinDataLoad.market_data.current_price.usd}
                             </span>
@@ -86,7 +86,7 @@ const TopScoreCards = ({ getCoinData, coinData: { coinDataLoad }, param }) => {
                                 <span
                                     style={{
                                         color: '#E8431B',
-                                        fontSize: '30px'
+                                        fontSize: '25px'
                                     }}
                                 >
                                     {coinDataLoad.market_data.price_change_percentage_24h.toFixed(
@@ -110,7 +110,7 @@ const TopScoreCards = ({ getCoinData, coinData: { coinDataLoad }, param }) => {
                                 <span
                                     style={{
                                         color: '#56a192',
-                                        fontSize: '30px'
+                                        fontSize: '25px'
                                     }}
                                 >
                                     {coinDataLoad.market_data.price_change_percentage_24h.toFixed(
