@@ -20,7 +20,7 @@ const Canvas = styled.canvas`
 `;
 
 const CanvasWrapper = styled.div`
-    width: 800px;
+    width: 750px;
     height: 60%;
     @media (max-width: 768px) {
         width: 300px;
@@ -100,7 +100,6 @@ const myChart = (props, param) => {
 };
 
 function Chart_Component2({
-    getExchangeVolume,
     exchangeVolumes: { exchangeVolumeLoad, params },
     param
 }) {

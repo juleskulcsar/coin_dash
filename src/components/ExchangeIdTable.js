@@ -52,7 +52,7 @@ const Table = styled.table`
 
 const TD = styled.td`
     text-align: center;
-    font-size: 18px;
+    font-size: 13px;
     padding: 8px;
     color: ${props => (props.color ? '#bacdca' : null)};
 `;
@@ -81,7 +81,7 @@ let color = '#37434a';
 const Button = styled.button`
     border-bottom: 1px solid ${rgba('white', 0.25)};
     color: white;
-    font-size: 18px;
+    font-size: 13px;
     background: ${color};
     height: 2em;
     width: 100%;

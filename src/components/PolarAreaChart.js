@@ -3,8 +3,10 @@ import styled from 'styled-components';
 import Chart from 'chart.js';
 
 const CanvasWrapper = styled.div`
-    width: 800px;
+    width: 750px;
+    margin: 2em;
     position: relative;
+    top: 3em;
     margin-top: 8px;
     @media (max-width: 768px) {
         width: 300px;

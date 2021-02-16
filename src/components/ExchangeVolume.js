@@ -20,9 +20,9 @@ const transition = css`
 const Card = styled.div`
     overflow: hidden;
     position: relative;
-    width: 850px;
+    width: 780px;
     max-width: 900px;
-    margin: 0 auto;
+    /* margin: 0 auto; */
 `;
 const Row = styled.div`
     position: relative;
@@ -32,7 +32,7 @@ const Underline = styled.div`
     left: 0;
     bottom: 0;
     top: 3em;
-    width: 425px;
+    width: 390px;
     height: 8px;
     background: #e47656;
     transform: translateX(${p => (p.active === 0 ? 0 : p.active * 100)}%);
@@ -69,7 +69,7 @@ const Content = styled.div`
     height: 90%;
     display: flex;
     justify-content: space-between;
-    transform: translate(${p => (p.active === 0 ? 0 : `-${p.active * 850}px`)});
+    transform: translate(${p => (p.active === 0 ? 0 : `-${p.active * 820}px`)});
     ${transition};
 `;
 

@@ -13,7 +13,7 @@ import GlobalList from './GlobalList';
 const Wrapper = styled.div`
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
     height: 90vh;
     margin-left: 2em;
     @media (max-width: 768px) {
@@ -25,7 +25,7 @@ const Wrapper = styled.div`
 const RightFlex = styled.div`
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-around;
     padding-bottom: 2em;
     @media (min-width: 2560px) {
         /* justify-content: space-around; */

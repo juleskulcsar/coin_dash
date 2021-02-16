@@ -36,7 +36,7 @@ const TableWrapper = styled.div`
 
 const Table = styled.table`
     border-radius: 5px;
-    font-size: 13px;
+    font-size: 12px;
     font-weight: normal;
     border: none;
     border-collapse: collapse;
@@ -47,7 +47,7 @@ const Table = styled.table`
 
 const TD = styled.td`
     text-align: center;
-    font-size: 13px;
+    font-size: 12px;
     padding: 8px;
     color: ${props => (props.color ? '#bacdca' : null)};
 `;

@@ -9,8 +9,8 @@ const StyledUl = styled.ul`
 
 const StyledList = styled.li`
     text-align: left;
-    font-size: 20px;
-    line-height: 1.7;
+    font-size: 13px;
+    /* line-height: 1.7; */
     padding: 5px;
     color: #eff1f2;
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);

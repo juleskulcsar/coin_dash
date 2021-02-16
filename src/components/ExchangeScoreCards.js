@@ -10,7 +10,7 @@ const ScoreCardWrapper = styled.div`
     display: flex;
     position: relative;
     top: 1em;
-    margin: 1em;
+    margin: 1em 1em 1em 0;
     width: 100%;
     border-radius: 20px;
     justify-content: space-between;
