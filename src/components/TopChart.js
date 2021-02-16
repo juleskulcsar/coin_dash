@@ -14,9 +14,9 @@ const Panel = styled.div`
     flex-direction: row;
     width: 80%;
     height: 98vh;
-    /* margin: 0 auto; */
+    margin: 0 auto;
     position: relative;
-    left: 10em;
+    left: 2em;
     @media (max-width: 768px) {
         flex-direction: column;
         align-items: center;
@@ -35,6 +35,9 @@ const Wrapper = styled.div`
     }
     @media (min-width: 2560px) {
         height: 100%;
+    }
+    @media (min-width: 1440px) {
+        height: 55vh;
     }
 `;
 

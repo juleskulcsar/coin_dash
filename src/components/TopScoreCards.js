@@ -35,7 +35,7 @@ const Image = styled.img`
 const Paragraph = styled.p`
     color: white;
     line-height: 1.6;
-    font-size: 30px;
+    font-size: 25px;
     padding-right: 1em;
     @media (max-width: 768px) {
         font-size: 20px;

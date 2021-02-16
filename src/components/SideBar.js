@@ -18,8 +18,8 @@ const StyledDiv = styled.div`
     border-left: 1px solid #682e19;
     padding-left: 1em;
     padding-top: 1.5em;
-    width: 15vw;
-    min-width: 15vw;
+    width: 14vw;
+    min-width: 14vw;
     background: gray;
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
