@@ -21,6 +21,7 @@ const Card = styled.div`
     overflow: hidden;
     position: relative;
     width: 850px;
+    max-width: 900px;
     margin: 0 auto;
 `;
 const Row = styled.div`
