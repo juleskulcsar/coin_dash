@@ -76,6 +76,9 @@ const StyledList = styled.li`
         -webkit-transform: scaleX(1);
         transform: scaleX(1);
     }
+    @media (min-width: 2560px) {
+        font-size: 30px;
+    }
 `;
 
 const Logo = styled.img`
@@ -102,6 +105,9 @@ const Paragraph = styled.p`
     font-size: 15px;
     position: absolute;
     bottom: 0;
+    @media (min-width: 2560px) {
+        font-size: 20px;
+    }
 `;
 const ExternalLink = styled.a`
     text-decoration: none;
@@ -119,7 +125,7 @@ const SideBar = () => {
                 <Logo src={logo} />
                 <StyledUl>
                     <StyledList>
-                        <StyledLink to={`/`}>
+                        <StyledLink to={`/coin_dash`}>
                             <span
                                 style={{
                                     paddingRight: '1em',
