@@ -20,6 +20,8 @@ const Panel = styled.div`
     @media (max-width: 768px) {
         flex-direction: column;
         align-items: center;
+        justify-content: space-evenly;
+        left: 0;
     }
 `;
 
@@ -31,7 +33,8 @@ const Wrapper = styled.div`
     height: 50vh;
     margin-top: 1em;
     @media (max-width: 768px) {
-        top: 38em;
+        top: 30em;
+        width: 100%;
     }
     @media (min-width: 2560px) {
         height: 100%;
@@ -47,6 +50,19 @@ const TopSectionWrapper = styled.div`
     /* height: 37vh; */
     @media (max-width: 768px) {
         position: relative;
+        top: 3em;
+    }
+`;
+
+const RightPanelWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    height: 98vh;
+    @media (max-width: 768px) {
+        /* position: relative;
+        top: 2em; */
+        /* width: 100%; */
+        margin: 2em;
     }
 `;
 
@@ -84,15 +100,9 @@ const TopChart = ({ coinData: { coinDataLoad } }) => {
                     <ChartComponent3 param={param} />
                 </Wrapper>
             </div>
-            <div
-                style={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    height: '98vh'
-                }}
-            >
+            <RightPanelWrapper>
                 <RightPanel coinDataLoad={coinDataLoad} coin={param.coin} />
-            </div>
+            </RightPanelWrapper>
         </Panel>
     );
 };

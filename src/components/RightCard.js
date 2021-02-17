@@ -16,7 +16,6 @@ const Card = styled.div`
     box-shadow: 0 4px 15px ${rgba('black', 0.1)};
     filter: drop-shadow(1px 4px 12px #101820);
     opacity: 0.9;
-
     border: 1px solid rgb(235, 233, 233, 0.3);
     background: linear-gradient(
         111.29deg,
@@ -25,6 +24,8 @@ const Card = styled.div`
     );
     box-shadow: 50px, 60px, 189px rgba(0, 0, 0, 0.95);
     backdrop-filter: blur(70px);
+    @media (max-width: 768px) {
+    }
 `;
 
 const ListWrapper = styled.div`

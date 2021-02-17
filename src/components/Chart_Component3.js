@@ -25,7 +25,7 @@ const CanvasWrapper = styled.div`
     width: 60vw;
     max-width: 1200px;
     height: 50%;
-    max-height: 20vw;
+    /* max-height: 20vw; */
     position: relative;
     @media (max-width: 768px) {
         width: 300px;

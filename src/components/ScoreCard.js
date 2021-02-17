@@ -34,8 +34,8 @@ const Card = styled.div`
     box-shadow: 50px, 60px, 189px rgba(0, 0, 0, 0.95);
     backdrop-filter: blur(70px);
     @media (max-width: 768px) {
-        width: 80%;
-        height: 4em;
+        width: 100%;
+        height: 6em;
         margin: 10px;
     }
 `;
@@ -56,6 +56,7 @@ const Paragraph = styled.p`
     margin: 10px 0 10px 0;
     @media (max-width: 768px) {
         margin: 0;
+        padding: 10px 0 10px 0;
     }
 `;
 
