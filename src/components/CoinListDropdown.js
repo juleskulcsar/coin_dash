@@ -65,6 +65,7 @@ const Input = styled.input.attrs(props => ({
     :focus {
         outline: none !important;
     }
+    width: 50%;
 `;
 
 const Label = styled.label`
