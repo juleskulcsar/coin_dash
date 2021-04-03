@@ -41,6 +41,10 @@ const ExchangeScoreCards = ({
     }
     const id = idList.indexOf(param);
 
+    console.log('exchanges[id]: ', exchanges);
+    console.log('id is: ', id);
+    console.log('param is: ', param);
+
     return (
         <>
             {exchanges.length < 1 ? (

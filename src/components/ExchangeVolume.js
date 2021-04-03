@@ -100,7 +100,7 @@ const ExchangeVolume = ({
     exchangeVolumes: { exchangeVolumeLoad, params },
     exchanges: { exchanges }
 }) => {
-    const [param, setParam] = useState('binance');
+    const [param, setParam] = useState('gdax');
 
     useEffect(() => {
         let mounted = true;
