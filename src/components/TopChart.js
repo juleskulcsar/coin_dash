@@ -10,6 +10,7 @@ import CoinListDropdown from './CoinListDropdown';
 
 const Panel = styled.div`
     display: flex;
+    /* flex-direction: column; */
     justify-content: space-around;
     flex-direction: row;
     width: 80%;
@@ -22,6 +23,7 @@ const Panel = styled.div`
         align-items: center;
         justify-content: space-evenly;
         left: 0;
+        height: 98vh;
     }
 `;
 
@@ -33,7 +35,8 @@ const Wrapper = styled.div`
     height: 50vh;
     margin-top: 1em;
     @media (max-width: 768px) {
-        top: 30em;
+        /* top: 30em; */
+        top: 5em;
         width: 100%;
     }
     @media (min-width: 2560px) {
@@ -51,6 +54,7 @@ const TopSectionWrapper = styled.div`
     @media (max-width: 768px) {
         position: relative;
         top: 3em;
+        height: fit-content;
     }
 `;
 
@@ -63,6 +67,16 @@ const RightPanelWrapper = styled.div`
         top: 2em; */
         /* width: 100%; */
         margin: 2em;
+    }
+`;
+
+const TopWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    height: 98vh;
+    @media (max-width: 768px) {
+        position: relative;
+        /* top: 25em; */
     }
 `;
 
@@ -81,13 +95,7 @@ const TopChart = ({ coinData: { coinDataLoad } }) => {
 
     return (
         <Panel>
-            <div
-                style={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    height: '98vh'
-                }}
-            >
+            <TopWrapper>
                 <TopSectionWrapper>
                     <CoinListDropdown
                         onChange={handleClick}
@@ -99,7 +107,7 @@ const TopChart = ({ coinData: { coinDataLoad } }) => {
                     <ChartComponent param={param} />
                     <ChartComponent3 param={param} />
                 </Wrapper>
-            </div>
+            </TopWrapper>
             <RightPanelWrapper>
                 <RightPanel coinDataLoad={coinDataLoad} coin={param.coin} />
             </RightPanelWrapper>

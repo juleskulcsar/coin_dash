@@ -60,21 +60,25 @@ const Paragraph = styled.p`
     }
 `;
 
+const ParagraphWrapper = styled.div`
+    display: flex;
+`;
+
 const ScoreCard = props => {
     return (
         <Card transparent={props.transparent} margin={props.margin}>
             <Scrollbars>
                 <ListWrapper>
-                    <div style={{ display: 'flex' }}>
+                    <ParagraphWrapper>
                         <Paragraph>{props.icon}</Paragraph>
                         <Paragraph>{props.text}</Paragraph>
-                    </div>
-                    <div style={{ display: 'flex' }}>
+                    </ParagraphWrapper>
+                    <ParagraphWrapper>
                         <Paragraph tes={true}>{props.symbolIs}</Paragraph>
                         <Paragraph transparent={props.transparent} tes={true}>
                             {props.value}
                         </Paragraph>
-                    </div>
+                    </ParagraphWrapper>
                 </ListWrapper>
             </Scrollbars>
         </Card>

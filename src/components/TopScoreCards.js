@@ -18,7 +18,7 @@ const ScoreCardWrapper = styled.div`
         flex-direction: column;
         align-items: center;
         position: relative;
-        top: 24em;
+        /* top: 24em; */
         width: 100%;
     }
 `;

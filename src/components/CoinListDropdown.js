@@ -10,7 +10,7 @@ const Wrapper = styled.div`
     height: 5vh;
     @media (max-width: 768px) {
         position: relative;
-        top: 23em;
+        /* top: 23em; */
         width: 300px;
     }
 `;
@@ -22,8 +22,8 @@ const Dropdown = styled.div`
     justify-content: space-between;
     @media (max-width: 768px) {
         flex-direction: column;
-        position: relative;
-        top: 25em;
+        /* position: relative;
+        top: 25em; */
     }
 `;
 
