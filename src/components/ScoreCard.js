@@ -45,6 +45,11 @@ const ListWrapper = styled.div`
     align-self: center;
     left: 1rem;
     overflow: hidden;
+    @media (max-width: 768px) {
+        width: 100%;
+        height: 7em;
+        margin: 10px;
+    }
 `;
 
 const Paragraph = styled.p`
@@ -67,20 +72,20 @@ const ParagraphWrapper = styled.div`
 const ScoreCard = props => {
     return (
         <Card transparent={props.transparent} margin={props.margin}>
-            <Scrollbars>
-                <ListWrapper>
-                    <ParagraphWrapper>
-                        <Paragraph>{props.icon}</Paragraph>
-                        <Paragraph>{props.text}</Paragraph>
-                    </ParagraphWrapper>
-                    <ParagraphWrapper>
-                        <Paragraph tes={true}>{props.symbolIs}</Paragraph>
-                        <Paragraph transparent={props.transparent} tes={true}>
-                            {props.value}
-                        </Paragraph>
-                    </ParagraphWrapper>
-                </ListWrapper>
-            </Scrollbars>
+            {/* <Scrollbars> */}
+            <ListWrapper>
+                <ParagraphWrapper>
+                    <Paragraph>{props.icon}</Paragraph>
+                    <Paragraph>{props.text}</Paragraph>
+                </ParagraphWrapper>
+                <ParagraphWrapper>
+                    <Paragraph tes={true}>{props.symbolIs}</Paragraph>
+                    <Paragraph transparent={props.transparent} tes={true}>
+                        {props.value}
+                    </Paragraph>
+                </ParagraphWrapper>
+            </ListWrapper>
+            {/* </Scrollbars> */}
         </Card>
     );
 };

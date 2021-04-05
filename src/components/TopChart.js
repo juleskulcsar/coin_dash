@@ -23,7 +23,6 @@ const Panel = styled.div`
         align-items: center;
         justify-content: space-evenly;
         left: 0;
-        height: 98vh;
     }
 `;
 
@@ -35,9 +34,10 @@ const Wrapper = styled.div`
     height: 50vh;
     margin-top: 1em;
     @media (max-width: 768px) {
-        /* top: 30em; */
-        top: 5em;
+        top: 35em;
         width: 100%;
+        height: 50vh;
+        flex-shrink: 0;
     }
     @media (min-width: 2560px) {
         height: 100%;
@@ -50,12 +50,6 @@ const Wrapper = styled.div`
 const TopSectionWrapper = styled.div`
     display: flex;
     flex-direction: column;
-    /* height: 37vh; */
-    @media (max-width: 768px) {
-        position: relative;
-        top: 3em;
-        height: fit-content;
-    }
 `;
 
 const RightPanelWrapper = styled.div`
@@ -63,10 +57,7 @@ const RightPanelWrapper = styled.div`
     flex-direction: column;
     height: 98vh;
     @media (max-width: 768px) {
-        /* position: relative;
-        top: 2em; */
-        /* width: 100%; */
-        margin: 2em;
+        margin: 0 2em;
     }
 `;
 
@@ -76,7 +67,6 @@ const TopWrapper = styled.div`
     height: 98vh;
     @media (max-width: 768px) {
         position: relative;
-        /* top: 25em; */
     }
 `;
 

@@ -43,7 +43,7 @@ const StyledSelect = styled.select`
     }
     @media (max-width: 768px) {
         position: relative;
-        bottom: 25em;
+        /* bottom: 25em; */
         width: 300px;
     }
 `;

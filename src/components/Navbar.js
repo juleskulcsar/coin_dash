@@ -158,8 +158,8 @@ const Navbar = props => {
                     <StyledList isActive={pathname === '/'}>
                         <StyledLink
                             onClick={() => setMenuOpen(!menuOpen)}
-                            isActive={pathname === '/'}
-                            to='/'
+                            isActive={pathname === '/coin_dash'}
+                            to='/coin_dash'
                         >
                             <span>dashboard</span>
                         </StyledLink>

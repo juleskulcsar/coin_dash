@@ -17,7 +17,8 @@ const ScoreCardWrapper = styled.div`
     padding: 0 2em;
     height: 98vh;
     @media (max-width: 768px) {
-        top: 40em;
+        top: 38em;
+        flex-shrink: 0;
     }
 `;
 

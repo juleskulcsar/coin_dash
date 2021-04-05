@@ -16,13 +16,14 @@ const Container = styled.div`
     @media (max-width: 768px) {
         width: 100%;
         border-radius: 0 0 0 0;
+        background: #37434a;
     }
 `;
 
 const Routes = () => {
     return (
         <Container>
-            <Route exact path='/' component={TopChart} />
+            <Route exact path='/coin_dash' component={TopChart} />
             <Route exact path='/coinlist' component={CoinList} />
             <Route exact path='/exchanges' component={Exchanges} />
             <Route exact path='/volumes' component={ExchangeVolume} />
