@@ -22,7 +22,7 @@ const Container = styled.div`
 const Routes = () => {
     return (
         <Container>
-            <Route exact path='/coin_dash' component={TopChart} />
+            <Route exact path='/' component={TopChart} />
             <Route exact path='/coinlist' component={CoinList} />
             <Route exact path='/exchanges' component={Exchanges} />
             <Route exact path='/volumes' component={ExchangeVolume} />
