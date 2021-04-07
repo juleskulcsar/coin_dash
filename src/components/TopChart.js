@@ -14,7 +14,7 @@ const Panel = styled.div`
     justify-content: space-around;
     flex-direction: row;
     width: 80%;
-    height: 98vh;
+    /* height: 98vh; */
     margin: 0 auto;
     position: relative;
     left: 2em;
@@ -34,7 +34,7 @@ const Wrapper = styled.div`
     height: 50vh;
     margin-top: 1em;
     @media (max-width: 768px) {
-        top: 35em;
+        /* top: 35em; */
         width: 100%;
         height: 50vh;
         flex-shrink: 0;
@@ -55,7 +55,7 @@ const TopSectionWrapper = styled.div`
 const RightPanelWrapper = styled.div`
     display: flex;
     flex-direction: column;
-    height: 98vh;
+    /* height: 98vh; */
     @media (max-width: 768px) {
         margin: 0 2em;
     }
@@ -64,7 +64,7 @@ const RightPanelWrapper = styled.div`
 const TopWrapper = styled.div`
     display: flex;
     flex-direction: column;
-    height: 98vh;
+    /* height: 98vh; */
     @media (max-width: 768px) {
         position: relative;
     }
